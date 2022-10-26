@@ -81,6 +81,4 @@ test:
 #
 production:
   <<: *default
-  database: eventlite_production
-  username: eventlite
-  password: <%= ENV["AUTHENTICATE_ME_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>
