@@ -10,5 +10,5 @@ namespace :api, defaults: {format: :json} do
 end
 
 
-  post 'api/test', to: 'application#test'
+get '*path', to: "static_pages#frontend_index"
 end
