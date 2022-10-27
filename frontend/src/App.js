@@ -3,6 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 import LoginFormPage from './components/LoginFormPage';
 import SignupFormPage from './components/SignupFormPage';
 import Navigation from './components/Navigation';
+import EventIndexPage from './components/EventIndexPage';
 
 const App = () => {
   return (
@@ -16,7 +17,10 @@ const App = () => {
             <SignupFormPage />
           </Route>
           <Route path="/">
+            <>
             <h1>Hello from App</h1>
+            <EventIndexPage />
+            </>
           </Route>
         </Switch>
     </>

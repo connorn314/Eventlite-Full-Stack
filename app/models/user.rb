@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id              :bigint           not null, primary key
+#  email           :string           not null
+#  username        :string           not null
+#  password_digest :string           not null
+#  session_token   :string           not null
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#
 class User < ApplicationRecord
 
     before_validation :ensure_session_token
@@ -16,11 +28,16 @@ class User < ApplicationRecord
     validates :session_token, presence: true, uniqueness: true
     validates :password, length: { in: 6..255 }, allow_nil: true
     validates :password_digest, presence: true
+
+
+    has_many :events,
+        primary_key: :id,
+        foreign_key: :author_id,
+        class_name: :Event,
+        dependent: :destroy
     
     def self.find_by_credentials(credential, password)
-        # determine the field you need to query: 
-        #   * `email` if `credential` matches `URI::MailTo::EMAIL_REGEXP`
-        #   * `username` if not
+
         query = {username: credential}
         if URI::MailTo::EMAIL_REGEXP.match?(credential)
             query = {email: credential}
@@ -30,14 +47,7 @@ class User < ApplicationRecord
             @user
         else
             nil
-        end
-        
-        # find the user whose email/username is equal to `credential`
-        
-        # if no such user exists, return a falsey value
-    
-        # if a matching user exists, use `authenticate` to check the provided password
-        # return the user if the password is correct, otherwise return a falsey value
+        end 
     end
 
     def reset_session_token!
