@@ -15,19 +15,19 @@ const EventFormCreate = () => {
     const example = useSelector(state => state.events[1])
 
     useEffect(() => {
-        console.log("effect")
+        // console.log("effect")
     }, [])
 
     
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(endDate)
-        console.log(endTime)
+        // console.log(endDate)
+        // console.log(endTime)
         const parseDate = (date, time) => {
             return `${date}T${time}:00`
         }
-        console.log(parseDate(endDate, endTime))
-        console.log(example)
+        // console.log(parseDate(endDate, endTime))
+        // console.log(example)
     }
 
     return (

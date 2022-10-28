@@ -42,7 +42,6 @@ class Event < ApplicationRecord
 
     def sending
         check = [self.start_date, self.end_date]
-        debugger
         puts "hello"
     end
 
