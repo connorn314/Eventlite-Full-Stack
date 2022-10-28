@@ -12,7 +12,7 @@ class Api::EventsController < ApplicationController
     end
 
     def create
-        # debugger
+        debugger
         @event = Event.new(event_params)
         
 
@@ -43,7 +43,7 @@ class Api::EventsController < ApplicationController
     private
 
     def event_params
-        params.require(:event).permit(:author_id, :title, :description, :location, :start_date, :end_date)
+        params.require(:event).permit(:author_id, :title, :description, :location, :start_date_raw, :end_date_raw, :start_time, :end_time)
     end
     
 end

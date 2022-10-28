@@ -4,6 +4,8 @@ import LoginFormPage from './components/LoginFormPage';
 import SignupFormPage from './components/SignupFormPage';
 import Navigation from './components/Navigation';
 import EventIndexPage from './components/EventIndexPage';
+import EventShowPage from './components/EventShowPage';
+import EventFormCreate from './components/EventFormCreate';
 
 const App = () => {
   return (
@@ -15,6 +17,10 @@ const App = () => {
           </Route>
           <Route path="/signup">
             <SignupFormPage />
+          </Route>
+          <Route exact path="/events/new" component={EventFormCreate} />
+          <Route exact path="/events/:eventId">
+            <EventShowPage />
           </Route>
           <Route path="/">
             <>

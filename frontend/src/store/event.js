@@ -2,7 +2,7 @@
 import csrfFetch from "./csrf";
 
 const POPULATE_EVENTS = 'event/populate';
-const RECIEVE_EVENT = 'event/receiveEvent';
+const RECEIVE_EVENT = 'event/receiveEvent';
 const REMOVE_EVENT = 'event/removeEvent';
 
 export const populateEvents = (initialEvents) => {
@@ -19,10 +19,17 @@ export const getEventsData = () => async (dispatch) => {
     return response
 }
 
+export const getOneEvent = (eventId) => async (dispatch) => {
+    const response = await csrfFetch(`/api/events/${eventId}`);
+    const data = await response.json();
+    dispatch(receiveEvent(data[eventId]))
+    return response
+}
+
 
 const receiveEvent = (createdEvent) => {
     return {
-        type: RECIEVE_EVENT,
+        type: RECEIVE_EVENT,
         createdEvent
     };
 };
@@ -37,7 +44,6 @@ const removeEvent = (eventId) => {
 export const createEvent = (createdEvent) => async (dispatch) => {
     const { title, description, location, startDate, endDate } = createdEvent
     const authorId = sessionStorage.getItem("currentUser").id
-    // console.log(authorId)
     const response = await csrfFetch("/api/events", {
         method: "POST",
         body: JSON.stringify({
@@ -49,14 +55,9 @@ export const createEvent = (createdEvent) => async (dispatch) => {
             endDate
         })
     })
-    // const data = await response.json();
+
     return response;
 };
-
-
-
-// console.log(getEventsData())
-
 
 const eventReducer = (state = {}, action) => {
     let newState = { ...state }
@@ -64,8 +65,8 @@ const eventReducer = (state = {}, action) => {
         case POPULATE_EVENTS:
             newState = { ...action.events }
             return newState;
-        case RECIEVE_EVENT:
-            newState.events[action.createdEvent.id] = action.createdEvent
+        case RECEIVE_EVENT:
+            newState[action.createdEvent.id] = action.createdEvent
             return newState;
         case REMOVE_EVENT:
             delete newState.events[action.eventId]
