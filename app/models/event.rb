@@ -14,7 +14,7 @@
 #
 require 'date'
 #checkout Time.zone
-require 'byebug'
+
 
 class Event < ApplicationRecord
 

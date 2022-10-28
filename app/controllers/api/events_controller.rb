@@ -1,4 +1,4 @@
-require "byebug"
+
 class Api::EventsController < ApplicationController
 
     def show
