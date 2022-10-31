@@ -10,24 +10,35 @@ const EventFormCreate = () => {
     const [description, setDescription] = useState("");
     const [location, setLocation] = useState("");
     const [startDate, setStartDate] = useState("");
+    const [startTime, setStartTime] = useState("");
     const [endDate, setEndDate] = useState("");
     const [endTime, setEndTime] = useState("");
-    const example = useSelector(state => state.events[1])
+    // const example = useSelector(state => state.events[0])
 
-    useEffect(() => {
-        // console.log("effect")
-    }, [])
+    // useEffect(() => {
+    //     // console.log("effect")
+    // }, [])
 
     
+
     const handleSubmit = (e) => {
         e.preventDefault();
-        // console.log(endDate)
-        // console.log(endTime)
+    
         const parseDate = (date, time) => {
-            return `${date}T${time}:00`
+            return `${date} ${time}:00`
         }
+
+        const obj = {
+            title,
+            description,
+            location,
+            startDate: parseDate(startDate, startTime),
+            endDate: parseDate(endDate, endTime)
+        }
+
+        dispatch(eventActions.createEvent(obj))
         // console.log(parseDate(endDate, endTime))
-        // console.log(example)
+        console.log(obj)
     }
 
     return (
@@ -73,10 +84,14 @@ const EventFormCreate = () => {
                     <label>
                         Event Starts:
                         <input 
-                            type="text"
+                            type="date"
                             onChange={(e) => setStartDate(e.target.value)}
                             value={startDate}
                         />
+                        <input 
+                            type="time"
+                            onChange={(e) => setStartTime(e.target.value)}
+                            value={startTime} />
                     </label>
                     <br />
                     <label>

@@ -1,4 +1,4 @@
-
+require 'byebug'
 class Api::EventsController < ApplicationController
 
     def show
@@ -12,8 +12,8 @@ class Api::EventsController < ApplicationController
     end
 
     def create
+        debugger
         @event = Event.new(event_params)
-        
 
         if @event.author_id == current_user.id && @event.save
             render :show
@@ -42,7 +42,8 @@ class Api::EventsController < ApplicationController
     private
 
     def event_params
-        params.require(:event).permit(:author_id, :title, :description, :location, :start_date_raw, :end_date_raw, :start_time, :end_time)
+        debugger
+        params.require(:event).require(:author_id, :title, :description, :location, :start_date, :end_date)
     end
     
 end

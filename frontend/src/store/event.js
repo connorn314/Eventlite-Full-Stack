@@ -43,7 +43,8 @@ const removeEvent = (eventId) => {
 
 export const createEvent = (createdEvent) => async (dispatch) => {
     const { title, description, location, startDate, endDate } = createdEvent
-    const authorId = sessionStorage.getItem("currentUser").id
+    const authorId = JSON.parse(sessionStorage.currentUser).id
+    console.log(authorId)
     const response = await csrfFetch("/api/events", {
         method: "POST",
         body: JSON.stringify({
@@ -55,7 +56,10 @@ export const createEvent = (createdEvent) => async (dispatch) => {
             endDate
         })
     })
-
+    if (response.ok){
+        const data = response.json()
+        dispatch(receiveEvent(data))
+    }
     return response;
 };
 

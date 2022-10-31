@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::API
-
+    require "byebug"
+    before_action :snake_case_params, :attach_authenticity_token
     rescue_from StandardError, with: :unhandled_error
     rescue_from ActionController::InvalidAuthenticityToken,
         with: :invalid_authenticity_token
@@ -7,7 +8,6 @@ class ApplicationController < ActionController::API
     include ActionController::RequestForgeryProtection
     protect_from_forgery with: :exception
 
-    before_action :snake_case_params, :attach_authenticity_token
     helper_method :current_user, :logged_in?
 
     def current_user
@@ -37,6 +37,7 @@ class ApplicationController < ActionController::API
     private
 
     def snake_case_params
+        debugger
         params.deep_transform_keys!(&:underscore)
     end
 
