@@ -19,11 +19,10 @@ require 'date'
 class Event < ApplicationRecord
 
     # before_validation :ensure_timestamps, :sending
-    validates :author_id, :location, presence: true
+    validates :author_id, :location, :start_date, :end_date, presence: { message: "%{attribute} can't be empty" }
     validates :title, 
         length: { maximum: 250 }
     # validates :start_date_raw, :end_date_raw, presence: true
-    validates :start_date, :end_date, presence: true
     validates :start_date, comparison: { less_than: :end_date, message: "End date must be after start date" }
     # validate :start_date_in_future
 

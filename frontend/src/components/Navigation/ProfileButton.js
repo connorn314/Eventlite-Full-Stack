@@ -29,11 +29,10 @@ const ProfileButton = ({ user }) => {
     };
 
     return (
-        <>
-            <button onClick={openMenu}>
-                Profile v
-                {/* <i className="fa-solid fa-user-circle" /> */}
-            </button>
+        <div id='profile-dropdown-contents'>
+            <span onClick={openMenu}>
+                {user.email}
+            </span>
             {showMenu && (
                 <ul className="profile-dropdown">
                     <li>{user.username}</li>
@@ -43,7 +42,7 @@ const ProfileButton = ({ user }) => {
                     </li>
                 </ul>
             )}
-        </>
+        </div>
     );
 }
 

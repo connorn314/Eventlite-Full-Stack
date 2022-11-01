@@ -45,5 +45,32 @@ ApplicationRecord.transaction do
         end_date: '2022-11-29 15:15:00'
     )
 
+    Event.create!(
+        author_id: 4, 
+        title: 'Dance Party', 
+        description: 'Amazing music, better dance moves, come enjoy!',
+        location: 'San Francisco',
+        start_date: '2022-11-04 15:15:00',
+        end_date: '2022-11-04 19:15:00'
+    )
+
+    Event.create!(
+        author_id: 2, 
+        title: 'Puppet Show', 
+        description: 'The best puppeteers in the entirety of San Francisco gather to put on a show for the ages',
+        location: 'San Francisco',
+        start_date: '2022-11-10 15:15:00',
+        end_date: '2022-11-10 21:15:00'
+    )
+
+    Event.create!(
+        author_id: 3, 
+        title: 'Beer Olympics', 
+        description: 'come one come all, must be 21+ years old to partake',
+        location: 'San Francisco',
+        start_date: '2022-11-28 11:15:00',
+        end_date: '2022-11-29 15:15:00'
+    )
+
     puts "Done!"
 end

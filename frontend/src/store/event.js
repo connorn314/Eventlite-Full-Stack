@@ -22,7 +22,7 @@ export const getEventsData = () => async (dispatch) => {
 export const getOneEvent = (eventId) => async (dispatch) => {
     const response = await csrfFetch(`/api/events/${eventId}`);
     const data = await response.json();
-    dispatch(receiveEvent(data[eventId]))
+    dispatch(receiveEvent(data))
     return response
 }
 
@@ -44,7 +44,6 @@ const removeEvent = (eventId) => {
 export const createEvent = (createdEvent) => async (dispatch) => {
     const { title, description, location, startDate, endDate } = createdEvent
     const authorId = JSON.parse(sessionStorage.currentUser).id
-    console.log(authorId)
     const response = await csrfFetch("/api/events", {
         method: "POST",
         body: JSON.stringify({
@@ -57,11 +56,21 @@ export const createEvent = (createdEvent) => async (dispatch) => {
         })
     })
     if (response.ok){
-        const data = response.json()
+        const data = await response.json()
         dispatch(receiveEvent(data))
     }
     return response;
 };
+
+export const deleteEvent = (eventId) => async (dispatch) => {
+    const response = await csrfFetch(`/api/events/${eventId}`, {
+        method: "DELETE"
+    })
+    if (response.ok){
+        dispatch(removeEvent(eventId))
+    }
+    return response;
+}
 
 const eventReducer = (state = {}, action) => {
     let newState = { ...state }
@@ -70,10 +79,10 @@ const eventReducer = (state = {}, action) => {
             newState = { ...action.events }
             return newState;
         case RECEIVE_EVENT:
-            newState[action.createdEvent.id] = action.createdEvent
+            newState = { ...newState, ...action.createdEvent }
             return newState;
         case REMOVE_EVENT:
-            delete newState.events[action.eventId]
+            delete newState[action.eventId]
             return newState
         default:
             return state

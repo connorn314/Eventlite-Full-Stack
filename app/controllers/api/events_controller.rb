@@ -12,13 +12,16 @@ class Api::EventsController < ApplicationController
     end
 
     def create
-        debugger
+
         @event = Event.new(event_params)
+        @event.author_id = params[:author_id]
+        @event.start_date = params[:start_date]
+        @event.end_date = params[:end_date]
 
         if @event.author_id == current_user.id && @event.save
             render :show
         else
-            render json: { errors: @event.errors.messages, status: :unprocessable_entity }
+            render json: { errors: @event.errors.messages }, status: :unprocessable_entity 
         end
     end
 
@@ -28,7 +31,7 @@ class Api::EventsController < ApplicationController
         if @event.update(event_params)
             render :show
         else
-            render json: { errors: @event.errors.messages, status: :unprocessable_entity }
+            render json: { errors: @event.errors.messages }, status: :unprocessable_entity
         end
     end
 
@@ -42,8 +45,7 @@ class Api::EventsController < ApplicationController
     private
 
     def event_params
-        debugger
-        params.require(:event).require(:author_id, :title, :description, :location, :start_date, :end_date)
+        params.require(:event).permit(:author_id, :title, :description, :location, :start_date, :end_date)
     end
     
 end

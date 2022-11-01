@@ -2,7 +2,8 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
-// import './Navigation.css';
+import logo from '../../EventliteLogo.png';
+import './Navigation.css';
 
 const Navigation = () => {
     const sessionUser = useSelector(state => state.session.user);
@@ -10,32 +11,32 @@ const Navigation = () => {
     let sessionLinks;
     if (sessionUser) {
         sessionLinks = (
-            <li>
-                <ProfileButton user={sessionUser} />
-            </li>
+            <>
+                <div id='create-event-link'>
+                    <NavLink to="/events/new">Create Event</NavLink>
+                </div>
+                <div id='profile-dropdown'>
+                    <ProfileButton user={sessionUser} />
+                </div>
+            </>
     );
     } else {
         sessionLinks = (
-            <>
-            <li>
-                <NavLink to="/login">Log In</NavLink>
-            </li>
-            <br />
-            <li>
-                <NavLink to="/signup">Sign Up</NavLink>
-            </li>
-            </>
+            <p>Nothing</p>
         );
     }
 
     return (
-        <ul>
-            <li>
-            <NavLink exact to="/">Home</NavLink>
-            </li>
+        <div id='nav-bar'>
+            <div id='home-logo'>
+                <NavLink exact to="/"><img src={logo}></img></NavLink>
+            </div>
+
             <br />
-            {sessionLinks}
-        </ul>
+            <div id='nav-right'>
+                {sessionLinks}
+            </div>
+        </div>
     );
 }
 

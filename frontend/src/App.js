@@ -1,22 +1,20 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import LoginFormPage from './components/LoginFormPage';
-import SignupFormPage from './components/SignupFormPage';
+// import LoginFormPage from './components/LoginFormPage';
+// import SignupFormPage from './components/SignupFormPage';
 import Navigation from './components/Navigation';
 import EventIndexPage from './components/EventIndexPage';
 import EventShowPage from './components/EventShowPage';
 import EventFormCreate from './components/EventFormCreate';
+import EntryFormPage from './components/EntryFormPage';
 
 const App = () => {
   return (
     <>
       <Navigation />
         <Switch>
-          <Route path="/login">
-            <LoginFormPage />
-          </Route>
-          <Route path="/signup">
-            <SignupFormPage />
+          <Route path="/signin">
+            <EntryFormPage />
           </Route>
           <Route exact path="/events/new" component={EventFormCreate} />
           <Route exact path="/events/:eventId">

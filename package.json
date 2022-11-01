@@ -21,5 +21,10 @@
   "bugs": {
     "url": "https://github.com/connorn314/Eventlite-Full-Stack-/issues"
   },
-  "homepage": "https://github.com/connorn314/Eventlite-Full-Stack-#readme"
+  "homepage": "https://github.com/connorn314/Eventlite-Full-Stack-#readme",
+  "dependencies": {
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
+    "@mui/material": "^5.10.12"
+  }
 }

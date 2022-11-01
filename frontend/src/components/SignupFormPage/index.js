@@ -1,18 +1,18 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Redirect } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import * as sessionActions from "../../store/session";
+import './SignupForm.css'
+import{ TextField } from '@mui/material'
 
 const SignupFormPage = () => {
     const dispatch = useDispatch();
-    const sessionUser = useSelector(state => state.session.user);
     const [email, setEmail] = useState("");
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
     const [errors, setErrors] = useState([]);
 
-    if (sessionUser) return <Redirect to="/" />;
+    
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -36,56 +36,56 @@ const SignupFormPage = () => {
     };
 
     return (
-    <form onSubmit={handleSubmit}>
-        <ul>
-            {errors.map(error => <li key={error}>{error}</li>)}
-        </ul>
-        <label>
-            Email: 
-            <input
-                type="text"
+        <div id="signup-form">
+        <h1>Create an account</h1>
+        <form onSubmit={handleSubmit}>
+            <ul>
+                {errors.map(error => <li key={error}>{error}</li>)}
+            </ul>
+            <TextField
+                label="Email address"
+                variant="filled"
+                InputLabelProps={{ shrink: true }}
                 value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-            />
-        </label>
-        <br/>
-        <br/>
-        <label>
-            Username: 
-            <input
-                type="text"
+                onChange={(e) => setEmail(e.target.value)} 
+                />
+            <br/>
+            <br/>
+            <TextField
+                label="Username"
+                variant="filled"
+                InputLabelProps={{ shrink: true }}
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
-                required
-            />
-        </label>
-        <br/>
-        <br/>
-        <label>
-            Password: 
-            <input
+                />
+
+            <br/>
+            <br/>
+            <TextField
+                label="Password"
+                variant="filled"
+                InputLabelProps={{ shrink: true }}
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                required
             />
-        </label>
-        <br/>
-        <br/>
-        <label>
-            Confirm Password: 
-            <input
+            
+            <br/>
+            <br/>
+            <TextField
+                label="Password"
+                variant="filled"
+                InputLabelProps={{ shrink: true }}
                 type="password"
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
-                required
             />
-        </label>
-        <br/>
-        <br/>
-        <button type="submit">Sign Up</button>
-    </form>
+
+            <br/>
+            <br/>
+            <button type="submit">Sign Up</button>
+        </form>
+        </div>
     );
 }
 

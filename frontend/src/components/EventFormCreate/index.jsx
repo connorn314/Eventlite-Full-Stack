@@ -1,11 +1,15 @@
-import React, {useEffect} from "react";
+import React from "react";
 import * as eventActions from "../../store/event";
 import { useDispatch, useSelector } from "react-redux"; 
+import { useHistory } from "react-router-dom";
 import { useState } from "react";
+
 
 
 const EventFormCreate = () => {
     const dispatch = useDispatch();
+    let history = useHistory();
+    const [errors, setErrors] = useState([])
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
     const [location, setLocation] = useState("");
@@ -13,16 +17,12 @@ const EventFormCreate = () => {
     const [startTime, setStartTime] = useState("");
     const [endDate, setEndDate] = useState("");
     const [endTime, setEndTime] = useState("");
-    // const example = useSelector(state => state.events[0])
-
-    // useEffect(() => {
-    //     // console.log("effect")
-    // }, [])
-
+    const event = useSelector(state => state.events)
+    console.log(Object.keys(event).length)
     
-
     const handleSubmit = (e) => {
         e.preventDefault();
+        setErrors([]);
     
         const parseDate = (date, time) => {
             return `${date} ${time}:00`
@@ -35,16 +35,27 @@ const EventFormCreate = () => {
             startDate: parseDate(startDate, startTime),
             endDate: parseDate(endDate, endTime)
         }
-
-        dispatch(eventActions.createEvent(obj))
-        // console.log(parseDate(endDate, endTime))
-        console.log(obj)
+        return dispatch(eventActions.createEvent(obj))
+            .catch(async (res) => {
+            let data;
+            try {
+            data = await res.clone().json();
+            } catch {
+            data = await res.text();
+            }
+            if (data?.errors) setErrors(data.errors);
+            else if (data) setErrors([data]);
+            else setErrors([res.statusText]);
+        })
     }
-
+    
     return (
         <>
             <h2>Create Event:</h2>
             <form onSubmit={handleSubmit}>
+                <ul>
+                    {Object.values(errors).flat().map(error => <li key={error}>{error}</li>)}
+                </ul>
                 <label>
                     Basic info
                     <br />
