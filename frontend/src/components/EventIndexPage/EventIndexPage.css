@@ -1,0 +1,10 @@
+
+#index-display {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#index-display > div {
+    margin: 5px;
+}
+

@@ -20,7 +20,7 @@ const Navigation = () => {
             <>
                 <div id='create-event-link' onClick={handleCreate}>
                     <div >
-                        <span class="material-symbols-outlined" id='add-icon'>add</span>
+                        <span className="material-symbols-outlined" id='add-icon'>add</span>
                     </div>
                     <div id='create-an-event'>
                         Create an event
@@ -28,7 +28,7 @@ const Navigation = () => {
                 </div>
                 <div id='likes-nav-item'>
                     <div id='like-container'>
-                        <span class="material-symbols-rounded" id='like-icon'>favorite</span>
+                        <span className="material-symbols-rounded" id='like-icon'>favorite</span>
                     </div>
                     <div id='likes-text'>
                         Likes

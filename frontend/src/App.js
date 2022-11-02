@@ -22,8 +22,12 @@ const App = () => {
           </Route>
           <Route path="/">
             <div id='landing-page-container'>
-              <img src={LandingPicture} alt="landing-picture" id='landing'></img>
-              <EventIndexPage />
+              <div id='landing-page-image' >
+                <img src={LandingPicture} alt="landing-picture" id='landing'></img>
+              </div>
+              <div id='landing-page-index' >
+                <EventIndexPage />
+              </div>
             </div>
           </Route>
         </Switch>
