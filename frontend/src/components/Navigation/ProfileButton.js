@@ -2,26 +2,10 @@ import React, { useState, useEffect } from "react";
 import { useDispatch } from 'react-redux';
 import * as sessionActions from '../../store/session';
 
-const ProfileButton = ({ user }) => {
+const ProfileButton = (props) => {
     const dispatch = useDispatch();
-    const [showMenu, setShowMenu] = useState(false);
-
-    const openMenu = () => {
-        if (showMenu) return;
-        setShowMenu(true);
-    };
-
-    useEffect(() => {
-        if (!showMenu) return;
-
-        const closeMenu = () => {
-            setShowMenu(false);
-        };
-
-        document.addEventListener('click', closeMenu);
-
-        return () => document.removeEventListener("click", closeMenu);
-    }, [showMenu]);
+    const user = props.user
+    const showMenu = props.show
 
     const logout = (e) => {
         e.preventDefault();
@@ -29,26 +13,31 @@ const ProfileButton = ({ user }) => {
     };
 
     return (
-        <div id='profile-dropdown-contents'>
+        <>
+        <div id='profile-dropdown-contents' >
             <span className="material-symbols-rounded" id="profile-symbol">
                 account_circle
             </span>
-            <span onClick={openMenu} id='profile-email'>
+            <span id='profile-email'>
                 {user.email}
             </span>
             <span className="material-symbols-rounded">
                 expand_more
             </span>
-            {showMenu && (
-                <ul className="profile-dropdown">
-                    <li>{user.username}</li>
-                    <li>{user.email}</li>
-                    <li>
-                        <button onClick={logout}>Log Out</button>
-                    </li>
-                </ul>
-            )}
         </div>
+        {showMenu && (
+            <div id="profile-dropdown-list">
+                <div className="drop-item">Browse events</div>
+                <div className="drop-item" id="border">Manage my events</div>
+                <div className="drop-item">Tickets (0)</div>
+                <div className="drop-item">Liked</div>
+                <div className="drop-item" id="border">Following</div>
+                <div className="drop-item">{user.email}</div>
+                <div className="drop-item">{user.username}</div>
+                <div className="drop-item" onClick={logout}>Log Out</div>
+            </div>
+            )}
+        </>
     );
 }
 

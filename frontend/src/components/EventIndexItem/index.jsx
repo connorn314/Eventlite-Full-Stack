@@ -24,7 +24,6 @@ const EventIndexItem = ({event}) => {
                     </div>
                     <div id="event-location">
                         <p>{location}</p>
-
                     </div>
                     <div id="event-author">
                         <p>Author is #{authorId}</p>

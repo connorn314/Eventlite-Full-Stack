@@ -10,7 +10,6 @@ const EventShowPage = () => {
     const { eventId } = useParams();
     const showEvent = useSelector(state => state.events[eventId])
 
-    console.log(showEvent)
     useEffect(() => {
         dispatch(eventActions.getOneEvent(eventId))
     }, [])

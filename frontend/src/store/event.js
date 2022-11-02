@@ -55,11 +55,13 @@ export const createEvent = (createdEvent) => async (dispatch) => {
             endDate
         })
     })
+    const data = await response.json()
     if (response.ok){
-        const data = await response.json()
         dispatch(receiveEvent(data))
+    } else {
+        return response
     }
-    return response;
+    return data;
 };
 
 export const deleteEvent = (eventId) => async (dispatch) => {

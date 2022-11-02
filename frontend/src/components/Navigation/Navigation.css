@@ -77,5 +77,40 @@ img {
     padding-left: 8px;
 }
 
+#profile-dropdown-list {
+    position: absolute;
+    top: 72px;
+    right: 0%;
+    background-color: white;
+    width: 255px;
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    font-weight: lighter;
+    color: grey;
+}
+
+#border {
+    border-style: solid;
+    border-top: 0.5px;
+    border-left: 0.5px;
+    border-right: 0.5px;
+    border-color: lightgray;
+}
+
+.profile-dropdown {
+    list-style: none;
+}
+
+#profile-dropdown-list > div:hover {
+    background-color: #f8f7fa;
+}
+
+
+.drop-item {
+    height: 53px;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+}
 
 

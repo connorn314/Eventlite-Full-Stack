@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import * as eventActions from '../../store/event';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory } from 'react-router-dom';
 import EventIndexItem from '../EventIndexItem';
 import './EventIndexPage.css'
 
@@ -9,7 +8,6 @@ import './EventIndexPage.css'
 const EventIndexPage = () => {
 
     const dispatch = useDispatch();
-    const history = useHistory();
     useEffect(() => {
         dispatch(eventActions.getEventsData())
     }, [])

@@ -2,9 +2,10 @@
 #index-display {
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-evenly;
 }
 
 #index-display > div {
-    margin: 5px;
+    margin: 10px;
 }
 

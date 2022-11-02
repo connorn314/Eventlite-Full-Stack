@@ -18,7 +18,6 @@ const EventFormCreate = () => {
     const [endDate, setEndDate] = useState("");
     const [endTime, setEndTime] = useState("");
     const event = useSelector(state => state.events)
-    console.log(Object.keys(event).length)
     
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -36,6 +35,7 @@ const EventFormCreate = () => {
             endDate: parseDate(endDate, endTime)
         }
         return dispatch(eventActions.createEvent(obj))
+            .then(data => history.push(`/events/${Object.values(data)[0].id}`))
             .catch(async (res) => {
             let data;
             try {

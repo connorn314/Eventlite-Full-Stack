@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { NavLink, useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
@@ -9,6 +9,14 @@ import './Navigation.css';
 const Navigation = () => {
     const history = useHistory();
     const sessionUser = useSelector(state => state.session.user);
+    const [showMenu, setShowMenu] = useState(false);
+
+
+    const openMenu = () => {
+        if (showMenu) return;
+        setShowMenu(true);
+    };
+
     const handleCreate = () => {
         history.push("/events/new")
     }
@@ -34,8 +42,8 @@ const Navigation = () => {
                         Likes
                     </div>
                 </div>
-                <div id='profile-dropdown'>
-                    <ProfileButton user={sessionUser} />
+                <div id='profile-dropdown' onMouseEnter={openMenu} onMouseLeave={() => setShowMenu(false)}>
+                    <ProfileButton user={sessionUser} show={showMenu} />
                 </div>
             </>
     );
