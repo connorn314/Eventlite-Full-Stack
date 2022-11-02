@@ -1,12 +1,12 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-// import LoginFormPage from './components/LoginFormPage';
-// import SignupFormPage from './components/SignupFormPage';
 import Navigation from './components/Navigation';
 import EventIndexPage from './components/EventIndexPage';
 import EventShowPage from './components/EventShowPage';
 import EventFormCreate from './components/EventFormCreate';
 import EntryFormPage from './components/EntryFormPage';
+import LandingPicture from './landingPicture.jpeg';
+import './index.css'
 
 const App = () => {
   return (
@@ -21,10 +21,10 @@ const App = () => {
             <EventShowPage />
           </Route>
           <Route path="/">
-            <>
-            <h1>Hello from App</h1>
-            <EventIndexPage />
-            </>
+            <div id='landing-page-container'>
+              <img src={LandingPicture} alt="landing-picture" id='landing'></img>
+              <EventIndexPage />
+            </div>
           </Route>
         </Switch>
     </>

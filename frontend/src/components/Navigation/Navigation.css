@@ -18,23 +18,64 @@ img {
     flex-direction: row;
 }
 
-#nav-right div, #home-logo {
+#nav-right > div, #home-logo {
     padding-left: 20px;
     padding-right: 20px;
     display: flex;
     align-items: center;
-    flex-direction: row;
     justify-content: center;
 }
 
-#nav-right div:hover {
+#nav-right > div:hover {
     background-color: #f8f7fa;
     cursor: pointer;
 }
 
 #profile-dropdown {
-    width: 257px;
+    flex-direction: row;
+    width: 217px;
     height: auto;
 }
+
+#profile-dropdown-contents {
+    display: inherit;
+    align-items: inherit;
+    flex-direction: inherit;
+    justify-content: inherit;
+    padding-left: 8px;
+}
+
+#create-event-link {
+    color: rgb(61, 100, 255)
+}
+
+#create-event-link, #likes-nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#add-icon, #like-container {
+    font-size: 24px;
+}
+#like-icon {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+#create-an-event, #profile-dropdown-contents, #likes-text {
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+}
+
+#profile-symbol {
+    font-size: 35px;
+}
+
+#profile-email {
+    padding-left: 8px;
+}
+
 
 

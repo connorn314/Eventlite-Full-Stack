@@ -2,3 +2,8 @@
 body {
     margin: 0px
 }
+
+#landing {
+    width: 100%;
+    height: auto;
+}

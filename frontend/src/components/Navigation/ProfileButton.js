@@ -30,8 +30,14 @@ const ProfileButton = ({ user }) => {
 
     return (
         <div id='profile-dropdown-contents'>
-            <span onClick={openMenu}>
+            <span class="material-symbols-rounded" id="profile-symbol">
+                account_circle
+            </span>
+            <span onClick={openMenu} id='profile-email'>
                 {user.email}
+            </span>
+            <span class="material-symbols-rounded">
+                expand_more
             </span>
             {showMenu && (
                 <ul className="profile-dropdown">
