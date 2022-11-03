@@ -3,26 +3,55 @@ import * as eventActions from '../../store/event';
 import { useDispatch, useSelector } from 'react-redux';
 import EventIndexItem from '../EventIndexItem';
 import './EventIndexPage.css'
+import { useState } from 'react';
+import { TextField } from '@mui/material';
 
 
 const EventIndexPage = () => {
 
     const dispatch = useDispatch();
+    const [searchLocation, setSearchLocation] = useState("");
+
     useEffect(() => {
         dispatch(eventActions.getEventsData())
     }, [])
-    const events = useSelector(state => state.events)
+    const events = useSelector(state => state.events);
+    const handleSubmit = () => {
 
+    }
     
 
     return (
-        <div id='index-display'>
-            {Object.values(events).map( (ev) => {
-                return (
-                    <EventIndexItem event={ev}/>
-                )
-            })}
+        <>
+        <div id='index'>
+            <div id='pick-search-location'>
+                <h2>Popular in</h2>
+                    <div id='pick-search-bar' >
+                        <span className="material-symbols-rounded" id='drop-icon'>expand_more</span>
+                        <form onSubmit={handleSubmit} >
+                            <TextField
+                                variant='standard'
+                                id='search-bar-text'
+                                placeholder='San Francisco'
+                                value={searchLocation}
+                                onChange={(e) => setSearchLocation(e.target.value)}
+
+                                ></TextField>
+                        </form>
+                    </div>      
+            </div>
+            <div id='display-search-location-header'>
+                <h3>Events in San Francisco</h3>
+            </div>
+            <div id='index-display'>
+                {Object.values(events).map( (ev) => {
+                    return (
+                        <EventIndexItem event={ev}/>
+                    )
+                })}
+            </div>
         </div>
+        </>
     )
 }
 

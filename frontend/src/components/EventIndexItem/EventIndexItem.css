@@ -2,11 +2,56 @@
 #event-container {
     display: flex;
     flex-direction: column;
-    width: 280px;
-    height: 364.5px;
-    border: 1px;
-    border-color: black;
-    border-style: solid;
+    width: 254px;
+    height: 353px;
+    font-family: Arial, sans-serif;
+    background-color: white;
+    
+}
+
+#event-information {
+    padding-left: 15px;
+}
+
+#event-title {
+    font-size: 18px;
+    color: #39364f;
+}
+
+#event-start-time {
+    font-size:  14px;
+    font-weight: 600;
+    color: #d1410c;
+}
+
+#event-location {
+    font-size: 14px;
+    color: #6f7687;
+}
+
+#event-author {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 0px;
+    font-size: 14px;
+    font-weight: 540;
+    color: #39364f;
+}
+
+#event-author p {
+    margin: 0px;
+    padding-top: 4px;
+}
+
+#follower-count {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#profile-symbol {
+    font-size: 18px;
+    padding-right: 2px;
 }
 
 #event-container:hover {
@@ -14,8 +59,14 @@
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-#event-thumbnail {
-    height: 163px;
+#event-container:hover #event-thumbnail {
     width: 100%;
+    border: 0px;
+}
+
+#event-thumbnail {
+    height: 129px;
+    width: 99.5%;
     background-color: rgb(176, 115, 233);
+    border: 1px solid var(--eds-ui-300,#dbdae3)
 }

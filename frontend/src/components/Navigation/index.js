@@ -19,7 +19,16 @@ const Navigation = () => {
 
     const handleCreate = () => {
         history.push("/events/new")
-    }
+    };
+
+    const handleLogin = () => {
+        setShowMenu(false)
+        history.push('/signin')
+    };
+
+    const handleSignup = () => {
+
+    };
 
     let sessionLinks;
 
@@ -30,7 +39,7 @@ const Navigation = () => {
                     <div >
                         <span className="material-symbols-outlined" id='add-icon'>add</span>
                     </div>
-                    <div id='create-an-event'>
+                    <div id='create-an-event' className="add-arial-text">
                         Create an event
                     </div>
                 </div>
@@ -38,7 +47,7 @@ const Navigation = () => {
                     <div id='like-container'>
                         <span className="material-symbols-rounded" id='like-icon'>favorite</span>
                     </div>
-                    <div id='likes-text'>
+                    <div id='likes-text' className="add-arial-text">
                         Likes
                     </div>
                 </div>
@@ -49,7 +58,23 @@ const Navigation = () => {
     );
     } else {
         sessionLinks = (
-            <p>Nothing</p>
+            <>
+                <div id='create-event-link' onClick={handleLogin}>
+                    <div id='create-an-event-logged-out' className="add-arial-text">
+                        Create an event
+                    </div>
+                </div>
+                <div id='log-in-button' onClick={handleLogin}>
+                    <div id='log-in' className="add-arial-text">
+                        Log In
+                    </div>
+                </div>
+                <div id='sign-up-button' onClick={handleSignup}>
+                    <div id='sign-up' className="add-arial-text">
+                        Sign Up
+                    </div>
+                </div>
+            </>
         );
     }
 

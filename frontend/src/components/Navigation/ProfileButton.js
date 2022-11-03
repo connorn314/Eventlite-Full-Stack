@@ -14,7 +14,7 @@ const ProfileButton = (props) => {
 
     return (
         <>
-        <div id='profile-dropdown-contents' >
+        <div id='profile-dropdown-contents' className="add-arial-text" >
             <span className="material-symbols-rounded" id="profile-symbol">
                 account_circle
             </span>

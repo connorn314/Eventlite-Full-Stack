@@ -27,7 +27,7 @@ const EventShowPage = () => {
                 return <li>{detail}</li>
             })}
         </ul>
-            {(showEvent.authorId === sessionUser.id) && (
+            {(sessionUser) && (showEvent.authorId === sessionUser.id) && (
                 <button onClick={handleDelete}>Delete</button>
             )}
         </>

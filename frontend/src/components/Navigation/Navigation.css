@@ -7,6 +7,7 @@ img {
 #nav-bar {
     margin-left: 0px;
     margin-top: 0px;
+    background-color: white;
     height: 72px;
     display: flex;
     flex-direction: row;
@@ -64,7 +65,7 @@ img {
     font-weight: bold;
 }
 
-#create-an-event, #profile-dropdown-contents, #likes-text {
+.add-arial-text {
     font-family: Arial, sans-serif;
     font-size: 13px;
 }
