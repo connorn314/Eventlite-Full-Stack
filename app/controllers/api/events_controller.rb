@@ -14,6 +14,7 @@ class Api::EventsController < ApplicationController
     def create
 
         @event = Event.new(event_params)
+
         @event.author_id = params[:author_id]
         @event.start_date = params[:start_date]
         @event.end_date = params[:end_date]

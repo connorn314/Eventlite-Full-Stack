@@ -5,6 +5,8 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+require 'open-uri'
 ApplicationRecord.transaction do 
     puts "Destroying tables..."
     # Unnecessary if using `rails db:seed:replant`
@@ -35,8 +37,10 @@ ApplicationRecord.transaction do
     end
 
     puts "Creating events..."
+
+
     # Create events
-    Event.create!(
+    event1 = Event.create!(
         author_id: 1, 
         title: 'Stand up Comedy Show', 
         description: 'Local comedians from bay area, also seen on hbo, netflix, and comedy central',
@@ -44,8 +48,11 @@ ApplicationRecord.transaction do
         start_date: '2022-11-28 15:15:00',
         end_date: '2022-11-29 15:15:00'
     )
+        
+    tea_party_pic = URI.open('https://eventlite-connor-seeds.s3.us-west-1.amazonaws.com/tea+copy.png')
+    event1.photo.attach(io: tea_party_pic, filename: 'tea_party_pic.png')
 
-    Event.create!(
+    event2 = Event.create!(
         author_id: 4, 
         title: 'Dance Party', 
         description: 'Amazing music, better dance moves, come enjoy!',
@@ -54,7 +61,10 @@ ApplicationRecord.transaction do
         end_date: '2022-11-04 19:15:00'
     )
 
-    Event.create!(
+    coffee_pic = URI.open('https://eventlite-connor-seeds.s3.us-west-1.amazonaws.com/coffee+copy.png')
+    event2.photo.attach(io: coffee_pic, filename: 'coffee_pic.png')
+
+    event3 = Event.create!(
         author_id: 2, 
         title: 'Puppet Show', 
         description: 'The best puppeteers in the entirety of San Francisco gather to put on a show for the ages',
@@ -63,7 +73,10 @@ ApplicationRecord.transaction do
         end_date: '2022-11-10 21:15:00'
     )
 
-    Event.create!(
+    party_pic = URI.open('https://eventlite-connor-seeds.s3.us-west-1.amazonaws.com/party+copy.png')
+    event3.photo.attach(io: party_pic, filename: 'party_pic.png')
+
+    event4 = Event.create!(
         author_id: 3, 
         title: 'Beer Olympics', 
         description: 'come one come all, must be 21+ years old to partake',
@@ -71,6 +84,9 @@ ApplicationRecord.transaction do
         start_date: '2022-11-28 11:15:00',
         end_date: '2022-11-29 15:15:00'
     )
+
+    chocolate_pic = URI.open('https://eventlite-connor-seeds.s3.us-west-1.amazonaws.com/chocolate+copy.png')
+    event4.photo.attach(io: chocolate_pic, filename: 'chocolate_pic.png')
 
     puts "Done!"
 end

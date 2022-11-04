@@ -1,0 +1,66 @@
+#show-page-container {
+    display: flex;
+}
+
+#back-ground-pic > img {
+    width: 100%;
+    height: auto;
+}
+
+#show-page-layout {
+    position: absolute;
+    left: 5%;
+    right: 5%;
+    top: 100px;
+}
+
+#event-pic-container {
+    display: flex;
+    justify-content: center;
+    color: white;
+    width: 100%;
+    height: 460px;
+    background-color: brown;
+    border-radius: 20px;
+    border-color: white;
+    border: 0px;
+    z-index: 1;
+}
+
+#event-pic-container > img {
+    height: 100%;
+}
+
+#details-container {
+    padding-top: 48px;
+    display: grid;
+    grid-template-columns: 70% 30%;
+}
+
+#details-container {
+    grid-column-start: 1;
+}
+
+#get-tickets-container {
+    grid-column-start: 2;
+}
+
+#follower-author-container, #date-location-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+
+#get-tickets-and-price {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    height: 140px;
+    border: 1px;
+    border-radius: 15px;
+    border-color: gray;
+    border-style: solid;
+}

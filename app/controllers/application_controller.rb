@@ -1,12 +1,15 @@
 class ApplicationController < ActionController::API
     require "byebug"
     before_action :snake_case_params, :attach_authenticity_token
+
+    include ActionController::RequestForgeryProtection
+
+    protect_from_forgery with: :exception
+    
     rescue_from StandardError, with: :unhandled_error
     rescue_from ActionController::InvalidAuthenticityToken,
         with: :invalid_authenticity_token
 
-    include ActionController::RequestForgeryProtection
-    protect_from_forgery with: :exception
 
     helper_method :current_user, :logged_in?
 
@@ -45,6 +48,7 @@ class ApplicationController < ActionController::API
     end
 
     def invalid_authenticity_token
+        
         render json: { message: 'Invalid authenticity token' }, 
             status: :unprocessable_entity
     end

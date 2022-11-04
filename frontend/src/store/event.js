@@ -44,18 +44,21 @@ const removeEvent = (eventId) => {
 export const createEvent = (createdEvent) => async (dispatch) => {
     const { title, description, location, startDate, endDate } = createdEvent
     const authorId = JSON.parse(sessionStorage.currentUser).id
+   
     const response = await csrfFetch("/api/events", {
         method: "POST",
         body: JSON.stringify({
-            authorId,
-            title,
-            description,
-            location,
-            startDate,
-            endDate
+                authorId,
+                title,
+                description,
+                location,
+                startDate,
+                endDate
         })
     })
+    
     const data = await response.json()
+   
     if (response.ok){
         dispatch(receiveEvent(data))
     } else {

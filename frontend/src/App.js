@@ -7,6 +7,7 @@ import EventFormCreate from './components/EventFormCreate';
 import EntryFormPage from './components/EntryFormPage';
 import LandingPicture from './landingPicture.jpeg';
 import './index.css'
+import Footer from './components/Footer';
 
 const App = () => {
   return (
@@ -31,6 +32,7 @@ const App = () => {
             </div>
           </Route>
         </Switch>
+      {/* <Footer /> */}
     </>
   );
 }

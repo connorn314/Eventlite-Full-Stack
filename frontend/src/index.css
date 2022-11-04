@@ -1,7 +1,13 @@
 /* TODO Add site wide styles */
 body {
     margin: 0px;
-    background-color: #f8f7fa;
+    background-color: #f8f8fd;
+    display: flex;
+}
+
+#root {
+    width: 100%;
+    height: auto;
 }
 
 #landing {

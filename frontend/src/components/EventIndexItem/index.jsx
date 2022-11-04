@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 import './EventIndexItem.css'
 
 const EventIndexItem = ({event}) => {
-    const { title, location, startDate, authorId, id } = event
+    const { title, location, startDate, authorId, id, photoUrl } = event
     const history = useHistory();
     const handleClick = (e) => {
         e.preventDefault();
@@ -20,7 +20,7 @@ const EventIndexItem = ({event}) => {
         <>
             <div id="event-container" onClick={handleClick}>
                 <div id="event-thumbnail">
-                    <h2>PLACEHOLDER IMG</h2>
+                    <img src={photoUrl} alt="event-thumbnail" />
                 </div>
                 <div id="event-information">
                     <div id="event-title">

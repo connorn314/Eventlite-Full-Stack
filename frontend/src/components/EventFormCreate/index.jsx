@@ -3,7 +3,7 @@ import * as eventActions from "../../store/event";
 import { useDispatch, useSelector } from "react-redux"; 
 import { useHistory } from "react-router-dom";
 import { useState } from "react";
-
+import './EventFormCreate.css'
 
 
 const EventFormCreate = () => {
@@ -17,10 +17,18 @@ const EventFormCreate = () => {
     const [startTime, setStartTime] = useState("");
     const [endDate, setEndDate] = useState("");
     const [endTime, setEndTime] = useState("");
+    const [photoFile, setPhotoFile] = useState(null);
     const event = useSelector(state => state.events)
     
+    const handleFile = (e) => {
+        const file = e.currentTarget.files[0];
+        setPhotoFile(file);
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault();
+        const formData = new FormData();
+        formData
         setErrors([]);
     
         const parseDate = (date, time) => {
@@ -51,6 +59,7 @@ const EventFormCreate = () => {
     
     return (
         <>
+        <div id="create-event-page">
             <h2>Create Event:</h2>
             <form onSubmit={handleSubmit}>
                 <ul>
@@ -120,8 +129,17 @@ const EventFormCreate = () => {
                 </label>
                 <br />
                 <br />
+                <label>
+                    Add a photo:
+                    <input 
+                        type="file"
+                        onChange={handleFile} />
+                </label>
+                <br />
+                <br />
                 <button type="submit">Create Event</button>
             </form>
+        </div>        
         </>
     )
 };
