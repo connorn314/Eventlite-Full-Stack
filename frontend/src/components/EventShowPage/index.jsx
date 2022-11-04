@@ -10,11 +10,30 @@ const EventShowPage = () => {
     const history = useHistory();
     const sessionUser = useSelector(state => state.session.user)
     const { eventId } = useParams();
-    const showEvent = useSelector(state => state.events[eventId])
+    const showEvent = useSelector(state => state.events[eventId]);
+    const [userEvent, toggleUserEvent] = useState(sessionUser.id === showEvent.authorId);
+    const [editing, toggleEditing] = useState();
 
     useEffect(() => {
         dispatch(eventActions.getOneEvent(eventId))
     }, [])
+
+    const authorInformation = userEvent ? (
+    <div id="user-author-container">
+        <div>
+            You created this event
+        </div>
+    </div>
+    ) : (
+    <div id="follower-author-container">
+        <div id="event-creator">
+            Author is #{showEvent.authorId}
+        </div>
+        <div id="follower-information">
+            420 followers<button>Follow</button>
+        </div>
+    </div>
+    )
 
     const handleDelete = (e) => {
         e.preventDefault();
@@ -27,9 +46,18 @@ const EventShowPage = () => {
             <div id='back-ground-pic'><img src={backGroundImage} alt="bgc image"/></div>
             <div id='show-page-layout'>
                 <div id="event-pic-container">
-                    <img src={showEvent.photoUrl} alt="hi" />
-                    
+                    <img src={showEvent.photoUrl} alt="hi" />        
                 </div>
+            </div>
+            
+            <div id="show-page-detail">
+                {sessionUser && userEvent && (
+                    <div id="edit-your-event-message">
+                        You are the owner of this event.
+
+                        Do you want to make some changes? <button onClick={handleDelete}>Edit event</button>
+                    </div>
+                )}
                 <div id="details-container">
                     <div id="main-event-details-top">
                         <div id="event-day">
@@ -41,14 +69,15 @@ const EventShowPage = () => {
                         <div id="event-description-detail">
                             <p>{showEvent.description}</p>
                         </div>
-                        <div id="follower-author-container">
+                        {authorInformation}
+                        {/* <div id="follower-author-container">
                             <div id="event-creator">
                                 Author is #{showEvent.authorId}
                             </div>
                             <div id="follower-information">
                                 420 followers<button>Follow</button>
                             </div>
-                        </div>
+                        </div> */}
                         <div>
                             When and where
                         </div>

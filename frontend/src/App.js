@@ -32,7 +32,7 @@ const App = () => {
             </div>
           </Route>
         </Switch>
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 }

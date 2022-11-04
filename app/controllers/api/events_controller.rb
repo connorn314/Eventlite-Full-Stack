@@ -1,4 +1,4 @@
-require 'byebug'
+
 class Api::EventsController < ApplicationController
 
     def show
@@ -12,14 +12,10 @@ class Api::EventsController < ApplicationController
     end
 
     def create
-
         @event = Event.new(event_params)
-        debugger
         if @event.author_id == current_user.id && @event.save
-            debugger
             render :show
         else
-            debugger
             render json: { errors: @event.errors.messages }, status: :unprocessable_entity 
         end
     end

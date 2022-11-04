@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::API
-    require "byebug"
+
     before_action :snake_case_params, :attach_authenticity_token
 
     include ActionController::RequestForgeryProtection

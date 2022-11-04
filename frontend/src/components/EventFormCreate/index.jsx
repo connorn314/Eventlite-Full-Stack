@@ -32,10 +32,6 @@ const EventFormCreate = () => {
         const parseDate = (date, time) => {
             return `${date} ${time}:00`
         }
-
-        // if (photoFile) {
-        //     formData.append('event[photo]', photoFile)
-        // }
         
         const obj = {
             title,

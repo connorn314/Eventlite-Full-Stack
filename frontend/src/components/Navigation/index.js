@@ -13,7 +13,7 @@ const Navigation = () => {
 
 
     const openMenu = () => {
-        if (showMenu) return;
+        // if (showMenu) return;
         setShowMenu(true);
     };
 
