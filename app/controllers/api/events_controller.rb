@@ -14,14 +14,12 @@ class Api::EventsController < ApplicationController
     def create
 
         @event = Event.new(event_params)
-
-        @event.author_id = params[:author_id]
-        @event.start_date = params[:start_date]
-        @event.end_date = params[:end_date]
-
+        debugger
         if @event.author_id == current_user.id && @event.save
+            debugger
             render :show
         else
+            debugger
             render json: { errors: @event.errors.messages }, status: :unprocessable_entity 
         end
     end
@@ -46,7 +44,7 @@ class Api::EventsController < ApplicationController
     private
 
     def event_params
-        params.require(:event).permit(:author_id, :title, :description, :location, :start_date, :end_date)
+        params.require(:event).permit(:author_id, :title, :description, :location, :start_date, :end_date, :photo)
     end
     
 end

@@ -42,23 +42,25 @@ const removeEvent = (eventId) => {
 };
 
 export const createEvent = (createdEvent) => async (dispatch) => {
-    const { title, description, location, startDate, endDate } = createdEvent
+    const { title, description, location, startDate, endDate, photoFile } = createdEvent
     const authorId = JSON.parse(sessionStorage.currentUser).id
-   
+    const formData = new FormData();
+    formData.append('event[authorId]', authorId)
+    formData.append('event[title]', title)
+    formData.append('event[description]', description)
+    formData.append('event[location]', location)
+    formData.append('event[startDate]', startDate)
+    formData.append('event[endDate]', endDate)
+    if (photoFile) {
+        formData.append('event[photo]', photoFile)
+    }
     const response = await csrfFetch("/api/events", {
         method: "POST",
-        body: JSON.stringify({
-                authorId,
-                title,
-                description,
-                location,
-                startDate,
-                endDate
-        })
+        body: formData
     })
     
     const data = await response.json()
-   
+
     if (response.ok){
         dispatch(receiveEvent(data))
     } else {

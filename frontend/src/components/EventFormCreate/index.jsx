@@ -27,21 +27,25 @@ const EventFormCreate = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const formData = new FormData();
-        formData
         setErrors([]);
     
         const parseDate = (date, time) => {
             return `${date} ${time}:00`
         }
 
+        // if (photoFile) {
+        //     formData.append('event[photo]', photoFile)
+        // }
+        
         const obj = {
             title,
             description,
             location,
             startDate: parseDate(startDate, startTime),
-            endDate: parseDate(endDate, endTime)
+            endDate: parseDate(endDate, endTime),
+            photoFile
         }
+
         return dispatch(eventActions.createEvent(obj))
             .then(data => history.push(`/events/${Object.values(data)[0].id}`))
             .catch(async (res) => {
