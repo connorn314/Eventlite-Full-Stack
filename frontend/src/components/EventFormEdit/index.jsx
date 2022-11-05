@@ -17,10 +17,8 @@ const EventFormEdit = () => {
     const [location, setLocation] = useState(eventEdit.location);
     const strt = new Date(eventEdit.startDate)
     const endD = new Date(eventEdit.endDate)
-    console.log(endD)
 
     const twoDigits = (num) => {
-        console.log(num)
         if (num < 10) {
             return `0${num}`;
         } else {
@@ -38,9 +36,7 @@ const EventFormEdit = () => {
     const [startDate, setStartDate] = useState(formatDate(strt));
     const [startTime, setStartTime] = useState(formatTime(strt));
     const [endDate, setEndDate] = useState(formatDate(endD));
-    console.log(endDate)
     const [endTime, setEndTime] = useState(formatTime(endD));
-    console.log(endTime)
     const [photoFile, setPhotoFile] = useState(null);
     
     const handleFile = (e) => {
@@ -65,6 +61,7 @@ const EventFormEdit = () => {
             endDate: parseDate(endDate, endTime),
             photoFile
         }
+
 
         return dispatch(eventActions.editEvent(obj))
             .then(data => history.push(`/events/${Object.values(data)[0].id}`))

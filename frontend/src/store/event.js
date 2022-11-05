@@ -73,7 +73,6 @@ export const editEvent = (editedEvent) => async (dispatch) => {
     const { id, title, description, location, startDate, endDate, photoFile } = editedEvent
     const authorId = JSON.parse(sessionStorage.currentUser).id
     const formData = new FormData();
-    // formData.append('event[id]', id)
     formData.append('event[authorId]', authorId)
     formData.append('event[title]', title)
     formData.append('event[description]', description)
@@ -83,7 +82,8 @@ export const editEvent = (editedEvent) => async (dispatch) => {
     if (photoFile) {
         formData.append('event[photo]', photoFile)
     }
-    const response = await csrfFetch(`/api/events${id}`, {
+    debugger
+    const response = await csrfFetch(`/api/events/${id}`, {
         method: "PATCH",
         body: formData
     })
