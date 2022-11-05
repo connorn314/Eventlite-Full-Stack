@@ -8,6 +8,7 @@ import EntryFormPage from './components/EntryFormPage';
 import LandingPicture from './landingPicture.jpeg';
 import './index.css'
 import Footer from './components/Footer';
+import EventFormEdit from './components/EventFormEdit';
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
             <EntryFormPage />
           </Route>
           <Route exact path="/events/new" component={EventFormCreate} />
+          <Route exact path="/events/:eventId/edit" component={EventFormEdit} />
           <Route exact path="/events/:eventId">
             <EventShowPage />
           </Route>

@@ -11,7 +11,7 @@ const EventShowPage = () => {
     const sessionUser = useSelector(state => state.session.user)
     const { eventId } = useParams();
     const showEvent = useSelector(state => state.events[eventId]);
-    const [userEvent, toggleUserEvent] = useState(sessionUser.id === showEvent.authorId);
+    const [userEvent, toggleUserEvent] = useState(sessionUser && (sessionUser.id === showEvent.authorId));
     const [editing, toggleEditing] = useState();
 
     useEffect(() => {
@@ -55,7 +55,7 @@ const EventShowPage = () => {
                     <div id="edit-your-event-message">
                         You are the owner of this event.
 
-                        Do you want to make some changes? <button onClick={handleDelete}>Edit event</button>
+                        Do you want to make some changes? <button onClick={() => history.push(`/events/${showEvent.id}/edit`)}>Edit event</button>
                     </div>
                 )}
                 <div id="details-container">

@@ -105,12 +105,18 @@ const EventFormCreate = () => {
                         Event Starts:
                         <input 
                             type="date"
-                            onChange={(e) => setStartDate(e.target.value)}
+                            onChange={(e) => {
+                                setStartDate(e.target.value)
+                                
+                            }}
                             value={startDate}
                         />
                         <input 
                             type="time"
-                            onChange={(e) => setStartTime(e.target.value)}
+                            onChange={(e) => {
+                                setStartTime(e.target.value)
+                                console.log(startDate)
+                            }}
                             value={startTime} />
                     </label>
                     <br />
