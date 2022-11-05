@@ -29,6 +29,12 @@ class Event < ApplicationRecord
         foreign_key: :author_id,
         class_name: :User
 
+    has_many :likes,
+        primary_key: :id,
+        foreign_key: :event_id,
+        class_name: :Like,
+        dependent: :destroy
+
     private
 
 end
