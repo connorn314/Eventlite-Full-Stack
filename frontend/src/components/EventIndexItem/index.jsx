@@ -1,10 +1,14 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import './EventIndexItem.css'
 
 const EventIndexItem = ({event}) => {
     const { title, location, startDate, authorId, id, photoUrl } = event
     const history = useHistory();
+    const user = useSelector(state => state.user[authorId])
+    console.log(user)
+
     const handleClick = (e) => {
         e.preventDefault();
         history.push(`/events/${id}`)
@@ -34,7 +38,7 @@ const EventIndexItem = ({event}) => {
                     </div>
                     <div id="event-author">
                         <div id="author">
-                            <p>Author is #{authorId}</p>
+                            <p>{user.username}</p>
                         </div>
                         <div id="follower-count">
                             <span className="material-symbols-rounded" id="profile-symbol">

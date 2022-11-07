@@ -11,8 +11,8 @@ const EventShowPage = () => {
     const sessionUser = useSelector(state => state.session.user)
     const { eventId } = useParams();
     const showEvent = useSelector(state => state.events[eventId]);
+    const author = useSelector(state => state.user[showEvent.authorId])
     const [userEvent, toggleUserEvent] = useState(sessionUser && (sessionUser.id === showEvent.authorId));
-    const [editing, toggleEditing] = useState();
 
     useEffect(() => {
         dispatch(eventActions.getOneEvent(eventId))
@@ -27,7 +27,7 @@ const EventShowPage = () => {
     ) : (
     <div id="follower-author-container">
         <div id="event-creator">
-            Author is #{showEvent.authorId}
+            {author.username}
         </div>
         <div id="follower-information">
             420 followers<button>Follow</button>
