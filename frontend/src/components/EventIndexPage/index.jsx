@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import * as eventActions from '../../store/event';
+import * as userActions from '../../store/user';
 import { useDispatch, useSelector } from 'react-redux';
 import EventIndexItem from '../EventIndexItem';
 import './EventIndexPage.css'
@@ -13,6 +14,7 @@ const EventIndexPage = () => {
     const [searchLocation, setSearchLocation] = useState("");
 
     useEffect(() => {
+        dispatch(userActions.getUsersData())
         dispatch(eventActions.getEventsData())
     }, [])
     const events = useSelector(state => state.events);

@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   # root "articles#index"
 
 namespace :api, defaults: {format: :json} do
-    resources :users, only: :create
+    resources :users, only: [:create, :index]
     resources :events, only: [:show, :index, :create, :destroy, :update]
     resource :session, only: [:show, :create, :destroy]
     resources :likes, only: [:create, :destroy]
