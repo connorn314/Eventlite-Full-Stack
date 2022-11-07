@@ -9,7 +9,7 @@ class Api::LikesController < ApplicationController
     def create
         @like = Like.new(like_params)
         if @like.liker_id == current_user.id && @like.save
-            render json: "success"
+            render :show
         else
             render json: { errors: @like.errors.messages }, status: :unprocessable_entity
         end

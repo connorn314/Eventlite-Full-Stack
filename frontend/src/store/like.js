@@ -32,6 +32,29 @@ export const getUserLikes = () => async (dispatch) => {
     return response
 }
 
+export const createLike = (like) => async (dispatch) => {
+    const { eventId, likerId } = like
+    const response = await csrfFetch('/api/likes', {        
+        method: "POST",
+        body: JSON.stringify({
+            like: {
+                eventId,
+                likerId
+            }
+        })
+    })
+
+    const data = await response.json();
+
+    if (response.ok){
+        dispatch(receiveLike(data))
+    } else {
+        console.log(response)
+        return response
+    }
+    return data
+}
+
 export const deleteLike = (likeId) => async (dispatch) => {
     const response = await csrfFetch(`/api/likes/${likeId}`, {
         method: "DELETE"
