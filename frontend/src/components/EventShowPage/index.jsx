@@ -64,7 +64,7 @@ const EventShowPage = () => {
                             {showEvent.startDate}
                         </div>
                         <div id="event-title-big">
-                            <h2>{showEvent.title}</h2>
+                            <h1>{showEvent.title}</h1>
                         </div>
                         <div id="event-description-detail">
                             <p>{showEvent.description}</p>
@@ -96,12 +96,22 @@ const EventShowPage = () => {
                         </div>
                     </div>
                     <div id="get-tickets-container">
-                        <div id="get-tickets-and-price">
-                            <div id="price">
-                                $25 - $40
+                        <div id="like-and-share-cont">
+                            <div id="like-b" >
+                                <span className="material-symbols-rounded" id='like-icon'>favorite</span>
                             </div>
-                            <div id="get-tickets">
-                                GET TICKETS
+                            <div id="share-b">
+                                S
+                            </div>
+                        </div>
+                        <div id="get-t-and-p-container">
+                            <div id="get-tickets-and-price">
+                                <div id="price">
+                                    $25 - $40
+                                </div>
+                                <div id="get-tickets">
+                                    Get Tickets
+                                </div>
                             </div>
                         </div>
                     </div>
