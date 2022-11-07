@@ -2,6 +2,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import './LikeButton.css';
 import * as likeActions from '../../store/like';
 
+//comment
+
 const LikeButton = ({eventId}) => {
     const dispatch = useDispatch();
     const likes = useSelector(state => state.likes)
