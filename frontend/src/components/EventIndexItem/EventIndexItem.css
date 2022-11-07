@@ -34,7 +34,7 @@
     flex-direction: column;
     padding-bottom: 0px;
     font-size: 14px;
-    font-weight: 540;
+    font-weight: 600;
     color: #39364f;
 }
 
@@ -52,6 +52,7 @@
 #profile-symbol {
     font-size: 18px;
     padding-right: 2px;
+    font-weight: 600;
 }
 
 #event-container:hover {
