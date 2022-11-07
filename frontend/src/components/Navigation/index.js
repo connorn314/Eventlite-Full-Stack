@@ -43,7 +43,7 @@ const Navigation = () => {
                         Create an event
                     </div>
                 </div>
-                <div id='likes-nav-item'>
+                <div id='likes-nav-item' onClick={() => history.push('/likes')}>
                     <div id='like-container'>
                         <span className="material-symbols-rounded" id='like-icon'>favorite</span>
                     </div>

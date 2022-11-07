@@ -2,7 +2,7 @@
 #event-container {
     display: flex;
     flex-direction: column;
-    width: 254px;
+    width: 280px;
     height: 353px;
     font-family: Arial, sans-serif;
     background-color: white;
@@ -49,8 +49,8 @@
     align-items: center;
 }
 
-#profile-symbol {
-    font-size: 18px;
+#profile-symbol-item {
+    font-size: 20px;
     padding-right: 2px;
     font-weight: 600;
 }

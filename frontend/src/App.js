@@ -9,6 +9,7 @@ import LandingPicture from './landingPicture.jpeg';
 import './index.css'
 import Footer from './components/Footer';
 import EventFormEdit from './components/EventFormEdit';
+import LikedPage from './components/LikedPage';
 
 const App = () => {
   return (
@@ -23,6 +24,7 @@ const App = () => {
           <Route exact path="/events/:eventId">
             <EventShowPage />
           </Route>
+          <Route exact path="/likes" component={LikedPage}/>
           <Route path="/">
             <div id='landing-page-container'>
               <div id='landing-page-image' >

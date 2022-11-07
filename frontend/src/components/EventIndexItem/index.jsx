@@ -2,12 +2,12 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import './EventIndexItem.css'
+import LikeButton from "../LikeButton";
 
 const EventIndexItem = ({event}) => {
     const { title, location, startDate, authorId, id, photoUrl } = event
     const history = useHistory();
     const user = useSelector(state => state.user[authorId])
-    console.log(user)
 
     const handleClick = (e) => {
         e.preventDefault();
@@ -22,12 +22,12 @@ const EventIndexItem = ({event}) => {
     
     return (
         <>
-            <div id="event-container" onClick={handleClick}>
-                <div id="event-thumbnail">
+            <div id="event-container" >
+                <div id="event-thumbnail" onClick={handleClick}>
                     <img src={photoUrl} alt="event-thumbnail" />
                 </div>
                 <div id="event-information">
-                    <div id="event-title">
+                    <div id="event-title" onClick={handleClick}>
                         <h4>{title}</h4>
                     </div>
                     <div id="event-start-time">
@@ -41,11 +41,12 @@ const EventIndexItem = ({event}) => {
                             <p>{user.username}</p>
                         </div>
                         <div id="follower-count">
-                            <span className="material-symbols-rounded" id="profile-symbol">
+                            <span className="material-symbols-rounded" id="profile-symbol-item">
                                 account_circle
                             </span><p>420 followers</p> 
                         </div>
                     </div>
+                    <LikeButton eventId={id}></LikeButton>
                 </div>
 
             </div>

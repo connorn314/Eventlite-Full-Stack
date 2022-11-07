@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import * as eventActions from '../../store/event';
 import * as userActions from '../../store/user';
+import * as likeActions from '../../store/like';
 import { useDispatch, useSelector } from 'react-redux';
 import EventIndexItem from '../EventIndexItem';
 import './EventIndexPage.css'
@@ -8,14 +9,17 @@ import { useState } from 'react';
 import { TextField } from '@mui/material';
 
 
+
 const EventIndexPage = () => {
 
     const dispatch = useDispatch();
+    const sessionUser = useSelector(state => state.session.user)
     const [searchLocation, setSearchLocation] = useState("");
 
     useEffect(() => {
         dispatch(userActions.getUsersData())
         dispatch(eventActions.getEventsData())
+        dispatch(likeActions.getUserLikes())
     }, [])
     const events = useSelector(state => state.events);
     const handleSubmit = () => {
