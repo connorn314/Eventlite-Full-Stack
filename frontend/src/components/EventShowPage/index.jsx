@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import * as eventActions from '../../store/event';
 import { useDispatch, useSelector } from "react-redux";
-import { useParams, useHistory } from "react-router-dom";
+import { useParams, useHistory, NavLink } from "react-router-dom";
 import './EventShowPage.css'
 import backGroundImage from "../../showpage.png"
 import LikeButton from "../LikeButton";
@@ -33,7 +33,7 @@ const EventShowPage = () => {
     ) : (
     <div id="follower-author-container">
         <div id="event-creator">
-            {author && (author.username)}
+            By: <NavLink to={`/users/${author.id}`}>{author && (author.username)}</NavLink>
         </div>
         <div id="follower-information">
             420 followers<button>Follow</button>
@@ -76,14 +76,6 @@ const EventShowPage = () => {
                             <p>{showEvent.description}</p>
                         </div>
                         {authorInformation}
-                        {/* <div id="follower-author-container">
-                            <div id="event-creator">
-                                Author is #{showEvent.authorId}
-                            </div>
-                            <div id="follower-information">
-                                420 followers<button>Follow</button>
-                            </div>
-                        </div> */}
                         <div>
                             When and where
                         </div>
