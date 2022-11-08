@@ -1,0 +1,28 @@
+
+
+#button-liked-container:hover, #button-not-liked-container:hover {
+    cursor: pointer;
+}
+
+#unlike-icon-button {
+    color: #d1410c;
+}
+
+#unlike-icon-button:hover {
+    color: #f05537;
+    
+}
+
+#button-not-liked-container, #button-liked-container {
+    height: 40px;
+    width: 40px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#button-not-liked-container:hover, #button-liked-container:hover {
+    background-color: #efefef;
+}

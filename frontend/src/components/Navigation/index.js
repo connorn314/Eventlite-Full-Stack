@@ -13,7 +13,6 @@ const Navigation = () => {
 
 
     const openMenu = () => {
-        // if (showMenu) return;
         setShowMenu(true);
     };
 
@@ -51,7 +50,7 @@ const Navigation = () => {
                         Likes
                     </div>
                 </div>
-                <div id='profile-dropdown' onMouseEnter={openMenu} onMouseLeave={() => setShowMenu(false)}>
+                <div id='profile-dropdown' onMouseEnter={openMenu} onMouseLeave={() => setShowMenu(false)} onClick={() => setShowMenu(false)}>
                     <ProfileButton user={sessionUser} show={showMenu} />
                 </div>
             </>

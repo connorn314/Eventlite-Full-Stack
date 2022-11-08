@@ -115,7 +115,6 @@ const EventFormCreate = () => {
                             type="time"
                             onChange={(e) => {
                                 setStartTime(e.target.value)
-                                console.log(startDate)
                             }}
                             value={startTime} />
                     </label>

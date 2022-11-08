@@ -49,7 +49,6 @@ export const createLike = (like) => async (dispatch) => {
     if (response.ok){
         dispatch(receiveLike(data))
     } else {
-        console.log(response)
         return response
     }
     return data

@@ -15,8 +15,8 @@ const EventIndexItem = ({event}) => {
     }
 
     const formatDate = (dateTime) => {
-        
-        return dateTime
+        let change = new Date(dateTime)
+        return change.toDateString()
     }
 
     
@@ -31,7 +31,7 @@ const EventIndexItem = ({event}) => {
                         <h4>{title}</h4>
                     </div>
                     <div id="event-start-time">
-                        <p>starts at {formatDate(startDate)}</p>
+                        <p>{formatDate(startDate)}</p>
                     </div>
                     <div id="event-location">
                         <p>{location}</p>

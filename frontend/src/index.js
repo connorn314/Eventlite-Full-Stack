@@ -7,7 +7,9 @@ import App from './App';
 import configureStore from './store';
 import csrfFetch from './store/csrf';
 import * as sessionActions from './store/session';
-import * as eventActions from './store/event'
+import * as eventActions from './store/event';
+import * as userActions from './store/user';
+import * as likeActions from './store/like';
 
 const store = configureStore();
 
@@ -39,9 +41,14 @@ const renderApplication = () => {
 };
 
 if (sessionStorage.getItem("currentUser") === null || sessionStorage.getItem("X-CSRF-Token") === null) {
-
-  store.dispatch(sessionActions.restoreSession()).then(renderApplication);
+  store.dispatch(sessionActions.restoreSession())
+  .then(store.dispatch(userActions.getUsersData()))
+  .then(store.dispatch(eventActions.getEventsData()))
+  .then(store.dispatch(likeActions.getUserLikes()))
+  .then(renderApplication);
 } else {
-
-  renderApplication();
+  store.dispatch(eventActions.getEventsData())
+  .then(store.dispatch(userActions.getUsersData()))
+  .then(store.dispatch(likeActions.getUserLikes()))
+  .then(renderApplication)  
 }

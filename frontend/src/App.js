@@ -10,6 +10,7 @@ import './index.css'
 import Footer from './components/Footer';
 import EventFormEdit from './components/EventFormEdit';
 import LikedPage from './components/LikedPage';
+import UserShowPage from './components/UserShowPage';
 
 const App = () => {
   return (
@@ -19,6 +20,7 @@ const App = () => {
           <Route path="/signin">
             <EntryFormPage />
           </Route>
+          <Route exact path="/users/:userId" component={UserShowPage} />
           <Route exact path="/events/new" component={EventFormCreate} />
           <Route exact path="/events/:eventId/edit" component={EventFormEdit} />
           <Route exact path="/events/:eventId">

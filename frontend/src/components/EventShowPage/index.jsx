@@ -4,15 +4,21 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams, useHistory } from "react-router-dom";
 import './EventShowPage.css'
 import backGroundImage from "../../showpage.png"
+import LikeButton from "../LikeButton";
 
 const EventShowPage = () => {
+
     const dispatch = useDispatch();
     const history = useHistory();
     const sessionUser = useSelector(state => state.session.user)
     const { eventId } = useParams();
     const showEvent = useSelector(state => state.events[eventId]);
     const author = useSelector(state => state.user[showEvent.authorId])
-    const [userEvent, toggleUserEvent] = useState(sessionUser && (sessionUser.id === showEvent.authorId));
+    let correctId = false
+    if (author){
+        correctId = (sessionUser && (sessionUser.id === showEvent.authorId));
+    } 
+    const [userEvent, toggleUserEvent] = useState(correctId);
 
     useEffect(() => {
         dispatch(eventActions.getOneEvent(eventId))
@@ -27,7 +33,7 @@ const EventShowPage = () => {
     ) : (
     <div id="follower-author-container">
         <div id="event-creator">
-            {author.username}
+            {author && (author.username)}
         </div>
         <div id="follower-information">
             420 followers<button>Follow</button>
@@ -97,12 +103,7 @@ const EventShowPage = () => {
                     </div>
                     <div id="get-tickets-container">
                         <div id="like-and-share-cont">
-                            <div id="like-b" >
-                                <span className="material-symbols-rounded" id='like-icon'>favorite</span>
-                            </div>
-                            <div id="share-b">
-                                S
-                            </div>
+                            <LikeButton eventId={eventId} />
                         </div>
                         <div id="get-t-and-p-container">
                             <div id="get-tickets-and-price">

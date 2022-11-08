@@ -61,6 +61,11 @@ img {
 #add-icon, #like-container {
     font-size: 24px;
 }
+
+#add-icon {
+    font-weight: bold;
+}
+
 #like-icon {
     font-size: 16px;
     font-weight: bold;

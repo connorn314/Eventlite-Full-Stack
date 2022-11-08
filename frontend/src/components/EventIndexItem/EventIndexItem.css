@@ -18,6 +18,10 @@
     color: #39364f;
 }
 
+#event-title:hover {
+    cursor: pointer;
+}
+
 #event-start-time {
     font-size:  14px;
     font-weight: 600;
@@ -56,13 +60,16 @@
 }
 
 #event-container:hover {
-    cursor: pointer;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 #event-container:hover #event-thumbnail {
     width: 100%;
     border: 0px;
+}
+
+#event-thumbnail:hover {
+    cursor: pointer;
 }
 
 #event-thumbnail {
