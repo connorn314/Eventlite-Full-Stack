@@ -18,3 +18,15 @@ body {
 h1 {
     margin: 0px;
 }
+
+a {
+    color: #3659e3;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}

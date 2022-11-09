@@ -96,7 +96,7 @@
     justify-content: right;
 }
 
-#follower-author-container, #date-location-container {
+#follower-author-container, #date-location-container, #location-info-small {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -158,10 +158,103 @@
     color: #39364F;
 }
 
+#event-day {
+    font-size: 20px;
+    padding-bottom: 10px;
+}
+
+#event-description-detail {
+    padding-bottom: 15px
+}
 #like-b, #share-b {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
     padding: 8px;
+}
+
+#follow-cont {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+#button-contain {
+    display: inline-block;
+    height: 24px;
+    width: auto;
+    border: 2px;
+    border-style: solid;
+    border-color: #3659e3;
+    border-radius: 5px;
+}
+
+#follower-information {
+    padding-right: 10px;
+    color: #6F7287;
+}
+
+#follower-author-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 30px;
+}
+
+#when-where {
+    font-size: 24px;
+    font-weight: bold;
+    color: #1A0E3C;
+    padding-bottom: 20px;
+}
+
+#event-author {
+    padding-left: 6px;
+    font-size: 16px;
+    font-weight: 100;
+}
+
+#event-creator {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#calendar-icon, #location-icon {
+    font-size: 20px;
+    color: #3659e3;
+}
+
+#location-icon-container, #calendar-icon-container {
+    width: 40px;
+    height: 40px;
+    background-color: #ededed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+}
+
+#date-andtime-info {
+    display: flex;
+    flex-direction: row;
+}
+
+#date-and-time-detail, #location-detail {
+    padding-left: 20px;
+}
+
+#date-and-time, #location-small {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #1A0E3C;
+    font-weight: 600;
+}
+
+#date-and-time-info-small, #location-info-small {
+    color: #6F7287;
 }

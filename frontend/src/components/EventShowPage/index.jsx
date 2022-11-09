@@ -5,6 +5,7 @@ import { useParams, useHistory, NavLink } from "react-router-dom";
 import './EventShowPage.css'
 import backGroundImage from "../../showpage.png"
 import LikeButton from "../LikeButton";
+import FollowButton from "../FollowButton";
 
 const EventShowPage = () => {
 
@@ -24,6 +25,11 @@ const EventShowPage = () => {
         dispatch(eventActions.getOneEvent(eventId))
     }, [])
 
+    const formatDate = (dateTime) => {
+        let change = new Date(dateTime)
+        return change.toDateString()
+    }
+
     const authorInformation = userEvent ? (
     <div id="user-author-container">
         <div>
@@ -33,10 +39,24 @@ const EventShowPage = () => {
     ) : (
     <div id="follower-author-container">
         <div id="event-creator">
-            By: <NavLink to={`/users/${author.id}`}>{author && (author.username)}</NavLink>
+            <div>
+                By  
+            </div>
+            <div id="event-author">
+                {author && (
+                    <NavLink to={`/users/${author.id}`}>{author && (author.username)}</NavLink>
+                )}
+            </div>
         </div>
-        <div id="follower-information">
-            420 followers<button>Follow</button>
+        <div id="follow-cont">
+            <div id="follower-information">
+                420 followers
+            </div>
+            <div id="button-contain">
+                {author && (
+                    <FollowButton userId={author.id} />
+                )}
+            </div>
         </div>
     </div>
     )
@@ -67,7 +87,7 @@ const EventShowPage = () => {
                 <div id="details-container">
                     <div id="main-event-details-top">
                         <div id="event-day">
-                            {showEvent.startDate}
+                            {formatDate(showEvent.startDate)}
                         </div>
                         <div id="event-title-big">
                             <h1>{showEvent.title}</h1>
@@ -76,22 +96,40 @@ const EventShowPage = () => {
                             <p>{showEvent.description}</p>
                         </div>
                         {authorInformation}
-                        <div>
+                        <div id="when-where">
                             When and where
                         </div>
                         <div id="date-location-container">
                             <div id="date-andtime-info">
-                                start date: {showEvent.startDate}
-                                <br />
-                                end date: {showEvent.endDate}
+                                <div id="calendar-icon-container">
+                                    <span class="material-symbols-outlined" id="calendar-icon">calendar_today</span>
+                                </div>
+                                <div id="date-and-time-detail">
+                                    <div id="date-and-time">
+                                        Date and Time
+                                    </div>
+                                    <div id="date-and-time-info-small">
+                                        start date: {formatDate(showEvent.startDate)}
+                                        <br />
+                                        end date: {formatDate(showEvent.endDate)}
+                                    </div>
+                                </div>
                             </div>
                             <div id="location-info-small">
-                                location: {showEvent.location}
+                                <div id="location-icon-container">
+                                    <span class="material-symbols-outlined" id="location-icon">location_on</span>
+                                </div>
+                                <div id="location-detail">
+                                    <div id="location-small">
+                                        Location
+                                    </div>
+                                    <div id="location-info-small">
+                                        location: {showEvent.location}
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div>
-                            Show map 
-                        </div>
+                        
                     </div>
                     <div id="get-tickets-container">
                         <div id="like-and-share-cont">
