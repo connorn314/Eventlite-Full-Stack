@@ -1,7 +1,13 @@
 class Api::LikesController < ApplicationController
 
     def index
-        @likes = Like.where('liker_id = ?', current_user.id)
+
+        if current_user
+            @likes = Like.where('liker_id = ?', current_user.id) 
+        else
+            @likes = []
+        end
+        
         render :index
     end
 

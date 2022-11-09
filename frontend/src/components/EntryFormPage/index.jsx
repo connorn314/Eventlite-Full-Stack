@@ -4,6 +4,7 @@ import LoginFormPage from "../LoginFormPage";
 import SignupFormPage from "../SignupFormPage";
 import { Redirect } from "react-router-dom";
 import './EntryForm.css'
+import lateralImage from '../../lateral-image-signup.jpeg'
 
 const EntryFormPage = () => {
     const sessionUser = useSelector(state => state.session.user);
@@ -30,15 +31,17 @@ const EntryFormPage = () => {
 
     return (
         <div id="entry-form-split">
-            <div>
-            {EntryForm}
-            <br />
-            <br />
-            <button onClick={handleClick}>{otherEntryMethod}</button>
+            <div id="form-side-container">
+                <div id="form-container">
+                    {EntryForm}
+                    <div id="switcher-container">
+                        <p onClick={handleClick} id='form-switcher'>{otherEntryMethod}</p>
+                    </div>
+                </div>
             </div>
 
-            <div>
-                <h2>Img Here</h2>
+            <div id="image-side-container">
+                <img src={lateralImage} alt="side-image" id="side-image"/>
             </div>
         </div>   
     )

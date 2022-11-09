@@ -2,7 +2,12 @@ class Api::FollowsController < ApplicationController
 
 
     def index
-        @follows = Follow.where('follower_id = ?', current_user.id)
+        
+        if current_user
+            @follows = Follow.where('follower_id = ?', current_user.id)
+        else
+            @follows = []
+        end
         # @follows = Follow.all
         render :index
     end

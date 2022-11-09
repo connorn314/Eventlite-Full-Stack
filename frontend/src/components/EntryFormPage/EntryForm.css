@@ -1,6 +1,28 @@
 
 #entry-form-split {
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+#side-image-container {
+    width: 100%;
+    height: 725px;
+}
+
+#form-side-container {
     display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+}
+
+#form-container {
+    width: 60%;
+}
+
+#side-image {
+    width: 100%;
+    height: 725px;
+    object-fit: cover;
 }

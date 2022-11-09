@@ -12,6 +12,14 @@ const LoginFormPage = () => {
     const [password, setPassword] = useState('');
     const [errors, setErrors] = useState([]);
 
+    const style = {
+        height: 22,
+        padding: '18px 12px 6px',
+        backgroundColor: "white",
+        border: '.5px solid rgb(188, 188, 188)',
+        borderRadius: '5px'
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault();
         setErrors([]);
@@ -33,20 +41,22 @@ const LoginFormPage = () => {
 
     return (
         <div id="login-form">
-            <h1>Log in</h1>
-            <form onSubmit={handleSubmit}>
-                <ul>
-                    {errors.map(error => <li key={error}>{error}</li>)}
-                </ul>
+            <div id='login-title' className="user-auth-titles">
+                <h1>Log in</h1>
+            </div>
+            <div id="login-actual-form">
+                <form onSubmit={handleSubmit} className='user-forms'>
+                    <ul>
+                        {errors.map(error => <li key={error}>{error}</li>)}
+                    </ul>
                     <TextField
                         label="Email address"
                         variant="filled"
                         inputProps={{
-                            style: {
-                                height: 22,
-                                width: 332,
-                                padding: '18px 12px 6px'
-                            }
+                            style
+                        }}
+                        InputProps={{
+                            disableUnderline: true
                         }}
                         // color={'rgba(0, 0, 0, 0)'}
                         InputLabelProps={{ shrink: true }}
@@ -55,18 +65,13 @@ const LoginFormPage = () => {
                         onChange={(e) => setCredential(e.target.value)}
                         required
                     />
-                <br />
-                <br />
-                
+                    <br />
                     <TextField
                         label="Password"
                         variant="filled"
-                        inputProps={{
-                            style: {
-                                height: 22,
-                                width: 332,
-                                padding: '18px 12px 6px'
-                            }
+                        inputProps={{style}}
+                        InputProps={{
+                            disableUnderline: true
                         }}
                         InputLabelProps={{ shrink: true }}
                         type="password"
@@ -74,12 +79,10 @@ const LoginFormPage = () => {
                         onChange={(e) => setPassword(e.target.value)}
                         required
                     />
-
-                <br />
-                <br />
-                
-                <button type="submit">Log In</button>
-            </form>
+                    <br />
+                    <button type="submit" className='user-auth-button'>Log In</button>
+                </form>
+            </div>
         </div>
     );
 
