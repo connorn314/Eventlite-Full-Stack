@@ -9,6 +9,7 @@ namespace :api, defaults: {format: :json} do
     resources :events, only: [:show, :index, :create, :destroy, :update]
     resource :session, only: [:show, :create, :destroy]
     resources :likes, only: [:index, :create, :destroy]
+    resources :follows, only: [:index, :create, :destroy]
 end
 
 

@@ -24,7 +24,7 @@ const LikeButton = ({eventId}) => {
     
     let buttonDisplay = liked ? (
         <div id='button-liked-container' onClick={() => dispatch(likeActions.deleteLike(correctLike.id))}>
-            <span class="material-symbols-outlined" id='unlike-icon-button'>favorite</span>
+            <span className="material-symbols-outlined" id='unlike-icon-button'>favorite</span>
         </div>
     ) : (
         <div id='button-not-liked-container' onClick={handleLike}>

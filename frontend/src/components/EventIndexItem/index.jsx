@@ -38,12 +38,18 @@ const EventIndexItem = ({event}) => {
                     </div>
                     <div id="event-author">
                         <div id="author">
+                            {user && 
                             <p>{user.username}</p>
+                            }
                         </div>
                         <div id="follower-count">
                             <span className="material-symbols-rounded" id="profile-symbol-item">
                                 account_circle
-                            </span><p>420 followers</p> 
+                            </span>
+                            {user && 
+                                <p id="follower-count-real">{user.followers}</p>
+                                } 
+                            <p>followers</p> 
                         </div>
                     </div>
                     <LikeButton eventId={id}></LikeButton>

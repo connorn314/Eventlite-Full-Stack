@@ -45,6 +45,28 @@ class User < ApplicationRecord
     has_many :liked_events,
         through: :likes,
         source: :event
+
+    # relationships where someone has followed them
+    has_many :follows,
+        primary_key: :id,
+        foreign_key: :creator_id,
+        class_name: :Follow,
+        dependent: :destroy
+
+    has_many :followers,
+        through: :follows,
+        source: :follower
+
+    # relationships where they have started following someone
+    has_many :followings,
+        primary_key: :id,
+        foreign_key: :follower_id,
+        class_name: :Follow,
+        dependent: :destroy
+
+    has_many :creators_following,
+        through: :followings,
+        source: :creator
     
     def self.find_by_credentials(credential, password)
 

@@ -10,6 +10,7 @@ import * as sessionActions from './store/session';
 import * as eventActions from './store/event';
 import * as userActions from './store/user';
 import * as likeActions from './store/like';
+import * as followActions from './store/follow';
 
 const store = configureStore();
 
@@ -45,10 +46,12 @@ if (sessionStorage.getItem("currentUser") === null || sessionStorage.getItem("X-
   .then(store.dispatch(userActions.getUsersData()))
   .then(store.dispatch(eventActions.getEventsData()))
   .then(store.dispatch(likeActions.getUserLikes()))
+  .then(store.dispatch(followActions.getUserFollows()))
   .then(renderApplication);
 } else {
   store.dispatch(eventActions.getEventsData())
   .then(store.dispatch(userActions.getUsersData()))
   .then(store.dispatch(likeActions.getUserLikes()))
+  .then(store.dispatch(followActions.getUserFollows()))
   .then(renderApplication)  
 }

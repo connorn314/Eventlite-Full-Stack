@@ -52,7 +52,7 @@ const EventIndexPage = () => {
             <div id='index-display'>
                 {Object.values(events).map( (ev) => {
                     return (
-                        <EventIndexItem event={ev}/>
+                        <EventIndexItem event={ev} key={ev.id}/>
                     )
                 })}
             </div>

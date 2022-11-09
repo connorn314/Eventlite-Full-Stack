@@ -29,7 +29,7 @@ export const getUserLikes = () => async (dispatch) => {
     const response = await csrfFetch('/api/likes');
     const initialLikes = await response.json();
     dispatch(populateLikes(initialLikes));
-    return response
+    return response;
 }
 
 export const createLike = (like) => async (dispatch) => {
