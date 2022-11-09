@@ -23,6 +23,10 @@
     align-items: center; 
 }
 
+#user-info-display-container > div {
+    margin: 10px 0px;
+}
+
 #user-events-container {
     padding-left: 10%;
     padding-right: 10%;
@@ -33,7 +37,7 @@
 }
 
 #event-header {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Neue Plak,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,Helvetica,Tahoma,Arial,sans-serif;
     font-size: 26px;
     color: #1e0a3c;
 }
@@ -41,18 +45,19 @@
 #follow-button-user {
     background-color: #3150cc;
     color: white;
-    width: 127px;
+    width: auto;
     height: 44px;
     font-family: Arial, Helvetica, sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 5px;
+    border: 2px solid #3150cc;
 }
 
 #username-title {
     font-size: 30px;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-family: Neue Plak,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,Helvetica,Tahoma,Arial,sans-serif;
 }
 
 #total-events-and-followers {
@@ -61,6 +66,5 @@
     justify-content: center;
     align-items: center;
     color: #6F7287;
-    /* font-family: Arial, Helvetica, sans-serif; */
     font-family: Plak,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,Helvetica,Tahoma,Arial,sans-serif;
 }

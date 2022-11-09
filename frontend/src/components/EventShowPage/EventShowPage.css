@@ -25,7 +25,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Neue Plak,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,Helvetica,Tahoma,Arial,sans-serif;
 }
 
 #main-event-details-top > div {
@@ -120,7 +120,7 @@
 
 #event-title-big {
     font-size: 30px;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Neue Plak,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,Helvetica,Tahoma,Arial,sans-serif;
     font-weight: 600;
     color: #1A0E3C;
 }
@@ -257,4 +257,8 @@
 
 #date-and-time-info-small, #location-info-small {
     color: #6F7287;
+}
+
+#event-author {
+    font-family: Arial, Helvetica, sans-serif;
 }
