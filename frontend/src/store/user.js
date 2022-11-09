@@ -25,6 +25,7 @@ export const getUsersData = () => async (dispatch) => {
 }
 
 export const getOneUser = (userId) => async (dispatch) => {
+
     const response = await csrfFetch(`/api/users/${userId}`);
     const data = await response.json();
     dispatch(receiveUser(data));
@@ -33,6 +34,7 @@ export const getOneUser = (userId) => async (dispatch) => {
 
 const userReducer = (state = {}, action) => {
     let newState = { ...state }
+
     switch (action.type){
         case POPULATE_USERS:
             newState = { ...action.users }

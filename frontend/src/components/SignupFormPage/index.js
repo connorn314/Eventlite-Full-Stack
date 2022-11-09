@@ -40,7 +40,7 @@ const SignupFormPage = () => {
         <h1>Create an account</h1>
         <form onSubmit={handleSubmit}>
             <ul>
-                {errors.map(error => <li key={error}>{error}</li>)}
+                {/* {errors.map(error => <li key={error}>{error}</li>)} */}
             </ul>
             <TextField
                 label="Email address"

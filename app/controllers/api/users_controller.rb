@@ -17,7 +17,7 @@ class Api::UsersController < ApplicationController
 
     if @user.save
       login!(@user)
-      render 'api/session/show'
+      render 'api/sessions/show'
     else
       render json: { errors: @user.errors.full_messages }, status: :unprocessable_entity
     end
