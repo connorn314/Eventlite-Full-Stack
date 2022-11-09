@@ -26,3 +26,75 @@
     height: 725px;
     object-fit: cover;
 }
+
+
+#switcher-container {
+    margin-top: 20%
+}
+
+#form-switcher {
+    font-family: Neue Plak,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,Helvetica,Tahoma,Arial,sans-serif;
+    font-size: 14px;
+    color: #3659e3;
+}
+
+#form-switcher:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+#split-container {
+    padding-top: 35px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+#or-container {
+    width: 12%;
+    height: 24px;
+    border-color: #6f7287;
+    border-style: solid;
+    border-radius: 12px;
+    color: #6f7287;
+    font-family: Neue Plak,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,Helvetica,Tahoma,Arial,sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.side-lines {
+    width: 44%;
+    height: 5px;
+    border-style: solid;
+    border-left: 1px;
+    border-right: 1px;
+    border-top: 1px;
+    border-color: #6f7287;
+}
+
+#split-container {
+    width: 332px;
+}
+
+#demo-user-container {
+    margin-top: 35px;
+    width: 332px;
+    height: 44px;
+    border: .5px solid #6f7287;
+    border-radius: 2px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #39364f;
+    font-size: 16px;
+    font-family: Neue Plak,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,Helvetica,Tahoma,Arial,sans-serif;
+}
+
+#demo-user-container:hover {
+    cursor: pointer;
+    background-color: #f8f8fd;
+}

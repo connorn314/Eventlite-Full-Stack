@@ -17,7 +17,7 @@ const App = () => {
     <>
       <Navigation />
         <Switch>
-          <Route path="/signin">
+          <Route path="/signin/:formId">
             <EntryFormPage />
           </Route>
           <Route exact path="/users/:userId" component={UserShowPage} />

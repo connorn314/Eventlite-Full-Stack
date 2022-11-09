@@ -19,7 +19,7 @@ const SignupFormPage = () => {
         padding: '18px 12px 6px',
         backgroundColor: "white",
         border: '.5px solid rgb(188, 188, 188)',
-        borderRadius: '5px'
+        borderRadius: '2px'
     }
 
     const handleSubmit = (e) => {
@@ -65,7 +65,7 @@ const SignupFormPage = () => {
                         value={email}
                         onChange={(e) => setEmail(e.target.value)} 
                         />
-                    <br />
+                    <div className="spacer-container"/>
                     
                     <TextField
                         label="Username"
@@ -79,7 +79,8 @@ const SignupFormPage = () => {
                         value={username}
                         onChange={(e) => setUsername(e.target.value)}
                         />
-                    <br />
+                    <div className="spacer-container"/>
+
 
                     <TextField
                         label="Password"
@@ -94,10 +95,11 @@ const SignupFormPage = () => {
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                     />
-                    <br />
+                    <div className="spacer-container"/>
+
 
                     <TextField
-                        label="Password"
+                        label="Confirm password"
                         variant="filled"
                         className="user-input-box"
                         inputProps={{style}}

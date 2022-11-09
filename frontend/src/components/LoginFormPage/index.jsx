@@ -17,7 +17,7 @@ const LoginFormPage = () => {
         padding: '18px 12px 6px',
         backgroundColor: "white",
         border: '.5px solid rgb(188, 188, 188)',
-        borderRadius: '5px'
+        borderRadius: '2px'
     }
 
     const handleSubmit = (e) => {
@@ -65,7 +65,8 @@ const LoginFormPage = () => {
                         onChange={(e) => setCredential(e.target.value)}
                         required
                     />
-                    <br />
+                    <div className="spacer-container"/>
+
                     <TextField
                         label="Password"
                         variant="filled"

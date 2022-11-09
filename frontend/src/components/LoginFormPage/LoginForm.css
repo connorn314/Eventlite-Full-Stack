@@ -2,18 +2,16 @@
 #login-form {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    justify-content: center;
 }
 
-#switcher-container {
-    margin-top: 50%
-}
 
 .user-forms {
     display: flex;
     flex-direction: column;
     width: 332px;
-    color: white;
+    color: #1A0E3C;
+    font-family: Neue Plak,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,Helvetica,Tahoma,Arial,sans-serif;
 }
 
 .user-auth-titles {
@@ -35,4 +33,8 @@
 
 .user-auth-button:hover {
     background-color: #f05537;
+}
+
+.spacer-container {
+    height: 10px;
 }

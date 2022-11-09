@@ -22,11 +22,12 @@ const Navigation = () => {
 
     const handleLogin = () => {
         setShowMenu(false)
-        history.push('/signin')
+        history.push('/signin/2')
     };
 
     const handleSignup = () => {
-
+        setShowMenu(false)
+        history.push('/signin/1')
     };
 
     let sessionLinks;
