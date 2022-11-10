@@ -1,0 +1,30 @@
+#pp-page-container {
+    background-color: white;
+    display: flex;
+    justify-content: center;
+}
+
+#pp-content-container {
+    background-color: #f8f8fd;
+    width: 92%;
+    box-shadow: 0 2px 4px 0 rgba(222, 222, 222, 0.2), 0 3px 10px 0 rgba(114, 114, 114, 0.19);
+    display: grid;
+}
+
+#profile-details-container {
+    padding-bottom: 200px;
+}
+
+#personal-activity-container {
+    display: grid;
+    grid-template-columns: 35% 65%;
+    padding-bottom: 200px;
+}
+
+#personal-cont {
+    grid-column-start: 1;
+}
+
+#activities-cont {
+    grid-column-start: 2;
+}

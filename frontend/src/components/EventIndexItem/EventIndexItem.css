@@ -23,8 +23,10 @@
 }
 
 #event-start-time {
-    font-size:  14px;
-    font-weight: 600;
+    font-family: Neue Plak,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,Helvetica,Tahoma,Arial,sans-serif;
+    font-size: .875rem;
+    line-height: 1.25rem;
+    font-weight: 500;
     color: #d1410c;
 }
 
@@ -37,8 +39,10 @@
     display: flex;
     flex-direction: column;
     padding-bottom: 0px;
-    font-size: 14px;
-    font-weight: 600;
+    font-family: Neue Plak,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,Helvetica,Tahoma,Arial,sans-serif;
+    font-size: .675rem;
+    line-height: 1.25rem;
+    font-weight: 500;
     color: #39364f;
 }
 
@@ -60,7 +64,7 @@
 }
 
 #event-container:hover {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 0 2px 4px 0 rgba(222, 222, 222, 0.2), 0 3px 10px 0 rgba(114, 114, 114, 0.19);
 }
 
 #event-container:hover #event-thumbnail {

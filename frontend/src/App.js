@@ -11,6 +11,7 @@ import Footer from './components/Footer';
 import EventFormEdit from './components/EventFormEdit';
 import LikedPage from './components/LikedPage';
 import UserShowPage from './components/UserShowPage';
+import UserPersonalProfilePage from './components/UserPersonalProfilePage';
 
 const App = () => {
   return (
@@ -27,6 +28,7 @@ const App = () => {
             <EventShowPage />
           </Route>
           <Route exact path="/likes" component={LikedPage}/>
+          <Route exact path="/profile" component={UserPersonalProfilePage} />
           <Route path="/">
             <div id='landing-page-container'>
               <div id='landing-page-image' >

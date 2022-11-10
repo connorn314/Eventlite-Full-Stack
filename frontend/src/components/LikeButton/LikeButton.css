@@ -10,7 +10,10 @@
 
 #unlike-icon-button:hover {
     color: #f05537;
-    
+}
+
+#like-icon-button {
+    font-weight: 600;
 }
 
 #button-not-liked-container, #button-liked-container {

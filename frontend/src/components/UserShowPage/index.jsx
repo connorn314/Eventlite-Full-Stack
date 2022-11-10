@@ -1,12 +1,12 @@
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import './UserShowPage.css'
-import * as userActions from '../../store/user'
-import * as eventActions from '../../store/event'
-import * as followActions from '../../store/follow'
+import './UserShowPage.css';
+import * as userActions from '../../store/user';
+// import * as eventActions from '../../store/event'
+// import * as followActions from '../../store/follow'
 import { useDispatch, useSelector } from 'react-redux';
 import EventIndexItem from '../EventIndexItem';
-import FollowButton from '../FollowButton/index'
+import FollowButton from '../FollowButton/index';
 
 
 const UserShowPage = () => {

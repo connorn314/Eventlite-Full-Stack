@@ -32,9 +32,9 @@ const LikeButton = ({eventId}) => {
         </div>
     )
     return (
-        <div>
-            {buttonDisplay}
-        </div>
+        <>
+        {buttonDisplay}
+        </>
     )
 }
 

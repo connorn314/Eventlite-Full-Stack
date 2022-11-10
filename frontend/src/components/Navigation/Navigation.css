@@ -13,6 +13,9 @@ img {
     flex-direction: row;
     justify-content: space-between;
     z-index: 3;
+    border-bottom: 1px;
+    border-color: rgb(226, 226, 226);
+    border-style: solid;
 }
 
 #nav-right {

@@ -1,0 +1,16 @@
+#likes-index-container {
+    padding: 0px 24px;
+    background-color: white;
+}
+
+#likes-header-container {
+    padding-top: 104px;
+    padding-bottom: 32px;
+    font-family: Neue Plak,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,Helvetica,Tahoma,Arial,sans-serif;
+    font-size: 28px;
+    font-weight: 900;
+}
+
+#liked-events-container {
+    padding-bottom: 30%;
+}

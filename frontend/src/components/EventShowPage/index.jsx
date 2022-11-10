@@ -1,20 +1,23 @@
 import React, { useEffect, useState } from "react";
 import * as eventActions from '../../store/event';
+import * as userActions from '../../store/user';
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, useHistory, NavLink } from "react-router-dom";
-import './EventShowPage.css'
-import backGroundImage from "../../showpage.png"
+import './EventShowPage.css';
+import backGroundImage from "../../showpage.png";
 import LikeButton from "../LikeButton";
 import FollowButton from "../FollowButton";
 
 const EventShowPage = () => {
 
+    const { eventId } = useParams();
     const dispatch = useDispatch();
     const history = useHistory();
     const sessionUser = useSelector(state => state.session.user)
-    const { eventId } = useParams();
     const showEvent = useSelector(state => state.events[eventId]);
     const author = useSelector(state => state.user[showEvent.authorId])
+    const follows = useSelector(state => state.follows)
+    const followers = author && author.followers ? author.followers : null
     let correctId = false
     if (author){
         correctId = (sessionUser && (sessionUser.id === showEvent.authorId));
@@ -24,6 +27,12 @@ const EventShowPage = () => {
     useEffect(() => {
         dispatch(eventActions.getOneEvent(eventId))
     }, [])
+
+    useEffect(() => {
+        if (author){
+            dispatch(userActions.getOneUser(parseInt(author.id)))
+        }
+    }, [follows])
 
     const formatDate = (dateTime) => {
         let change = new Date(dateTime)
@@ -50,7 +59,7 @@ const EventShowPage = () => {
         </div>
         <div id="follow-cont">
             <div id="follower-information">
-                420 followers
+                {followers} followers
             </div>
             <div id="button-contain">
                 {author && (

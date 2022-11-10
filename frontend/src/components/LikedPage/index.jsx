@@ -2,7 +2,8 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import './LikedPage.css'
 import * as likeActions from '../../store/like';
-import EventIndexItem from '../EventIndexItem';
+// import EventIndexItem from '../EventIndexItem';
+import LikedIndexItem from '../LikedIndexItem';
 
 
 const LikedPage = () => {
@@ -23,10 +24,7 @@ const LikedPage = () => {
             <div id='liked-events-container'>
                 {Object.values(likes).map(like => {
                     return (
-                    <div>like id: {like.id} 
-                        <div><EventIndexItem event={events[like.eventId]}></EventIndexItem></div>
-                    </div>
-
+                        <div><LikedIndexItem event={events[like.eventId]} /></div>
                 )})}
             </div>
         </div>
