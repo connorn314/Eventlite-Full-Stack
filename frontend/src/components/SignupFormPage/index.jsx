@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import * as sessionActions from "../../store/session";
 import './SignupForm.css'
-import '../LoginFormPage/LoginForm.css'
 import{ Backdrop, TextField, withTheme } from '@mui/material'
 import { color } from "@mui/system";
 

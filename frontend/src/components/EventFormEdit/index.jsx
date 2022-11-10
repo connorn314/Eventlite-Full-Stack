@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import { useState } from "react";
 import { TextField } from "@mui/material";
-import '../EventFormCreate/EventFormCreate.css'
+
 
 
 const EventFormEdit = () => {

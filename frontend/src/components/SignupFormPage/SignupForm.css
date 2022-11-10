@@ -4,3 +4,37 @@
     flex-direction: column;
     justify-content: center;
 }
+
+
+.user-forms {
+    display: flex;
+    flex-direction: column;
+    width: 332px;
+    color: #1A0E3C;
+    font-family: Neue Plak,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,Helvetica,Tahoma,Arial,sans-serif;
+}
+
+.user-auth-titles {
+    font-size: 30px;
+    font-family: Neue Plak,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,Helvetica,Tahoma,Arial,sans-serif;
+}
+
+.user-auth-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Neue Plak,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,Helvetica,Tahoma,Arial,sans-serif;
+    font-size: 14px;
+    background-color: #d1410c;
+    color: white;
+    height: 44px;
+    border-radius: 5px;
+}
+
+.user-auth-button:hover {
+    background-color: #f05537;
+}
+
+.spacer-container {
+    height: 10px;
+}
