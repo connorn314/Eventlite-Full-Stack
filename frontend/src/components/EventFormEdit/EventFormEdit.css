@@ -1,0 +1,25 @@
+#edit-event-page-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+}
+
+#edit-event-page {
+    width: 70%;
+    padding-top: 20px;
+    padding-bottom: 200px;
+    font-family: Neue Plak,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,Helvetica,Tahoma,Arial,sans-serif;
+}
+
+#edit-form-container {
+    display: grid;
+    grid-template-columns: 10% 80% 10%;
+}
+
+#edit-event-form-actual {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}

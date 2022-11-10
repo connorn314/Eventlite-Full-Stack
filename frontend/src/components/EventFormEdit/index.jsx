@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import { useState } from "react";
 import { TextField } from "@mui/material";
+import './EventFormEdit.css'
 
 
 
@@ -45,6 +46,20 @@ const EventFormEdit = () => {
         setPhotoFile(file);
     }
 
+    const handleDiscard = (e) => {
+        e.preventDefault();
+        history.push('/')
+    }
+
+    const style = {
+        height: 28,
+        padding: '18px 12px 6px',
+        backgroundColor: "white",
+        border: '.5px solid rgb(188, 188, 188)',
+        borderRadius: '2px',
+        fontSize: '14px'
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault();
         setErrors([]);
@@ -81,86 +96,200 @@ const EventFormEdit = () => {
     
     return (
         <div id="edit-event-page-container">
-            <div id="Edit-event-page">
-                <h2>Edit Event:</h2>
-                <form onSubmit={handleSubmit}>
-                    <ul>
-                        {Object.values(errors).flat().map(error => <li key={error}>{error}</li>)}
-                    </ul>
-                    <label>
-                        Basic info
-                        <br />
-                        <label>
-                            Event Title:
-                            <input 
-                                type="text"
-                                onChange={(e) => setTitle(e.target.value)}
-                                value={title}
-                            />
-                        </label>
-                        <br />
-                        <label>
-                            Event Description:
-                            <input 
-                                type="text"
-                                onChange={(e) => setDescription(e.target.value)}
-                                value={description}
-                            />
-                        </label>
-                    </label>
-                    <br />
-                    <br />
-                    <label>
-                        Location
-                        <input 
+            <div id="edit-event-page">
+                <h2 className="form-title-black">Edit Event</h2>
+                <ul>
+                    {Object.values(errors).flat().map(error => <li key={error}>{error}</li>)}
+                </ul>
+                <div id="edit-form-container">
+                    <div className="icon-container">
+                        <div id="basic-info-icon-container" >
+                            <span class="material-symbols-outlined" id="basic-info-icon">docs_add_on</span>
+                        </div>
+                        <div id="location-icon-container-small">
+                            <span class="material-symbols-outlined" id="location-icon-small">map</span>
+                        </div>
+                        <div id="date-time-icon-container">
+                            <span class="material-symbols-outlined" id="date-time-icon">calendar_month</span>
+                        </div>
+                        <div id="add-photo-icon-container">
+                            <span class="material-symbols-outlined" id="add-photo-icon">image</span>
+                        </div>
+                    </div>
+                    <form onSubmit={handleSubmit} id="edit-event-form-actual">
+                        <div id="basic-info-edit-container" className="form-block">
+                            <div id="basic-info-edit-header" className="details-block">
+                                <div id="bi-edit-header" className="header-block">
+                                    Basic info
+                                </div>
+                                <div id="bi-sub-edit-header" className="sub-header-block">
+                                    Name your event and tell event-goers why they should come. Add details that highlight what makes it unique.
+                                </div>
+                            </div>
+                        </div>
+
+                        <TextField
+                            label="Event title"
+                            variant="filled"
+                            placeholder="Be clear and descriptive"
+                            inputProps={{style}}
+                            InputProps={{disableUnderline: true}}
+                            InputLabelProps={{ shrink: true }}
                             type="text"
-                            onChange={(e) => setLocation(e.target.value)}
-                            value={location}
-                        />
-                    </label>
-                    <br />
-                    <br />
-                    <label>
-                        Date and time
-                        <br />
-                        <label>
-                            Event Starts:
-                            <input 
-                                type="date"
-                                onChange={(e) => setStartDate(e.target.value)}
-                                value={startDate}
+                            onChange={(e) => setTitle(e.target.value)}
+                            value={title}
+                            required
                             />
-                            <input 
-                                type="time"
-                                onChange={(e) => setStartTime(e.target.value)}
-                                value={startTime} />
-                        </label>
                         <br />
-                        <label>
-                            Event Ends:
-                            <input 
+                        <TextField
+                            label="Event Summary"
+                            variant="filled"
+                            placeholder="Be clear and descriptive"
+                            inputProps={{style}}
+                            InputProps={{disableUnderline: true}}
+                            InputLabelProps={{ shrink: true }}
+                            type="text"
+                            onChange={(e) => setDescription(e.target.value)}
+                            value={description}
+                            required
+                            />
+                        <br />
+                        <br />
+                        <div id="location-edit-container" className="form-block">
+                            <div id="location-edit-header" className="details-block">
+                                <div id="loaction-edit-header" className="header-block">
+                                    Location
+                                </div>
+                                <div id="loaction-sub-edit-header" className="sub-header-block">
+                                    Help people in the area discover your event and let attendees know where to show up.
+                                </div>
+                            </div>
+                        </div>
+                        <TextField
+                                label="Location"
+                                variant="filled"
+                                placeholder="Enter a venue or address"
+                                inputProps={{style}}
+                                InputProps={{disableUnderline: true}}
+                                InputLabelProps={{ shrink: true }}
+                                type="text"
+                                onChange={(e) => setLocation(e.target.value)}
+                                value={location}
+                                required
+                                />
+                        <br />
+                        <br />
+                        <div id="date-time-edit-container" className="form-block">
+                            <div id="date-time-edit-header" className="details-block">
+                                <div id="date-time-edit-header" className="header-block">
+                                    Date and time
+                                </div>
+                                <div id="date-time-edit-sub-header" className="sub-header-block">
+                                    Tell event-goers when your event starts and ends so they can make plans to attend.
+                                </div>
+                            </div>
+                        </div>
+                        <div className="date-time-block">
+                            <TextField
+                                label="Event Starts"
+                                variant="filled"
+                                placeholder="Enter a venue or address"
+                                inputProps={{style}}
+                                InputProps={{disableUnderline: true}}
+                                sx={{width: '49.5%'}}
+                                InputLabelProps={{ shrink: true }}
+                                type="date"
+                                onChange={(e) => {setStartDate(e.target.value)}}
+                                value={startDate}
+                                required
+                                />
+
+                            <TextField
+                                label="Start Time"
+                                variant="filled"
+                                placeholder="Enter a venue or address"
+                                inputProps={{style}}
+                                InputProps={{disableUnderline: true}}
+                                sx={{width: '49.5%'}}
+                                InputLabelProps={{ shrink: true }}
+                                type="time"
+                                onChange={(e) => {setStartTime(e.target.value)}}
+                                value={startTime}
+                                required
+                                />
+                        </div>
+                        <br />
+                        <div className="date-time-block">
+                            <TextField
+                                label="Event Ends"
+                                variant="filled"
+                                placeholder="Enter a venue or address"
+                                inputProps={{style}}
+                                InputProps={{disableUnderline: true}}
+                                sx={{width: '49.5%'}}
+                                InputLabelProps={{ shrink: true }}
                                 type="date"
                                 onChange={(e) => setEndDate(e.target.value)}
                                 value={endDate}
-                            />
-                            <input 
+                                required
+                                />
+                            <TextField
+                                label="End Time"
+                                variant="filled"
+                                placeholder="Enter a venue or address"
+                                inputProps={{style}}
+                                InputProps={{disableUnderline: true}}
+                                sx={{width: '49.5%'}}
+                                InputLabelProps={{ shrink: true }}
                                 type="time"
                                 onChange={(e) => setEndTime(e.target.value)}
-                                value={endTime} />
-                        </label>
-                    </label>
-                    <br />
-                    <br />
-                    <label>
-                        Add a photo:
-                        <input 
-                            type="file"
-                            onChange={handleFile} />
-                    </label>
-                    <br />
-                    <br />
-                    <button type="submit">Edit Event</button>
-                </form>
+                                value={endTime}
+                                required
+                                />
+                        </div>  
+                        <br />
+                        <br />
+                        <div id="create-photo-edit-container" className="form-block">
+                            <div id="create-photo-edit-header" className="details-block">
+                                <div id="create-photo-edit-header" className="header-block">
+                                    Main event image
+                                </div>
+                                <div id="create-photo-edit-sub-header" className="sub-header-block">
+                                This is the image attendees will see at the top of your listing.
+                                </div>
+                            </div>
+                        </div>
+                        <TextField
+                                label="Select Image from Computer"
+                                variant="filled"
+                                placeholder="Enter a venue or address"
+                                inputProps={
+                                    {
+                                        height: 60,
+                                        padding: '18px 12px 6px',
+                                        backgroundColor: "white",
+                                        border: '.5px solid rgb(188, 188, 188)',
+                                        borderRadius: '2px',
+                                        fontSize: '14px'
+                                    }
+                                }
+                                InputProps={{disableUnderline: true}}
+                                sx={{width: '60%'}}
+                                InputLabelProps={{ shrink: true }}
+                                type="file"
+                                onChange={handleFile}
+                                
+                                />
+                        <br />
+                        <br />
+                        <div className="buttons-container">
+                            <div className="discard-button" onClick={handleDiscard}>
+                                Discard
+                            </div>
+                            <button type="submit" className="form-submit-button">Edit Event</button>
+                        </div>
+                    </form>
+                </div>
             </div>        
         </div>
     )
