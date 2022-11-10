@@ -1,4 +1,10 @@
+#create-event-page-container, #edit-event-page-container {
+    background-color: white;
+}
+
 #create-event-page {
     width: 100%;
+    padding-top: 20px;
     padding-bottom: 200px;
+    font-family: Neue Plak,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,Helvetica,Tahoma,Arial,sans-serif;
 }

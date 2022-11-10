@@ -3,7 +3,8 @@ import * as eventActions from "../../store/event";
 import { useDispatch, useSelector } from "react-redux"; 
 import { useHistory, useParams } from "react-router-dom";
 import { useState } from "react";
-import './EventFormEdit.css'
+import { TextField } from "@mui/material";
+import '../EventFormCreate/EventFormCreate.css'
 
 
 const EventFormEdit = () => {
@@ -79,89 +80,89 @@ const EventFormEdit = () => {
     }
     
     return (
-        <>
-        <div id="Edit-event-page">
-            <h2>Edit Event:</h2>
-            <form onSubmit={handleSubmit}>
-                <ul>
-                    {Object.values(errors).flat().map(error => <li key={error}>{error}</li>)}
-                </ul>
-                <label>
-                    Basic info
+        <div id="edit-event-page-container">
+            <div id="Edit-event-page">
+                <h2>Edit Event:</h2>
+                <form onSubmit={handleSubmit}>
+                    <ul>
+                        {Object.values(errors).flat().map(error => <li key={error}>{error}</li>)}
+                    </ul>
+                    <label>
+                        Basic info
+                        <br />
+                        <label>
+                            Event Title:
+                            <input 
+                                type="text"
+                                onChange={(e) => setTitle(e.target.value)}
+                                value={title}
+                            />
+                        </label>
+                        <br />
+                        <label>
+                            Event Description:
+                            <input 
+                                type="text"
+                                onChange={(e) => setDescription(e.target.value)}
+                                value={description}
+                            />
+                        </label>
+                    </label>
+                    <br />
                     <br />
                     <label>
-                        Event Title:
+                        Location
                         <input 
                             type="text"
-                            onChange={(e) => setTitle(e.target.value)}
-                            value={title}
+                            onChange={(e) => setLocation(e.target.value)}
+                            value={location}
                         />
                     </label>
                     <br />
-                    <label>
-                        Event Description:
-                        <input 
-                            type="text"
-                            onChange={(e) => setDescription(e.target.value)}
-                            value={description}
-                        />
-                    </label>
-                </label>
-                <br />
-                <br />
-                <label>
-                    Location
-                    <input 
-                        type="text"
-                        onChange={(e) => setLocation(e.target.value)}
-                        value={location}
-                    />
-                </label>
-                <br />
-                <br />
-                <label>
-                    Date and time
                     <br />
                     <label>
-                        Event Starts:
-                        <input 
-                            type="date"
-                            onChange={(e) => setStartDate(e.target.value)}
-                            value={startDate}
-                        />
-                        <input 
-                            type="time"
-                            onChange={(e) => setStartTime(e.target.value)}
-                            value={startTime} />
+                        Date and time
+                        <br />
+                        <label>
+                            Event Starts:
+                            <input 
+                                type="date"
+                                onChange={(e) => setStartDate(e.target.value)}
+                                value={startDate}
+                            />
+                            <input 
+                                type="time"
+                                onChange={(e) => setStartTime(e.target.value)}
+                                value={startTime} />
+                        </label>
+                        <br />
+                        <label>
+                            Event Ends:
+                            <input 
+                                type="date"
+                                onChange={(e) => setEndDate(e.target.value)}
+                                value={endDate}
+                            />
+                            <input 
+                                type="time"
+                                onChange={(e) => setEndTime(e.target.value)}
+                                value={endTime} />
+                        </label>
                     </label>
                     <br />
+                    <br />
                     <label>
-                        Event Ends:
+                        Add a photo:
                         <input 
-                            type="date"
-                            onChange={(e) => setEndDate(e.target.value)}
-                            value={endDate}
-                        />
-                        <input 
-                            type="time"
-                            onChange={(e) => setEndTime(e.target.value)}
-                            value={endTime} />
+                            type="file"
+                            onChange={handleFile} />
                     </label>
-                </label>
-                <br />
-                <br />
-                <label>
-                    Add a photo:
-                    <input 
-                        type="file"
-                        onChange={handleFile} />
-                </label>
-                <br />
-                <br />
-                <button type="submit">Edit Event</button>
-            </form>
-        </div>        
-        </>
+                    <br />
+                    <br />
+                    <button type="submit">Edit Event</button>
+                </form>
+            </div>        
+        </div>
     )
 };
 
