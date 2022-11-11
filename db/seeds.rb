@@ -144,7 +144,101 @@ event4 = Event.create!(
 chocolate_pic = URI.open('https://eventlite-connor-seeds.s3.us-west-1.amazonaws.com/chocolate+copy.png')
 event4.photo.attach(io: chocolate_pic, filename: 'chocolate_pic.png')
 
+event5 = Event.create!(
+    author_id: 9, 
+    title: "SF's Novemberfest Beer & Comedy Festival 2022 at Speakeasy Brewery", 
+    description: "San Francisco's iconic Speakeasy Brewery throws open its doors for a month-long pop-up indoor/outdoor comedy fest w/ $5 pints & rare flavors",
+    location: "Speakeasy Ales & Lagers, San Francisco",
+    start_date: '2022-11-11 20:00:00',
+    end_date: '2022-11-18 20:00:00'
+)
 
+november_fest = URI.open('https://eventlite-connor-seeds.s3.us-west-1.amazonaws.com/Screen+Shot+2022-11-11+at+8.23.59+AM.png')
+event5.photo.attach(io: november_fest, filename: 'november_fest.png')
+
+event6 = Event.create!(
+    author_id: 5, 
+    title: 'Career Fair: Exclusive Tech Hiring Event', 
+    description: "Tech Career Fair focus on helping companies achieve their diversity and inclusivity initiative with more diverse non-traditional candidates",
+    location: 'Moved to Virtual Event, San Francisco',
+    start_date: '2022-12-16 09:00:00',
+    end_date: '2022-12-16 12:00:00'
+)
+
+tech_hire = URI.open('https://eventlite-connor-seeds.s3.us-west-1.amazonaws.com/Screen+Shot+2022-11-11+at+8.31.10+AM.png')
+event6.photo.attach(io: tech_hire, filename: 'tech_hire.png')
+
+event7 = Event.create!(
+    author_id: 4, 
+    title: 'SET w/ JOHN DIGWEED (Bedrock) + KORA (Saisons/Anjunadeep)', 
+    description: "SET Underground returns to Public Works with our good friends John Digweed & Kora",
+    location: 'Public Works SF, San Francisco',
+    start_date: '2022-12-03 22:00:00',
+    end_date: '2022-12-04 04:00:00'
+)
+
+digweed = URI.open('https://eventlite-connor-seeds.s3.us-west-1.amazonaws.com/Screen+Shot+2022-11-11+at+8.34.58+AM.png')
+event7.photo.attach(io: digweed, filename: 'digweed.png')
+
+event8 = Event.create!(
+    author_id: 9, 
+    title: 'Sweater-Con 2022: Ugly Sweater Pub Crawl', 
+    description: "The Official San Francisco Ugly Sweater Pub Crawl",
+    location: 'Mayes Oyster House, San Francisco',
+    start_date: '2022-12-03 16:00:00',
+    end_date: '2022-12-03 22:00:00'
+)
+
+sweater_con = URI.open('https://eventlite-connor-seeds.s3.us-west-1.amazonaws.com/Screen+Shot+2022-11-11+at+8.38.18+AM.png')
+event8.photo.attach(io: sweater_con, filename: 'sweater_con.png')
+
+# event9 = Event.create!(
+#     author_id: 2, 
+#     title: 'Fall Holiday CHOCOLATE SALON 2022', 
+#     description: 'Discover, taste and savor the finest in artisan, gourmet and premium chocolates & confections for the Season and the Holidays.',
+#     location: 'San Francisco County Fair Building, San Francisco',
+#     start_date: '2022-11-20 11:00:00',
+#     end_date: '2022-11-29 16:30:00'
+# )
+
+# chocolate_pic = URI.open('https://eventlite-connor-seeds.s3.us-west-1.amazonaws.com/chocolate+copy.png')
+# event9.photo.attach(io: chocolate_pic, filename: 'chocolate_pic.png')
+
+# event10 = Event.create!(
+#     author_id: 2, 
+#     title: 'Fall Holiday CHOCOLATE SALON 2022', 
+#     description: 'Discover, taste and savor the finest in artisan, gourmet and premium chocolates & confections for the Season and the Holidays.',
+#     location: 'San Francisco County Fair Building, San Francisco',
+#     start_date: '2022-11-20 11:00:00',
+#     end_date: '2022-11-29 16:30:00'
+# )
+
+# chocolate_pic = URI.open('https://eventlite-connor-seeds.s3.us-west-1.amazonaws.com/chocolate+copy.png')
+# event10.photo.attach(io: chocolate_pic, filename: 'chocolate_pic.png')
+
+# event11 = Event.create!(
+#     author_id: 2, 
+#     title: 'Fall Holiday CHOCOLATE SALON 2022', 
+#     description: 'Discover, taste and savor the finest in artisan, gourmet and premium chocolates & confections for the Season and the Holidays.',
+#     location: 'San Francisco County Fair Building, San Francisco',
+#     start_date: '2022-11-20 11:00:00',
+#     end_date: '2022-11-29 16:30:00'
+# )
+
+# chocolate_pic = URI.open('https://eventlite-connor-seeds.s3.us-west-1.amazonaws.com/chocolate+copy.png')
+# event11.photo.attach(io: chocolate_pic, filename: 'chocolate_pic.png')
+
+# event12 = Event.create!(
+#     author_id: 2, 
+#     title: 'Fall Holiday CHOCOLATE SALON 2022', 
+#     description: 'Discover, taste and savor the finest in artisan, gourmet and premium chocolates & confections for the Season and the Holidays.',
+#     location: 'San Francisco County Fair Building, San Francisco',
+#     start_date: '2022-11-20 11:00:00',
+#     end_date: '2022-11-29 16:30:00'
+# )
+
+# chocolate_pic = URI.open('https://eventlite-connor-seeds.s3.us-west-1.amazonaws.com/chocolate+copy.png')
+# event12.photo.attach(io: chocolate_pic, filename: 'chocolate_pic.png')
 
 puts "Creating likes..."
 
