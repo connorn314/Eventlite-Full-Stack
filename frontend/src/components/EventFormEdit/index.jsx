@@ -1,24 +1,26 @@
-import React from "react";
+import React, { useEffect } from "react";
 import * as eventActions from "../../store/event";
 import { useDispatch, useSelector } from "react-redux"; 
 import { useHistory, useParams } from "react-router-dom";
 import { useState } from "react";
 import { TextField } from "@mui/material";
 import './EventFormEdit.css'
+import { Redirect } from "react-router-dom";
 
 
 
 const EventFormEdit = () => {
     const dispatch = useDispatch();
     let history = useHistory();
+    const sessionUser = useSelector(state => state.session.user)
     const { eventId } = useParams();
     const eventEdit = useSelector(state => state.events[eventId])
     const [errors, setErrors] = useState([])
     const [title, setTitle] = useState(eventEdit.title);
-    const [description, setDescription] = useState(eventEdit.description);
     const [location, setLocation] = useState(eventEdit.location);
     const strt = new Date(eventEdit.startDate)
-    const endD = new Date(eventEdit.endDate)
+    let endD = new Date(eventEdit.endDate)
+    const [description, setDescription] = useState("");
 
     const twoDigits = (num) => {
         if (num < 10) {
@@ -41,6 +43,15 @@ const EventFormEdit = () => {
     const [endTime, setEndTime] = useState(formatTime(endD));
     const [photoFile, setPhotoFile] = useState(null);
     
+
+    useEffect(() => {
+        dispatch(eventActions.getOneEvent(eventId))
+        .then(data => {
+            setDescription(Object.values(data)[0].description)
+        })
+    }, [])
+
+
     const handleFile = (e) => {
         const file = e.currentTarget.files[0];
         setPhotoFile(file);
@@ -93,6 +104,8 @@ const EventFormEdit = () => {
             else setErrors([res.statusText]);
         })
     }
+
+    if (!sessionUser) return <Redirect to="/" />;
     
     return (
         <div id="edit-event-page-container">
@@ -141,18 +154,21 @@ const EventFormEdit = () => {
                             required
                             />
                         <br />
-                        <TextField
-                            label="Event Summary"
-                            variant="filled"
-                            placeholder="Be clear and descriptive"
-                            inputProps={{style}}
-                            InputProps={{disableUnderline: true}}
-                            InputLabelProps={{ shrink: true }}
-                            type="text"
-                            onChange={(e) => setDescription(e.target.value)}
-                            value={description}
-                            required
-                            />
+                        {description && (
+                            <TextField
+                                label="Event Summary"
+                                variant="filled"
+                                placeholder="Be clear and descriptive"
+                                inputProps={{style}}
+                                InputProps={{disableUnderline: true}}
+                                InputLabelProps={{ shrink: true }}
+                                type="text"
+                                onChange={(e) => setDescription(e.target.value)}
+                                value={description}
+                                required
+                                />
+
+                        )}
                         <br />
                         <br />
                         <div id="location-edit-container" className="form-block">
@@ -219,34 +235,36 @@ const EventFormEdit = () => {
                                 />
                         </div>
                         <br />
-                        <div className="date-time-block">
-                            <TextField
-                                label="Event Ends"
-                                variant="filled"
-                                placeholder="Enter a venue or address"
-                                inputProps={{style}}
-                                InputProps={{disableUnderline: true}}
-                                sx={{width: '49.5%'}}
-                                InputLabelProps={{ shrink: true }}
-                                type="date"
-                                onChange={(e) => setEndDate(e.target.value)}
-                                value={endDate}
-                                required
-                                />
-                            <TextField
-                                label="End Time"
-                                variant="filled"
-                                placeholder="Enter a venue or address"
-                                inputProps={{style}}
-                                InputProps={{disableUnderline: true}}
-                                sx={{width: '49.5%'}}
-                                InputLabelProps={{ shrink: true }}
-                                type="time"
-                                onChange={(e) => setEndTime(e.target.value)}
-                                value={endTime}
-                                required
-                                />
-                        </div>  
+                        {endD != strt && (
+                            <div className="date-time-block">
+                                <TextField
+                                    label="Event Ends"
+                                    variant="filled"
+                                    placeholder="Enter a venue or address"
+                                    inputProps={{style}}
+                                    InputProps={{disableUnderline: true}}
+                                    sx={{width: '49.5%'}}
+                                    InputLabelProps={{ shrink: true }}
+                                    type="date"
+                                    onChange={(e) => setEndDate(e.target.value)}
+                                    value={endDate}
+                                    required
+                                    />
+                                <TextField
+                                    label="End Time"
+                                    variant="filled"
+                                    placeholder="Enter a venue or address"
+                                    inputProps={{style}}
+                                    InputProps={{disableUnderline: true}}
+                                    sx={{width: '49.5%'}}
+                                    InputLabelProps={{ shrink: true }}
+                                    type="time"
+                                    onChange={(e) => setEndTime(e.target.value)}
+                                    value={endTime}
+                                    required
+                                    />
+                            </div>  
+                        )}
                         <br />
                         <br />
                         <div id="create-photo-edit-container" className="form-block">

@@ -22,8 +22,11 @@ export const getEventsData = () => async (dispatch) => {
 export const getOneEvent = (eventId) => async (dispatch) => {
     const response = await csrfFetch(`/api/events/${eventId}`);
     const data = await response.json();
-    dispatch(receiveEvent(data))
-    return response
+    if (response.ok){
+        dispatch(receiveEvent(data))
+        return data;
+    }
+    return response;
 }
 
 

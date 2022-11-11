@@ -1,0 +1,73 @@
+#user-events-index-page-container {
+    display: flex;
+    justify-content: center;
+    background-color: white;
+}
+
+#user-events-index-container {
+    width: 60%;
+    padding-top: 100px;
+    padding-bottom: 200px;
+    font-family: Neue Plak,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,Helvetica,Tahoma,Arial,sans-serif;
+}
+
+#user-events-header {
+    color: #1A0E3C;
+    font-size: 50px;
+    font-weight: 900;
+}
+
+#my-events-table-container {
+    padding: 50px 0px;
+}
+
+#top-level-container {
+    background-color: #f8f7fa;
+    border-radius: 5px;
+}
+
+#column-name-container {
+    padding: 18px 27px;
+    width: 85%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: #39364f;
+    font-size: 14px;
+}
+
+.table-item-container {
+    display: grid;
+    grid-template-columns: 96% 4%;
+    padding: 15px;
+}
+
+.table-item-container:hover {
+    cursor: pointer;
+    box-shadow: 0 2px 4px 0 rgba(222, 222, 222, 0.2), 0 3px 10px 0 rgba(114, 114, 114, 0.19);
+}
+
+.left-info-container {
+    grid-column-start: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.right-edit-container {
+    grid-column-start: 2;
+}
+
+.event-detail-column-item {
+    font-size: .875rem;
+    line-height: 1.25rem;
+}
+
+.title-mine {
+    padding-bottom: 5px;
+}
+
+.other-mine {
+    font-size: 13px;
+    color: #6f7287;
+}

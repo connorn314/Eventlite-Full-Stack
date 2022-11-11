@@ -30,7 +30,7 @@ const ProfileButton = (props) => {
         {showMenu && (
             <div id="profile-dropdown-list">
                 <div className="drop-item" onClick={() => history.push('/')}>Browse events</div>
-                <div className="drop-item" id="border">Manage my events</div>
+                <div className="drop-item" id="border" onClick={() => history.push('/manage/events')}>Manage my events</div>
                 <div className="drop-item">Tickets (0)</div>
                 <div className="drop-item" onClick={() => history.push('/likes')}>Liked</div>
                 <div className="drop-item" id="border" onClick={() => history.push('/profile')}>Following</div>

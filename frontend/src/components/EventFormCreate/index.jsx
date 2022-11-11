@@ -5,12 +5,14 @@ import { useHistory } from "react-router-dom";
 import { useState } from "react";
 import { TextField } from "@mui/material";
 import './EventFormCreate.css'
+import { Redirect } from "react-router-dom";
 
 
 const EventFormCreate = () => {
     const dispatch = useDispatch();
     let history = useHistory();
-    const [errors, setErrors] = useState([])
+    const sessionUser = useSelector(state => state.session.user);
+    const [errors, setErrors] = useState([]);
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
     const [location, setLocation] = useState("");
@@ -71,6 +73,7 @@ const EventFormCreate = () => {
             else setErrors([res.statusText]);
         })
     }
+    if (!sessionUser) return <Redirect to="/" />;
     
     return (
         <div id="create-event-page-container">

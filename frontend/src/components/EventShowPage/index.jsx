@@ -90,7 +90,7 @@ const EventShowPage = () => {
                     <div id="edit-your-event-message">
                         You are the owner of this event.
 
-                        Do you want to make some changes? <button onClick={() => history.push(`/events/${showEvent.id}/edit`)}>Edit event</button>
+                        Do you want to make some changes? <button onClick={() => history.push(`/events/${showEvent.id}/edit`)} id="edit-button-small">Edit event</button>
                     </div>
                 )}
                 <div id="details-container">

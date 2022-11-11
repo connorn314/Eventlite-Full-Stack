@@ -12,6 +12,7 @@ import EventFormEdit from './components/EventFormEdit';
 import LikedPage from './components/LikedPage';
 import UserShowPage from './components/UserShowPage';
 import UserPersonalProfilePage from './components/UserPersonalProfilePage';
+import UserManageEventsPage from './components/UserManageEvents';
 
 const App = () => {
   return (
@@ -27,6 +28,7 @@ const App = () => {
           <Route exact path="/events/:eventId">
             <EventShowPage />
           </Route>
+          <Route exact path="/manage/events" component={UserManageEventsPage} />
           <Route exact path="/likes" component={LikedPage}/>
           <Route exact path="/profile" component={UserPersonalProfilePage} />
           <Route path="/">
