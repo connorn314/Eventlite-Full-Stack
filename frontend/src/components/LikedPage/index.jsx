@@ -25,7 +25,7 @@ const LikedPage = () => {
             <div id='liked-events-container'>
                 {Object.values(likes).map(like => {
                     return (
-                        <div><LikedIndexItem event={events[like.eventId]} /></div>
+                        <div key={like.id}><LikedIndexItem  event={events[like.eventId]} /></div>
                 )})}
             </div>
         </div>

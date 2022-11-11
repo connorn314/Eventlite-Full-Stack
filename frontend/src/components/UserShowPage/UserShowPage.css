@@ -68,3 +68,9 @@
     color: #6F7287;
     font-family: Plak,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,Helvetica,Tahoma,Arial,sans-serif;
 }
+
+#all-user-events {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding-bottom: 50px;
+}

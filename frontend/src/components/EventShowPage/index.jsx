@@ -111,7 +111,7 @@ const EventShowPage = () => {
                         <div id="date-location-container">
                             <div id="date-andtime-info">
                                 <div id="calendar-icon-container">
-                                    <span class="material-symbols-outlined" id="calendar-icon">calendar_today</span>
+                                    <span className="material-symbols-outlined" id="calendar-icon">calendar_today</span>
                                 </div>
                                 <div id="date-and-time-detail">
                                     <div id="date-and-time">
@@ -126,7 +126,7 @@ const EventShowPage = () => {
                             </div>
                             <div id="location-info-small">
                                 <div id="location-icon-container">
-                                    <span class="material-symbols-outlined" id="location-icon">location_on</span>
+                                    <span className="material-symbols-outlined" id="location-icon">location_on</span>
                                 </div>
                                 <div id="location-detail">
                                     <div id="location-small">
