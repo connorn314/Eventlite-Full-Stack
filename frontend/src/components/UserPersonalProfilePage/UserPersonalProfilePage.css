@@ -6,9 +6,37 @@
 
 #pp-content-container {
     background-color: #f8f8fd;
-    width: 92%;
+    width: 82%;
+    padding: 0% 5%;
     box-shadow: 0 2px 4px 0 rgba(222, 222, 222, 0.2), 0 3px 10px 0 rgba(114, 114, 114, 0.19);
     display: grid;
+}
+
+#no-tickets-icon {
+    color: rgb(235, 235, 235);
+    font-size: 40px;
+    padding: 5px;
+    background-color: gray;
+    border-radius: 50%;
+}
+
+.personal-page-titles {
+    font-family: Neue Plak,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,Helvetica,Tahoma,Arial,sans-serif;
+    font-size: 1.125rem;
+    line-height: 1.5rem;
+    color: #39364f;
+    font-weight: 500;
+}
+
+.personal-page-detail-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#pp-spacer {
+    border-bottom: 1px solid #cacaca;
 }
 
 #profile-details-container {

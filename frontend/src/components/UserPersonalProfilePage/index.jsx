@@ -15,15 +15,34 @@ const UserPersonalProfilePage = () => {
                     </div>
                     <div id='activities-cont'>
                         <div id='orders-container'>
-                            Orders
+                            <div id='orders-title-container' className='personal-page-titles'>
+                                Orders
+                            </div>
+                            <div id='orders-details-container' className='personal-page-detail-container'>
+                                <span className="material-symbols-outlined" id='no-tickets-icon'>description</span>
+                                <div>
+                                    You have no orders right now
+                                </div>
+                            </div>
                         </div>
+                        <div id='pp-spacer'/>
                         <div id='likes-container'>
-                            Likes
+                            <div className='personal-page-titles'>
+                                Likes
+                            </div>
+                            <div className='personal-page-detail-container'>
+                                Events I like
+                            </div>
                         </div>
+                        <div id='pp-spacer'/>
                         <div id='follows-container'>
-                            Following
+                            <div className='personal-page-titles'>
+                                Following
+                            </div>
+                            <div className='personal-page-detail-container'>
+                                Users I follow
+                            </div>
                         </div>
-
                     </div>
                 </div>
             </div>
