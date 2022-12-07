@@ -7,7 +7,32 @@ const UserPersonalProfilePage = () => {
         <div id='pp-page-container'>
             <div id='pp-content-container'>
                 <div id='profile-details-container'>
-                    {user.username}
+                    <div id='profile-icon-left-container'>
+                        <span class="material-symbols-rounded" id="pp-profile-icon">account_circle</span>
+                    </div>
+                    <div id='profile-details-middle-container-pp'>
+                        <div id='pp-username-container'>
+                            <div>
+                                {user.username}
+                            </div>
+                            <div id='profile-edit-icon-right-container'>
+                                <span class="material-symbols-rounded" id='profile-edit-icon-pp'>edit</span>
+                            </div>
+                        </div>
+                        <div id='pp-orders-likes-followers-container'>
+                            <div id='pp-thumbnail-orders' className='pp-thumbnail-info'>
+                                0 Orders
+                            </div>
+                            <div className='dot-spacer' />
+                            <div className='pp-thumbnail-info'>
+                                0 Likes
+                            </div>
+                            <div className='dot-spacer' />
+                            <div className='pp-thumbnail-info'>
+                                0 followers
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div id='personal-activity-container'>
                     <div id='personal-cont'>
@@ -27,8 +52,13 @@ const UserPersonalProfilePage = () => {
                         </div>
                         <div id='pp-spacer'/>
                         <div id='likes-container'>
-                            <div className='personal-page-titles'>
-                                Likes
+                            <div id='likes-title-container-pp'>
+                                <div id="likes-title-pp" className='personal-page-titles'>
+                                    Likes 
+                                </div>
+                                <div id='like-expander-icon-container'>
+                                    <span class="material-symbols-outlined" id='like-expander-icon'>chevron_right</span>
+                                </div>
                             </div>
                             <div className='personal-page-detail-container'>
                                 Events I like

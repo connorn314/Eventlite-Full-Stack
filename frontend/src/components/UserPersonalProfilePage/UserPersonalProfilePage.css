@@ -9,7 +9,31 @@
     width: 82%;
     padding: 0% 5%;
     box-shadow: 0 2px 4px 0 rgba(222, 222, 222, 0.2), 0 3px 10px 0 rgba(114, 114, 114, 0.19);
-    display: grid;
+}
+
+#profile-details-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 40vh;
+    padding-top: 2%;
+}
+
+#pp-profile-icon {
+    font-size: 64px;
+    font-weight: 200;
+    color: #a9a8b3;
+}
+
+#profile-icon-left-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    width: 122px;
+    height: 122px;
+    border-radius: 50%;
+    box-shadow: 0 4px 15px 0 rgb(40 44 53 / 6%), 0 2px 2px 0 rgb(40 44 53 / 8%);
 }
 
 #no-tickets-icon {
@@ -35,12 +59,13 @@
     align-items: center;
 }
 
-#pp-spacer {
-    border-bottom: 1px solid #cacaca;
+#activities-cont {
+    width: 90%;
 }
 
-#profile-details-container {
-    padding-bottom: 200px;
+#pp-spacer {
+    margin: 32px 0px;
+    border-bottom: 1px solid #cacaca;
 }
 
 #personal-activity-container {
@@ -55,4 +80,93 @@
 
 #activities-cont {
     grid-column-start: 2;
+}
+
+#likes-title-container-pp {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: fit-content;
+
+}
+
+#likes-title-container-pp:hover #likes-title-pp{
+    color: #3659e3;
+    text-decoration: underline;
+}
+
+#likes-title-container-pp:hover {
+    cursor: pointer;
+}
+
+#like-expander-icon-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#like-expander-icon {
+    font-weight: 900;
+    font-size: 18px;
+    padding-top: 2px;
+    padding-left: 2px;
+    color: #39364f;
+}
+
+#pp-orders-likes-followers-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#profile-details-middle-container-pp {
+    font-family: Neue Plak,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,Helvetica,Tahoma,Arial,sans-serif;
+    padding-left: 20px;
+}
+
+.dot-spacer {
+    background-color: #39364f;
+    border-radius: 2px;
+    height: 4px;
+    width: 4px;
+    margin: 0px 10px;
+}
+
+.pp-thumbnail-info {
+    font-size: 14px;
+    color: #4b4d63;
+}
+
+#pp-username-container {
+    color: #1e0a3c;
+    font-size: 28px;
+    font-size: 1.75rem;
+    line-height: 2.25rem;
+    letter-spacing: .75px;
+    margin-right: -0.75px;
+    font-weight: 700;
+    padding-bottom: 12px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#profile-edit-icon-right-container {
+    margin-left: 12px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#profile-edit-icon-right-container:hover {
+    cursor: pointer;
+    background-color: rgb(239, 239, 239);
+}
+
+#profile-edit-icon-pp {
+    color: #4b4d63;
+    font-size: 20px;
+    font-weight: 500;
+    padding: 8px;
 }
