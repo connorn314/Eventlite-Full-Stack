@@ -50,6 +50,7 @@
     line-height: 1.5rem;
     color: #39364f;
     font-weight: 500;
+    margin-bottom: 32px;
 }
 
 .personal-page-detail-container {
@@ -57,6 +58,10 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.liked-event-container-pp {
+    margin: 5px 10px;
 }
 
 #activities-cont {
@@ -88,6 +93,11 @@
     align-items: center;
     width: fit-content;
 
+}
+
+#likes-detail-container-pp {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 }
 
 #likes-title-container-pp:hover #likes-title-pp{

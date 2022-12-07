@@ -1,8 +1,22 @@
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import * as likeActions from '../../store/like';
+import EventIndexItem from '../EventIndexItem';
 import './UserPersonalProfilePage.css'
 
 const UserPersonalProfilePage = () => {
+    const dispatch = useDispatch();
+    
     const user = useSelector(state => state.session.user)
+    const likes = useSelector(state => state.likes)
+    const events = useSelector(state => state.events)
+    
+    
+
+    useEffect(() => {
+        dispatch(likeActions.getUserLikes())
+    }, [])
+
     return (
         <div id='pp-page-container'>
             <div id='pp-content-container'>
@@ -52,8 +66,8 @@ const UserPersonalProfilePage = () => {
                         </div>
                         <div id='pp-spacer'/>
                         <div id='likes-container'>
-                            <div id='likes-title-container-pp'>
-                                <div id="likes-title-pp" className='personal-page-titles'>
+                            <div id='likes-title-container-pp' className='personal-page-titles'>
+                                <div id="likes-title-pp" >
                                     Likes 
                                 </div>
                                 <div id='like-expander-icon-container'>
@@ -61,7 +75,12 @@ const UserPersonalProfilePage = () => {
                                 </div>
                             </div>
                             <div className='personal-page-detail-container'>
-                                Events I like
+                                <div id="likes-detail-container-pp" className='personal-page-detail-container'>
+                                    {Object.values(likes).map(like => {
+                                        return (
+                                            <div key={like.id} className="liked-event-container-pp"><EventIndexItem event={events[like.eventId]} /></div>
+                                    )})}
+                                </div>
                             </div>
                         </div>
                         <div id='pp-spacer'/>
