@@ -52,9 +52,10 @@ const EventIndexItem = ({event}) => {
                             <p>followers</p> 
                         </div>
                     </div>
-                    <LikeButton eventId={id}></LikeButton>
+                    <div id="event-index-item-lb">
+                        <LikeButton eventId={id}></LikeButton>
+                    </div>
                 </div>
-
             </div>
         </>
     )

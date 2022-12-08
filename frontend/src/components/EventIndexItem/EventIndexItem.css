@@ -9,11 +9,24 @@
     
 }
 
+#event-index-item-lb {
+    background-color: white;
+    width: fit-content;
+    height: fit-content;
+    border: 1px solid var(--eds-ui-300,#dbdae3);
+    border-radius: 22px;
+    position: absolute;
+    top: -22px;
+    right: 10px;
+}
+
 #event-information {
     padding-left: 15px;
+    position: relative;
 }
 
 #event-title {
+    padding-top: 20px;
     font-size: 18px;
     color: #39364f;
 }
