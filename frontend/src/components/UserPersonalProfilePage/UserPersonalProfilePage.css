@@ -17,6 +17,9 @@
     align-items: center;
     height: 40vh;
     padding-top: 2%;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 3%;
 }
 
 #pp-profile-icon {
@@ -180,3 +183,9 @@
     font-weight: 500;
     padding: 8px;
 }
+
+#follow-index-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+

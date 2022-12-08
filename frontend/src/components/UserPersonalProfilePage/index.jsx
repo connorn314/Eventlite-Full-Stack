@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import * as likeActions from '../../store/like';
 import EventIndexItem from '../EventIndexItem';
 import './UserPersonalProfilePage.css'
+import FollowIndexItem from '../FollowIndexItem';
 
 const UserPersonalProfilePage = () => {
     const dispatch = useDispatch();
@@ -10,7 +11,9 @@ const UserPersonalProfilePage = () => {
     const user = useSelector(state => state.session.user)
     const likes = useSelector(state => state.likes)
     const events = useSelector(state => state.events)
-    
+    const follows = useSelector(state => state.follows)
+
+    const followers = (user) ? user.followers : null
     
 
     useEffect(() => {
@@ -39,19 +42,16 @@ const UserPersonalProfilePage = () => {
                             </div>
                             <div className='dot-spacer' />
                             <div className='pp-thumbnail-info'>
-                                0 Likes
+                                {Object.values(likes).length} Likes
                             </div>
                             <div className='dot-spacer' />
                             <div className='pp-thumbnail-info'>
-                                0 followers
+                                {followers} followers
                             </div>
                         </div>
                     </div>
                 </div>
                 <div id='personal-activity-container'>
-                    <div id='personal-cont'>
-                        TEMP PROFILE
-                    </div>
                     <div id='activities-cont'>
                         <div id='orders-container'>
                             <div id='orders-title-container' className='personal-page-titles'>
@@ -88,8 +88,12 @@ const UserPersonalProfilePage = () => {
                             <div className='personal-page-titles'>
                                 Following
                             </div>
-                            <div className='personal-page-detail-container'>
-                                Users I follow
+                            <div id='follow-index-container'>
+                                {Object.values(follows).map(follow => {
+                                    return (
+                                        <div key={follow.id}><FollowIndexItem userId={follow.creatorId} /></div>
+                                    )
+                                })}
                             </div>
                         </div>
                     </div>

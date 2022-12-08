@@ -1,0 +1,48 @@
+#follow-ii-content-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+#profile-icon-square {
+    height: 56px;
+    width: 56px;
+    margin-right: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#fii-profile-icon {
+    font-size: 48px;
+    font-weight: 100;
+    color: #39364f;
+}
+
+#fii-username-cont {
+    width: 50%;
+}
+
+#fii-username-title {
+    font-family: Neue Plak,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,Helvetica,Tahoma,Arial,sans-serif;
+    color: #39364f;
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+    letter-spacing: .25px;
+    font-weight: 600;
+}
+
+#fii-username-title:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+#fii-follow-button-cont {
+    font-family: Neue Plak,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,Helvetica,Tahoma,Arial,sans-serif;
+    width: auto;
+    height: 44px;
+}
+
+#follow-index-item-container {
+    padding: 16px 0px;
+}
