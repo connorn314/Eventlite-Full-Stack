@@ -81,7 +81,9 @@ const EventShowPage = () => {
             <div id='back-ground-pic'><img src={backGroundImage} alt="bgc image"/></div>
             <div id='show-page-layout'>
                 <div id="event-pic-container">
-                    <img src={showEvent.photoUrl} alt="hi" />        
+                    <img src={showEvent.photoUrl} alt="hi" id="back-pic-event-show" />
+                        <div className="box"/>       
+                    <img src={showEvent.photoUrl} alt="hi" id="front-pic-event-show"/>        
                 </div>
             </div>
             
