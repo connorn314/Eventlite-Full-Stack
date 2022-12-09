@@ -21,6 +21,8 @@ const EventFormCreate = () => {
     const [endDate, setEndDate] = useState("");
     const [endTime, setEndTime] = useState("");
     const [photoFile, setPhotoFile] = useState(null);
+    const [price, setPrice] = useState(0);
+    const [totalTickets, setTotalTickets] = useState(100);
     // const event = useSelector(state => state.events)
     
     const handleFile = (e) => {
@@ -95,6 +97,9 @@ const EventFormCreate = () => {
                             </div>
                             <div id="add-photo-icon-container">
                                 <span class="material-symbols-outlined" id="add-photo-icon">image</span>
+                            </div>
+                            <div id="add-ticketing-info">
+                                <span class="material-symbols-rounded" id="tickets-icon">confirmation_number</span>
                             </div>
                     </div>
 
@@ -177,7 +182,7 @@ const EventFormCreate = () => {
                         </div>
                         <div className="date-time-block">
                             <TextField
-                                label="Event Starts"
+                                label="Event Ends"
                                 variant="filled"
                                 placeholder="Enter a venue or address"
                                 inputProps={{style}}
@@ -185,13 +190,12 @@ const EventFormCreate = () => {
                                 sx={{width: '49.5%'}}
                                 InputLabelProps={{ shrink: true }}
                                 type="date"
-                                onChange={(e) => {setStartDate(e.target.value)}}
-                                value={startDate}
+                                onChange={(e) => setEndDate(e.target.value)}
+                                value={endDate}
                                 required
                                 />
-
                             <TextField
-                                label="Start Time"
+                                label="End Time"
                                 variant="filled"
                                 placeholder="Enter a venue or address"
                                 inputProps={{style}}
@@ -199,8 +203,8 @@ const EventFormCreate = () => {
                                 sx={{width: '49.5%'}}
                                 InputLabelProps={{ shrink: true }}
                                 type="time"
-                                onChange={(e) => {setStartTime(e.target.value)}}
-                                value={startTime}
+                                onChange={(e) => setEndTime(e.target.value)}
+                                value={endTime}
                                 required
                                 />
                         </div>
@@ -268,6 +272,47 @@ const EventFormCreate = () => {
                                 required
                                 />
                         
+                        <br />
+                        <br />
+                        <div id="ticket-info-container" className="form-block">
+                            <div id="ticket-info-header" className="details-block">
+                                <div id="ticket-info-header" className="header-block">
+                                    Tickets
+                                </div>
+                                <div id="ticket-info-sub-header" className="sub-header-block">
+                                Specify how many attendees will be allowed at your event. Select a price attendees will pay.
+                                </div>
+                            </div>
+                        </div>
+                        <div className="date-time-block">
+                            <TextField
+                                label="Total tickets allowed"
+                                variant="filled"
+                                placeholder="Enter a number"
+                                inputProps={{style}}
+                                InputProps={{disableUnderline: true}}
+                                sx={{width: '49.5%'}}
+                                InputLabelProps={{ shrink: true }}
+                                type="number"
+                                onChange={(e) => {setTotalTickets(e.target.value)}}
+                                value={totalTickets}
+                                required
+                                />
+
+                            <TextField
+                                label="Price of ticket"
+                                variant="filled"
+                                placeholder="Enter a venue or address"
+                                inputProps={{style}}
+                                InputProps={{disableUnderline: true}}
+                                sx={{width: '49.5%'}}
+                                InputLabelProps={{ shrink: true }}
+                                type="number"
+                                onChange={(e) => {setPrice(e.target.value)}}
+                                value={price}
+                                required
+                                />
+                        </div>
                         <br />
                         <br />
                         <div className="buttons-container">

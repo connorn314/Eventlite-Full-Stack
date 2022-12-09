@@ -27,7 +27,7 @@
     justify-content: center;
 }
 
-#basic-info-icon, #location-icon-small, #date-time-icon, #add-photo-icon {
+#basic-info-icon, #location-icon-small, #date-time-icon, #add-photo-icon, #tickets-icon {
     font-size: 50px;
     color: #d3d3d7;
 }
@@ -42,6 +42,10 @@
 
 #date-time-icon-container {
     margin-bottom: 200px;
+}
+
+#add-photo-icon {
+    margin-bottom: 135px;
 }
 
 .form-title-black {
