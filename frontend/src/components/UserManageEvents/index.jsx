@@ -19,7 +19,7 @@ const UserManageEventsPage = () => {
     useEffect(() => {
         dispatch(eventActions.getEventsData());
     }, [])
-    console.log(sessionUser)
+
     if (!sessionUser) return <Redirect to="/" />;
     const formatDate = (dateTime) => {
         let change = new Date(dateTime)
@@ -35,13 +35,6 @@ const UserManageEventsPage = () => {
         console.log(direction)
         setAnchorEl(null);
     };
-    
-    // const handleDelete = (e) => {
-        //     e.preventDefault();
-        //     dispatch(eventActions.deleteEvent(eventId))
-        //     history.push('/')
-        // }
-        
 
     return (
         <div id='user-events-index-page-container'>
@@ -100,7 +93,10 @@ const UserManageEventsPage = () => {
                                             <MenuItem key={"edit"} onClick={() => history.push(`/events/${event.id}/edit`)}>
                                                 Edit
                                             </MenuItem>
-                                            <MenuItem key={"delete"} onClick={() => dispatch(eventActions.deleteEvent(event.id))}>
+                                            <MenuItem key={"delete"} onClick={() => {
+                                                dispatch(eventActions.deleteEvent(event.id))
+                                                setAnchorEl(null);
+                                                }}>
                                                 Delete
                                             </MenuItem>
                                         </Menu>
