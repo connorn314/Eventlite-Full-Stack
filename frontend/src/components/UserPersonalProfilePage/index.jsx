@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import * as likeActions from '../../store/like';
+import * as followActions from '../../store/follow';
 import EventIndexItem from '../EventIndexItem';
 import './UserPersonalProfilePage.css'
 import FollowIndexItem from '../FollowIndexItem';
@@ -59,7 +60,7 @@ const UserPersonalProfilePage = () => {
                                         <div id='inner-edit-profile-icon-container'>
                                             <input type="file" onChange={handleFile} />
                                         </div>
-                                        {/* <span class="material-symbols-rounded" id="pp-profile-icon">account_circle</span> */}
+                                        {/* <span className="material-symbols-rounded" id="pp-profile-icon">account_circle</span> */}
                                     </div>
                                     <div id='pp-edit-username-container'>
                                     <TextField
@@ -89,7 +90,7 @@ const UserPersonalProfilePage = () => {
                     ) : (
                         <div id='profile-details-container'>
                             <div id='profile-icon-left-container'>
-                                <span class="material-symbols-rounded" id="pp-profile-icon">account_circle</span>
+                                <span className="material-symbols-rounded" id="pp-profile-icon">account_circle</span>
                             </div>
                             <div id='profile-details-middle-container-pp'>
                                 <div id='pp-username-container'>
@@ -97,7 +98,7 @@ const UserPersonalProfilePage = () => {
                                         {user.username}
                                     </div>
                                     <div id='profile-edit-icon-right-container' onClick={() => showEditUserInfo(!editUserInfo)}>
-                                        <span class="material-symbols-rounded" id='profile-edit-icon-pp'>edit</span>
+                                        <span className="material-symbols-rounded" id='profile-edit-icon-pp'>edit</span>
                                     </div>
                                 </div>
                                 <div id='pp-orders-likes-followers-container'>
@@ -137,7 +138,7 @@ const UserPersonalProfilePage = () => {
                                     Likes 
                                 </div>
                                 <div id='like-expander-icon-container'>
-                                    <span class="material-symbols-outlined" id='like-expander-icon'>chevron_right</span>
+                                    <span className="material-symbols-outlined" id='like-expander-icon'>chevron_right</span>
                                 </div>
                             </div>
                             <div className='personal-page-detail-container'>

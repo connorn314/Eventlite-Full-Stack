@@ -149,7 +149,7 @@ const EventShowPage = () => {
                         <div id="get-t-and-p-container">
                             <div id="get-tickets-and-price">
                                 <div id="price">
-                                    $25 - $40
+                                    ${showEvent.price}
                                 </div>
                                 <div id="get-tickets">
                                     Get Tickets

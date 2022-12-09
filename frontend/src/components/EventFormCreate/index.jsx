@@ -22,7 +22,7 @@ const EventFormCreate = () => {
     const [endTime, setEndTime] = useState("");
     const [photoFile, setPhotoFile] = useState(null);
     const [price, setPrice] = useState(0);
-    const [totalTickets, setTotalTickets] = useState(100);
+    const [ticketsAllotted, setTicketsAllotted] = useState(100);
     // const event = useSelector(state => state.events)
     
     const handleFile = (e) => {
@@ -58,11 +58,16 @@ const EventFormCreate = () => {
             location,
             startDate: parseDate(startDate, startTime),
             endDate: parseDate(endDate, endTime),
+            price,
+            ticketsAllotted,
             photoFile
         }
 
         return dispatch(eventActions.createEvent(obj))
-            .then(data => history.push(`/events/${Object.values(data)[0].id}`))
+            .then(data => {
+                console.log(data)
+                history.push(`/events/${Object.values(data)[0].id}`)
+            })
             .catch(async (res) => {
             let data;
             try {
@@ -182,29 +187,27 @@ const EventFormCreate = () => {
                         </div>
                         <div className="date-time-block">
                             <TextField
-                                label="Event Ends"
+                                label="Event Starts"
                                 variant="filled"
-                                placeholder="Enter a venue or address"
                                 inputProps={{style}}
                                 InputProps={{disableUnderline: true}}
                                 sx={{width: '49.5%'}}
                                 InputLabelProps={{ shrink: true }}
                                 type="date"
-                                onChange={(e) => setEndDate(e.target.value)}
-                                value={endDate}
+                                onChange={(e) => setStartDate(e.target.value)}
+                                value={startDate}
                                 required
                                 />
                             <TextField
-                                label="End Time"
+                                label="Start Time"
                                 variant="filled"
-                                placeholder="Enter a venue or address"
                                 inputProps={{style}}
                                 InputProps={{disableUnderline: true}}
                                 sx={{width: '49.5%'}}
                                 InputLabelProps={{ shrink: true }}
                                 type="time"
-                                onChange={(e) => setEndTime(e.target.value)}
-                                value={endTime}
+                                onChange={(e) => setStartTime(e.target.value)}
+                                value={startTime}
                                 required
                                 />
                         </div>
@@ -213,7 +216,6 @@ const EventFormCreate = () => {
                             <TextField
                                 label="Event Ends"
                                 variant="filled"
-                                placeholder="Enter a venue or address"
                                 inputProps={{style}}
                                 InputProps={{disableUnderline: true}}
                                 sx={{width: '49.5%'}}
@@ -226,7 +228,6 @@ const EventFormCreate = () => {
                             <TextField
                                 label="End Time"
                                 variant="filled"
-                                placeholder="Enter a venue or address"
                                 inputProps={{style}}
                                 InputProps={{disableUnderline: true}}
                                 sx={{width: '49.5%'}}
@@ -294,8 +295,8 @@ const EventFormCreate = () => {
                                 sx={{width: '49.5%'}}
                                 InputLabelProps={{ shrink: true }}
                                 type="number"
-                                onChange={(e) => {setTotalTickets(e.target.value)}}
-                                value={totalTickets}
+                                onChange={(e) => {setTicketsAllotted(e.target.value)}}
+                                value={ticketsAllotted}
                                 required
                                 />
 

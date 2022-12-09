@@ -62,6 +62,11 @@ const UserManageEventsPage = () => {
                                             <div className='other-mine'>{event.location}</div>
                                         </div>
                                     </div>
+                                    <div className='middle-info-container'>
+                                        <div id='tickets-sold-count'>
+                                            0/{event.ticketsAllotted}
+                                        </div>
+                                    </div>
                                     <div className='right-edit-container'>
                                     <IconButton
                                             aria-label="more"

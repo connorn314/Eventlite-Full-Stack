@@ -38,7 +38,7 @@
 
 .table-item-container {
     display: grid;
-    grid-template-columns: 96% 4%;
+    grid-template-columns: 86% 10% 4%;
     padding: 15px;
 }
 
@@ -55,7 +55,7 @@
 }
 
 .right-edit-container {
-    grid-column-start: 2;
+    grid-column-start: 3;
 }
 
 .event-detail-column-item {

@@ -45,7 +45,7 @@ const removeEvent = (eventId) => {
 };
 
 export const createEvent = (createdEvent) => async (dispatch) => {
-    const { title, description, location, startDate, endDate, photoFile } = createdEvent
+    const { title, description, location, startDate, endDate, photoFile, price, ticketsAllotted } = createdEvent
     const authorId = JSON.parse(sessionStorage.currentUser).id
     const formData = new FormData();
     formData.append('event[authorId]', authorId)
@@ -54,6 +54,8 @@ export const createEvent = (createdEvent) => async (dispatch) => {
     formData.append('event[location]', location)
     formData.append('event[startDate]', startDate)
     formData.append('event[endDate]', endDate)
+    formData.append('event[price]', price)
+    formData.append('event[ticketsAllotted]', ticketsAllotted)
     if (photoFile) {
         formData.append('event[photo]', photoFile)
     }
@@ -73,7 +75,7 @@ export const createEvent = (createdEvent) => async (dispatch) => {
 };
 
 export const editEvent = (editedEvent) => async (dispatch) => {
-    const { id, title, description, location, startDate, endDate, photoFile } = editedEvent
+    const { id, title, description, location, startDate, endDate, photoFile, price, ticketsAllotted } = editedEvent
     const authorId = JSON.parse(sessionStorage.currentUser).id
     const formData = new FormData();
     formData.append('event[authorId]', authorId)
@@ -82,6 +84,8 @@ export const editEvent = (editedEvent) => async (dispatch) => {
     formData.append('event[location]', location)
     formData.append('event[startDate]', startDate)
     formData.append('event[endDate]', endDate)
+    formData.append('event[price]', price)
+    formData.append('event[ticketsAllotted]', ticketsAllotted)
     if (photoFile) {
         formData.append('event[photo]', photoFile)
     }

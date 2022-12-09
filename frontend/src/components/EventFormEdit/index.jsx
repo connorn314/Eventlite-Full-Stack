@@ -42,8 +42,8 @@ const EventFormEdit = () => {
     const [endDate, setEndDate] = useState(formatDate(endD));
     const [endTime, setEndTime] = useState(formatTime(endD));
     const [photoFile, setPhotoFile] = useState(null);
-    const [price, setPrice] = useState(0);
-    const [totalTickets, setTotalTickets] = useState(100);
+    const [price, setPrice] = useState(eventEdit.price);
+    const [totalTickets, setTotalTickets] = useState(eventEdit.ticketsAllotted);
     
 
     useEffect(() => {
@@ -88,6 +88,8 @@ const EventFormEdit = () => {
             location,
             startDate: parseDate(startDate, startTime),
             endDate: parseDate(endDate, endTime),
+            price,
+            ticketsAllotted: totalTickets,
             photoFile
         }
 

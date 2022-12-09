@@ -1,12 +1,20 @@
-import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import * as userActions from '../../store/user';
 import FollowButton from '../FollowButton/index';
 import './FollowIndexItem.css'
 
 const FollowIndexItem = ({userId}) => {
-
+    const dispatch = useDispatch();
     const history = useHistory();
     const user = useSelector(state => state.user[userId])
+
+    useEffect(() => {
+        if (!user){
+            dispatch(userActions.getOneUser(userId)) 
+        }
+    }, [])
     
 
     return (
@@ -15,7 +23,7 @@ const FollowIndexItem = ({userId}) => {
                 <div id='follow-ii-content-container'>
                     <div id='fii-profile-pic-thumbnail'>
                         <div id='profile-icon-square'>
-                            <span class="material-symbols-rounded" id="fii-profile-icon">account_circle</span>
+                            <span className="material-symbols-rounded" id="fii-profile-icon">account_circle</span>
                         </div>
                     </div>
                     <div id='fii-username-cont'>
