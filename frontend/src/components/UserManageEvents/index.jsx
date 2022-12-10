@@ -22,8 +22,18 @@ const UserManageEventsPage = () => {
 
     if (!sessionUser) return <Redirect to="/" />;
     const formatDate = (dateTime) => {
-        let change = new Date(dateTime)
-        return change.toDateString()
+        let change = new Date(dateTime);
+        return change.toDateString();
+    }
+
+    const getDay = (dateTime) => {
+        let change = new Date(dateTime);
+        return change.getUTCDate();
+    }
+
+    const getMonth = (dateTime) => {
+        let change = new Date(dateTime);
+        return change.toLocaleString('en-US', { month: 'short' });
     }
     
     const open = Boolean(anchorEl);
@@ -48,6 +58,9 @@ const UserManageEventsPage = () => {
                             <div id='event-column-title'>
                                 Event
                             </div>
+                            <div id='soled-column-title'>
+                                Sold
+                            </div>
                         </div>
                     </div>
                     {events && Object.values(events).map(event => {
@@ -56,6 +69,19 @@ const UserManageEventsPage = () => {
                             return (
                                 <div className='table-item-container' >
                                     <div className='left-info-container' onClick={() => history.push(`/events/${event.id}`)}>
+                                        <div className='abrev-date-graphic-container'>
+                                            <div className='month-abrev'>
+                                            {getMonth(event.startDate)}
+                                            </div>
+                                            <div className='date-abrev'>
+                                                {getDay(event.startDate)}
+                                            </div>
+                                        </div>
+                                        <div className='event-thumbnail-mp-page-container'>
+                                            <div className='actual-e-thumbnail'>
+                                                <img src={event.photoUrl} alt="pic" />
+                                            </div>
+                                        </div>
                                         <div className='event-detail-column-item'>
                                             <div className='title-mine'>{event.title}</div>
                                             <div className='other-mine'>{formatDate(event.startDate)}</div>
