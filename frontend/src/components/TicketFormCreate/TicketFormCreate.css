@@ -1,0 +1,82 @@
+#ticket-create-form-page-container {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    background-color: #39364fcc;
+
+}
+
+#ticket-create-form-container {
+    position: fixed;
+    left: 12.5vw;
+    top: 2.5vh;
+    opacity: 100%;
+    width: 75vw;
+    height: 95vh;
+    background-color: white;
+    box-shadow: 0 2px 4px 0 rgba(222, 222, 222, 0.2), 0 3px 10px 0 rgba(114, 114, 114, 0.19);
+    display: grid;
+    grid-template-columns: 65% 35%;
+}
+
+#left-side-ticket-container {
+    grid-column-start: 1;
+}
+
+#right-side-ticket-container {
+    grid-column-start: 2;
+    background-color: #f8f7fa;
+    color: #dbdae3;
+
+}
+
+#ticket-event-img-cont {
+    width: 100%;
+    height: auto;
+}
+
+#ticket-event-img-cont > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#shopping-icon {
+    font-size: 48px;
+}
+
+#empty-cart-container {
+    width: 100%;
+    height: 100%;
+    padding-top: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+#close-tickets-icon {
+    font-size: 14px;
+    font-weight: 700;
+}
+
+#leave-ticket-form {
+    background-color: #ffffffaa;
+    height: 40px;
+    width: 40px;
+    color: black;
+    border-radius: 50%;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#leave-ticket-form:hover {
+    background-color: #ffffffcc;
+    cursor: pointer;
+}

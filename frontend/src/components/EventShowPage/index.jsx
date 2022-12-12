@@ -7,6 +7,7 @@ import './EventShowPage.css';
 import backGroundImage from "../../showpage.png";
 import LikeButton from "../LikeButton";
 import FollowButton from "../FollowButton";
+import TicketFormCreate from "../TicketFormCreate";
 
 const EventShowPage = () => {
 
@@ -18,6 +19,8 @@ const EventShowPage = () => {
     const author = useSelector(state => state.user[showEvent.authorId])
     const follows = useSelector(state => state.follows)
     const followers = author && author.followers ? author.followers : null
+    const [showForm, setShowForm] = useState(false)
+
     let correctId = false
     if (author){
         correctId = (sessionUser && (sessionUser.id === showEvent.authorId));
@@ -74,6 +77,11 @@ const EventShowPage = () => {
         e.preventDefault();
         dispatch(eventActions.deleteEvent(eventId))
         history.push('/')
+    }
+
+    const handleOpenTicketForm = () => {
+        document.body.style.overflow = 'hidden'
+        setShowForm(true)
     }
 
     return (
@@ -151,9 +159,10 @@ const EventShowPage = () => {
                                 <div id="price">
                                     ${showEvent.price}
                                 </div>
-                                <div id="get-tickets">
+                                <div id="get-tickets" onClick={handleOpenTicketForm}>
                                     Get Tickets
                                 </div>
+                                <TicketFormCreate eventId={eventId} showForm={showForm} setShowForm={setShowForm} />
                             </div>
                         </div>
                     </div>
