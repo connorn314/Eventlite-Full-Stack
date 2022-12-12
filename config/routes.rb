@@ -10,6 +10,7 @@ namespace :api, defaults: {format: :json} do
     resource :session, only: [:show, :create, :destroy]
     resources :likes, only: [:index, :create, :destroy]
     resources :follows, only: [:index, :create, :destroy]
+    resources :tickets, only: [:index, :show, :create, :destroy]
 end
 
 

@@ -25,11 +25,13 @@ const UserManageEventsPage = () => {
 
     const formatDate = (dateTime) => {
         let change = new Date(dateTime);
+        // console.log(dateTime, "toDateString")
         return change.toDateString();
     }
 
     const getDay = (dateTime) => {
         let change = new Date(dateTime);
+        // console.log(dateTime)
         return change.getUTCDate();
     }
 
@@ -47,7 +49,6 @@ const UserManageEventsPage = () => {
 
     const handleClose = (e) => {
         const direction = String(e.target);
-        console.log(direction)
         setAnchorEl(null);
     };
 

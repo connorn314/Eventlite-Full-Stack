@@ -67,6 +67,12 @@ class User < ApplicationRecord
     has_many :creators_following,
         through: :followings,
         source: :creator
+
+    has_many :tickets,
+        primary_key: :id,
+        foreign_key: :owner_id,
+        class_name: :Ticket,
+        dependent: :destroy
     
     def self.find_by_credentials(credential, password)
 
