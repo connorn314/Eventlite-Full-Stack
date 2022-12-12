@@ -15,12 +15,14 @@ const UserManageEventsPage = () => {
     const events = useSelector(state => state.events);
     const sessionUser = useSelector(state => state.session.user)
     const [anchorEl, setAnchorEl] = useState(null);
+    const [selectedEv, setSelectedEv] = useState(null);
 
     useEffect(() => {
         dispatch(eventActions.getEventsData());
     }, [])
 
     if (!sessionUser) return <Redirect to="/" />;
+
     const formatDate = (dateTime) => {
         let change = new Date(dateTime);
         return change.toDateString();
@@ -37,9 +39,12 @@ const UserManageEventsPage = () => {
     }
     
     const open = Boolean(anchorEl);
-    const handleClick = (event) => {
-        setAnchorEl(event.currentTarget);
+
+    const handleClick = (e) => {
+        setAnchorEl(e.currentTarget);
+        setSelectedEv(e.currentTarget.id)
     };
+
     const handleClose = (e) => {
         const direction = String(e.target);
         console.log(direction)
@@ -94,48 +99,50 @@ const UserManageEventsPage = () => {
                                         </div>
                                     </div>
                                     <div className='right-edit-container'>
-                                    <IconButton
-                                            aria-label="more"
-                                            id="long-button"
-                                            aria-controls={open ? 'long-menu' : undefined}
-                                            aria-expanded={open ? 'true' : undefined}
-                                            aria-haspopup="true"
-                                            onClick={handleClick}
-                                        >
+                                        <IconButton
+                                                aria-label="more"
+                                                id={`${event.id}`}
+                                                aria-controls={open ? 'long-menu' : undefined}
+                                                aria-expanded={open ? 'true' : undefined}
+                                                aria-haspopup="true"
+                                                onClick={handleClick}
+                                            >
                                             <MoreVertIcon />
                                         </IconButton>
-                                        <Menu
-                                            id="long-menu"
-                                            MenuListProps={{
-                                            'aria-labelledby': 'long-button',
-                                            }}
-                                            anchorEl={anchorEl}
-                                            open={open}
-                                            onClose={handleClose}
-                                            PaperProps={{
-                                            style: {
-                                                width: '20ch',
-                                            },
-                                            }}
-                                        >
-                                            <MenuItem key={"view"} onClick={() => history.push(`/events/${event.id}`)}>
-                                                View
-                                            </MenuItem>
-                                            <MenuItem key={"edit"} onClick={() => history.push(`/events/${event.id}/edit`)}>
-                                                Edit
-                                            </MenuItem>
-                                            <MenuItem key={"delete"} onClick={() => {
-                                                dispatch(eventActions.deleteEvent(event.id))
-                                                setAnchorEl(null);
-                                                }}>
-                                                Delete
-                                            </MenuItem>
-                                        </Menu>
                                     </div>
                                 </div>
                             )
                         }
                     })}
+                    <Menu
+                        id="long-menu"
+                        MenuListProps={{
+                        'aria-labelledby': 'long-button',
+                        }}
+                        anchorEl={anchorEl}
+                        open={open}
+                        onClose={handleClose}
+                        PaperProps={{
+                        style: {
+                            width: '20ch',
+                        },
+                        }}
+                    >
+                        <MenuItem key={"view"} onClick={() => history.push(`/events/${selectedEv}`)}>
+
+                            View
+                        </MenuItem>
+                        <MenuItem key={"edit"} onClick={() => history.push(`/events/${selectedEv}/edit`)}>
+                            Edit
+                        </MenuItem>
+                        <MenuItem key={"delete"} onClick={() => {
+                            dispatch(eventActions.deleteEvent(selectedEv))
+                            setAnchorEl(null);
+                            setSelectedEv(null)
+                            }}>
+                            Delete
+                        </MenuItem>
+                    </Menu>
                 </div>
                 
             </div>

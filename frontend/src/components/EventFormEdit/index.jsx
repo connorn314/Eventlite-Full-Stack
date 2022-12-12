@@ -319,7 +319,7 @@ const EventFormEdit = () => {
                         </div>
                         <div className="date-time-block">
                             <TextField
-                                label="Total tickets allowed"
+                                label="Total tickets allotted"
                                 variant="filled"
                                 placeholder="Enter a number"
                                 inputProps={{style}}
