@@ -13,6 +13,7 @@ import LikedPage from './components/LikedPage';
 import UserShowPage from './components/UserShowPage';
 import UserPersonalProfilePage from './components/UserPersonalProfilePage';
 import UserManageEventsPage from './components/UserManageEvents';
+import TicketShowPage from './components/TicketShowPage';
 
 const App = () => {
   return (
@@ -31,6 +32,7 @@ const App = () => {
           <Route exact path="/manage/events" component={UserManageEventsPage} />
           <Route exact path="/likes" component={LikedPage}/>
           <Route exact path="/profile" component={UserPersonalProfilePage} />
+          <Route exact path="/tickets/:ticketId" component={TicketShowPage} />
           <Route path="/">
             <div id='landing-page-container'>
               <div id='landing-page-image' >

@@ -53,7 +53,7 @@ const Navigation = () => {
                 </div>
                 <div id='tickets-nav-item' onClick={() => history.push('/profile')} >
                     <div id='ticket-nav-icon-container'>
-                        <span class="material-symbols-rounded" id='tick-icon'>confirmation_number</span>
+                        <span className="material-symbols-rounded" id='tick-icon'>confirmation_number</span>
                     </div>
                     <div id='tickets-text' className='add-arial-text'>
                         Tickets

@@ -1,0 +1,14 @@
+#tsp-page-content-container {
+    padding: 4% 8%;
+}
+
+#leave-section-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#tsp-low-level-container {
+    display: grid;
+    grid-template-columns: 30% 70%;
+}

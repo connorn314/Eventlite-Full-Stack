@@ -1,8 +1,9 @@
 import { useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import './TicketIndexItem.css'
 
 const TicketIndexItem = ({ticketId}) => {
-
+    const history = useHistory();
     const ticket = useSelector(state => state.tickets[ticketId])
     const event = useSelector(state => state.events[ticket.eventId])
 
@@ -17,7 +18,7 @@ const TicketIndexItem = ({ticketId}) => {
     }
 
     return (
-        <div id='ticket-index-item-container'>
+        <div id='ticket-index-item-container' onClick={() => history.push(`/tickets/${ticketId}`)}>
             <div id='tii-abrev-date-cont'>
                 <div className='month-abrev'>
                     {getMonth(event.startDate)}
