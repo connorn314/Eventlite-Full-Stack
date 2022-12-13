@@ -148,7 +148,7 @@ const EventShowPage = () => {
                                         Location
                                     </div>
                                     <div id="location-info-small">
-                                        location: {showEvent.location}
+                                        {showEvent.location}
                                     </div>
                                 </div>
                             </div>

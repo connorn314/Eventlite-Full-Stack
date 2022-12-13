@@ -5,13 +5,15 @@ import events from './event'
 import user from './user'
 import likes from './like'
 import follows from './follow'
+import tickets from './ticket'
 
 const rootReducer = combineReducers ({
     session,
     user,
     events,
     likes,
-    follows
+    follows,
+    tickets
 })
 
 let enhancer;

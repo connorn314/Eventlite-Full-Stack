@@ -29,7 +29,7 @@ class Ticket < ApplicationRecord
     def ticket_available
         @event = self.event
         # debugger
-        if @event.tickets >= @event.tickets_allotted 
+        if @event.tickets.length >= @event.tickets_allotted 
             errors.add :event_id, message: "not enough tickets available" 
         end
     end

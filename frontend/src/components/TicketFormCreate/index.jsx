@@ -1,14 +1,19 @@
 import { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import './TicketFormCreate.css'
 import { TextField } from "@mui/material";
 import { useEffect } from 'react';
+import * as ticketActions from '../../store/ticket';
+import { useHistory } from 'react-router-dom';
 
 
 const TicketFormCreate = ({eventId, showForm, setShowForm, formatDate, shortDate}) => {
     
     const eventOfInterest = useSelector(state => state.events[eventId]);
     const user = useSelector(state => state.session.user)
+    const dispatch = useDispatch();
+    const history = useHistory();
+    const [errors, setErrors] = useState([]);
     // const [cart, setCart] = useState({});
     const [ticketQ, setTicketQ] = useState(0);
     const [checkout, setCheckout] = useState(false);
@@ -31,7 +36,30 @@ const TicketFormCreate = ({eventId, showForm, setShowForm, formatDate, shortDate
     }
 
     const handleSubmit = () => {
-        return "hi"
+        const obj = {
+            name: `${firstName} ${lastName}`,
+            email,
+            eventId,
+            ownerId: user.id
+        }
+        return dispatch(ticketActions.createTicket(obj))
+            .then(data => {
+                console.log(data)
+                document.body.style.overflow = 'unset'
+                history.push(`/profile`)
+            })
+            .catch(async (res) => {
+            let data;
+            try {
+            data = await res.clone().json();
+            } catch {
+            data = await res.text();
+            }
+            if (data?.errors) setErrors(data.errors);
+            else if (data) setErrors([data]);
+            else setErrors([res.statusText]);
+        })
+
     }
 
     const handleDecrement = () => {
@@ -225,6 +253,9 @@ const TicketFormCreate = ({eventId, showForm, setShowForm, formatDate, shortDate
                             </div>
                             <div id='cart-container'>
                                 {cartContents}
+                            </div>
+                            <div>
+                                {Object.values(errors)}
                             </div>
                         </div>
                     </div>

@@ -25,13 +25,11 @@ const UserManageEventsPage = () => {
 
     const formatDate = (dateTime) => {
         let change = new Date(dateTime);
-        // console.log(dateTime, "toDateString")
         return change.toDateString();
     }
 
     const getDay = (dateTime) => {
         let change = new Date(dateTime);
-        // console.log(dateTime)
         return change.getUTCDate();
     }
 

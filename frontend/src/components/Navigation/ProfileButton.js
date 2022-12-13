@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from "react-router-dom";
 import * as sessionActions from '../../store/session';
 
@@ -8,6 +8,7 @@ const ProfileButton = (props) => {
     const dispatch = useDispatch();
     const user = props.user
     const showMenu = props.show
+    const tickets = useSelector(state => state.tickets)
 
     const logout = (e) => {
         e.preventDefault();
@@ -31,7 +32,7 @@ const ProfileButton = (props) => {
             <div id="profile-dropdown-list">
                 <div className="drop-item" onClick={() => history.push('/')}>Browse events</div>
                 <div className="drop-item" id="border" onClick={() => history.push('/manage/events')}>Manage my events</div>
-                <div className="drop-item" onClick={() => history.push('/profile')}>Tickets (0)</div>
+                <div className="drop-item" onClick={() => history.push('/profile')}>Tickets ({Object.values(tickets).length})</div>
                 <div className="drop-item" onClick={() => history.push('/likes')}>Liked</div>
                 <div className="drop-item" id="border" onClick={() => history.push('/profile')}>Following</div>
                 <div className="drop-item">{user.email}</div>

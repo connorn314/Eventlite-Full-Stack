@@ -51,6 +51,14 @@ const Navigation = () => {
                         Likes
                     </div>
                 </div>
+                <div id='tickets-nav-item' onClick={() => history.push('/profile')} >
+                    <div id='ticket-nav-icon-container'>
+                        <span class="material-symbols-rounded" id='tick-icon'>confirmation_number</span>
+                    </div>
+                    <div id='tickets-text' className='add-arial-text'>
+                        Tickets
+                    </div>
+                </div>
                 <div id='profile-dropdown' onMouseEnter={openMenu} onMouseLeave={() => setShowMenu(false)} onClick={() => setShowMenu(false)}>
                     <ProfileButton user={sessionUser} show={showMenu} />
                 </div>

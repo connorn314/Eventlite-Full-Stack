@@ -126,10 +126,15 @@
     justify-content: right;
 }
 
-#follower-author-container, #date-location-container, #location-info-small {
+#follower-author-container, #location-info-small {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+}
+
+#date-location-container {
+    display: grid;
+    grid-template-columns: 50% 50%;
 }
 
 #get-tickets-and-price {

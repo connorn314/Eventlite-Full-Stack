@@ -6,6 +6,7 @@ import EventIndexItem from '../EventIndexItem';
 import './UserPersonalProfilePage.css'
 import FollowIndexItem from '../FollowIndexItem';
 import { TextField } from '@mui/material';
+import TicketIndexItem from '../TicketIndexItem';
 
 const UserPersonalProfilePage = () => {
     const dispatch = useDispatch();
@@ -14,6 +15,7 @@ const UserPersonalProfilePage = () => {
     const likes = useSelector(state => state.likes)
     const events = useSelector(state => state.events)
     const follows = useSelector(state => state.follows)
+    const tickets = useSelector(state => state.tickets)
 
     const style = {
         height: 33,
@@ -103,7 +105,7 @@ const UserPersonalProfilePage = () => {
                                 </div>
                                 <div id='pp-orders-likes-followers-container'>
                                     <div id='pp-thumbnail-orders' className='pp-thumbnail-info'>
-                                        0 orders
+                                        {Object.values(tickets).length} orders
                                     </div>
                                     <div className='dot-spacer' />
                                     <div className='pp-thumbnail-info'>
@@ -120,17 +122,33 @@ const UserPersonalProfilePage = () => {
                 </div>
                 <div id='personal-activity-container'>
                     <div id='activities-cont'>
-                        <div id='orders-container'>
-                            <div id='orders-title-container' className='personal-page-titles'>
-                                Orders
-                            </div>
-                            <div id='orders-details-container' className='personal-page-detail-container'>
-                                <span className="material-symbols-outlined" id='no-tickets-icon'>description</span>
-                                <div>
-                                    You have no orders right now
+                        {tickets ? (
+                            <div id='orders-container'>
+                                <div id='orders-title-container' className='personal-page-titles'>
+                                    Orders
+                                </div>
+                                <div id='orders-details-container' className='personal-page-detail-container'>
+                                {Object.values(tickets).map(ticket => {
+                                    return (
+                                        <TicketIndexItem ticketId={ticket.id} />
+                                    )
+                                })}
                                 </div>
                             </div>
-                        </div>
+                        ) : (
+                            <div id='orders-container'>
+                                <div id='orders-title-container' className='personal-page-titles'>
+                                    Orders
+                                </div>
+                                <div id='orders-details-container' className='personal-page-detail-container'>
+                                    <span className="material-symbols-rounded" id='no-tickets-icon'>description</span>
+                                    <div>
+                                        You have no orders right now
+                                    </div>
+                                </div>
+                            </div>
+
+                        )}
                         <div id='pp-spacer'/>
                         <div id='likes-container'>
                             <div id='likes-title-container-pp' className='personal-page-titles'>
