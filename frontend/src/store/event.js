@@ -89,7 +89,6 @@ export const editEvent = (editedEvent) => async (dispatch) => {
     if (photoFile) {
         formData.append('event[photo]', photoFile)
     }
-    debugger
     const response = await csrfFetch(`/api/events/${id}`, {
         method: "PATCH",
         body: formData

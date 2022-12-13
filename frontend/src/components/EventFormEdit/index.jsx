@@ -78,7 +78,10 @@ const EventFormEdit = () => {
         setErrors([]);
     
         const parseDate = (date, time) => {
-            return `${date} ${time}:00`
+            if (time.length > 5) {
+                return `${date} ${time} -0800`
+            }
+            return `${date} ${time}:00 -0800`
         }
         
         const obj = {
@@ -92,7 +95,6 @@ const EventFormEdit = () => {
             ticketsAllotted: totalTickets,
             photoFile
         }
-
 
         return dispatch(eventActions.editEvent(obj))
             .then(data => history.push(`/events/${Object.values(data)[0].id}`))

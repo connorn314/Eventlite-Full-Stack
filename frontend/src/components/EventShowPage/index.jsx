@@ -20,7 +20,7 @@ const EventShowPage = () => {
     const follows = useSelector(state => state.follows)
     const followers = author && author.followers ? author.followers : null
     const [showForm, setShowForm] = useState(false)
-
+    console.log(showEvent.startDate)
     let correctId = false
     if (author){
         correctId = (sessionUser && (sessionUser.id === showEvent.authorId));
@@ -39,7 +39,12 @@ const EventShowPage = () => {
 
     const formatDate = (dateTime) => {
         let change = new Date(dateTime)
-        return change.toDateString()
+        return `${change.toDateString()} ${change.toLocaleTimeString('en-US', { hour: "numeric", minute: "2-digit"})}`
+    }
+
+    const shortDate = (dateTime) => {
+        let change = new Date(dateTime)
+        return change.toDateString();
     }
 
     const authorInformation = userEvent ? (
@@ -106,7 +111,7 @@ const EventShowPage = () => {
                 <div id="details-container">
                     <div id="main-event-details-top">
                         <div id="event-day">
-                            {formatDate(showEvent.startDate)}
+                            {shortDate(showEvent.startDate)}
                         </div>
                         <div id="event-title-big">
                             <h1>{showEvent.title}</h1>
@@ -128,9 +133,9 @@ const EventShowPage = () => {
                                         Date and Time
                                     </div>
                                     <div id="date-and-time-info-small">
-                                        start date: {formatDate(showEvent.startDate)}
+                                        {formatDate(showEvent.startDate)} —
                                         <br />
-                                        end date: {formatDate(showEvent.endDate)}
+                                        {formatDate(showEvent.endDate)}
                                     </div>
                                 </div>
                             </div>
@@ -162,7 +167,7 @@ const EventShowPage = () => {
                                 <div id="get-tickets" onClick={handleOpenTicketForm}>
                                     Get Tickets
                                 </div>
-                                <TicketFormCreate eventId={eventId} showForm={showForm} setShowForm={setShowForm} />
+                                <TicketFormCreate eventId={eventId} showForm={showForm} setShowForm={setShowForm} formatDate={formatDate} shortDate={shortDate}/>
                             </div>
                         </div>
                     </div>

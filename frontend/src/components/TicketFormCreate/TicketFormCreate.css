@@ -19,10 +19,14 @@
     box-shadow: 0 2px 4px 0 rgba(222, 222, 222, 0.2), 0 3px 10px 0 rgba(114, 114, 114, 0.19);
     display: grid;
     grid-template-columns: 65% 35%;
+    font-family: Neue Plak,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,Helvetica,Tahoma,Arial,sans-serif;
 }
 
 #left-side-ticket-container {
     grid-column-start: 1;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
 }
 
 #right-side-ticket-container {
@@ -79,4 +83,196 @@
 #leave-ticket-form:hover {
     background-color: #ffffffcc;
     cursor: pointer;
+}
+
+#tickets-event-title {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+    letter-spacing: .25px;
+    font-weight: 400;
+    font-family: Neue Plak,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,Helvetica,Tahoma,Arial,sans-serif;
+    color: #39364f
+}
+
+#tickets-event-date-time {
+    color: #6f7287;
+    font-size: .875rem;
+    line-height: 1.25rem;
+    margin-top: 16px;
+    margin-bottom: 10px;
+}
+
+#tickets-event-header-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 12px;
+    border-bottom: 1px solid #f1f1f4;
+}
+#title-and-add-header {
+    padding: 16px;
+    border-bottom: 1px solid #eeedf2;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+#get-tickets-title {
+    color: #1e0a3c;
+    font-family: Neue Plak,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,Helvetica,Tahoma,Arial,sans-serif;
+    font-size: 1.5rem;
+    line-height: 2rem;
+    letter-spacing: .25px;
+    margin-right: -0.25px;
+    font-weight: 700;
+    margin-top: 75px;
+    margin-bottom: 10px;
+}
+
+#individual-tickets-container {
+    border: 2px solid #eeedf2;;
+    border-radius: 10px;
+
+}
+
+#tickets-add-container {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+#tickets-add-content {
+    width: 80%;
+}
+
+.quantity-button:hover {
+    cursor: pointer;
+}
+
+.quantity-button {
+    height: 32px;
+    width: 32px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#decrement {
+    background-color: #eeedf2;
+    color: #a9a8b3;
+}
+
+#increment {
+    background-color: #3659e3;
+    color: white;
+}
+
+#add-ticket-icon, #remove-ticket-icon {
+    font-size: 24px;
+    font-weight: 900;
+}
+
+#quantity-count {
+    margin: 0px 16px;
+}
+
+#details-for-tickets-cont {
+    padding: 16px;
+}
+
+#sales-end-container {
+    font-family: "Neue Plak", -apple-system, blinkmacsystemfont, roboto, "Helvetica Neue", helvetica, tahoma, arial, sans-serif;
+    font-weight: 400;
+    color: #39364f;
+    font-size: 14px;
+    line-height: 16px;
+}
+
+#price-and-availability-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 8px;
+}
+
+#checkout-button {
+    width: fit-content;
+    height: 44px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Neue Plak,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,Helvetica,Tahoma,Arial,sans-serif;
+    font-weight: 500;
+}
+
+#checkout-button:hover {
+    cursor: pointer;
+}
+
+#checkout-footer-container {
+    display: flex;
+    justify-content: right;
+    padding: 2.5% 10%;
+    border-top: 1px solid #eeedf2;
+}
+
+#receipt-container {
+    font-family: Neue Plak,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,Helvetica,Tahoma,Arial,sans-serif;
+    font-weight: 400;
+    color: #39364f;
+    font-size: 14px;
+    line-height: 16px;
+    padding: 10%;
+}
+
+#order-summary {
+    font-weight: 600;
+    color: #1e0a3c;
+    font-size: .875rem;
+    line-height: 1.25rem;
+    padding-bottom: 16px;
+}
+
+.receipt-row {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    margin: 16px 0px;
+}
+
+#receipt-section-seperator {
+    border-bottom: 1px solid #eeedf2;
+    padding-bottom: 16px;
+}
+
+#total-section {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+#create-tickets-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#back-to-shopping {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    height: 36px;
+    width: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+
+#back-to-shopping:hover {
+    cursor: pointer;
+    background-color: #ebebef;
 }

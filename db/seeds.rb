@@ -101,8 +101,8 @@ event1 = Event.create!(
     title: 'Alice in Wonderland Tea Party', 
     description: 'Dress up like your favorite AIW character and join others in SF for some Tea!',
     location: 'Dolores Park, San Francisco',
-    start_date: '2022-11-28 10:15:00',
-    end_date: '2022-11-28 15:15:00',
+    start_date: '2022-11-28 10:15:00 -0800',
+    end_date: '2022-11-28 15:15:00 -0800',
     price: 20,
     tickets_allotted: 100
 )
@@ -115,8 +115,8 @@ event2 = Event.create!(
     title: 'San Francisco Coffee Festival 2022', 
     description: 'The 6th Annual San Francisco Coffee Festival® kicks off Saturday, November 12, 2022 and Sunday, November 13, 2022.',
     location: 'Fort Mason Center, San Francisco',
-    start_date: '2022-11-12 09:00:00',
-    end_date: '2022-11-13 16:30:00',
+    start_date: '2022-11-12 09:00:00 -0800',
+    end_date: '2022-11-13 16:30:00 -0800',
     price: 10,
     tickets_allotted: 100
 )
@@ -129,8 +129,8 @@ event3 = Event.create!(
     title: 'Battle of the Decades : Dance Party', 
     description: "If you know you know.... SF's most popular Friday happy hour... DJ's, Dancing, Nostalgia, and drink prices too good to be true. Oh its true.",
     location: 'Monroe, San Francisco',
-    start_date: '2022-11-11 17:00:00',
-    end_date: '2022-11-12 02:00:00',
+    start_date: '2022-11-11 17:00:00 -0800',
+    end_date: '2022-11-12 02:00:00 -0800',
     price: 15,
     tickets_allotted: 100
 )
@@ -143,8 +143,8 @@ event4 = Event.create!(
     title: 'Fall Holiday CHOCOLATE SALON 2022', 
     description: 'Discover, taste and savor the finest in artisan, gourmet and premium chocolates & confections for the Season and the Holidays.',
     location: 'San Francisco County Fair Building, San Francisco',
-    start_date: '2022-11-20 11:00:00',
-    end_date: '2022-11-29 16:30:00',
+    start_date: '2022-11-20 11:00:00 -0800',
+    end_date: '2022-11-29 16:30:00 -0800',
     price: 30,
     tickets_allotted: 100
 )
@@ -157,8 +157,8 @@ event5 = Event.create!(
     title: "SF's Novemberfest Beer & Comedy Festival 2022 at Speakeasy Brewery", 
     description: "San Francisco's iconic Speakeasy Brewery throws open its doors for a month-long pop-up indoor/outdoor comedy fest w/ $5 pints & rare flavors",
     location: "Speakeasy Ales & Lagers, San Francisco",
-    start_date: '2022-11-11 20:00:00',
-    end_date: '2022-11-18 20:00:00',
+    start_date: '2022-11-11 20:00:00 -0800',
+    end_date: '2022-11-18 20:00:00 -0800',
     price: 10,
     tickets_allotted: 100
 )
@@ -171,8 +171,8 @@ event6 = Event.create!(
     title: 'Career Fair: Exclusive Tech Hiring Event', 
     description: "Tech Career Fair focus on helping companies achieve their diversity and inclusivity initiative with more diverse non-traditional candidates",
     location: 'Moved to Virtual Event, San Francisco',
-    start_date: '2022-12-16 09:00:00',
-    end_date: '2022-12-16 12:00:00',
+    start_date: '2022-12-16 09:00:00 -0800',
+    end_date: '2022-12-16 12:00:00 -0800',
     price: 50,
     tickets_allotted: 100
 )
@@ -185,8 +185,8 @@ event7 = Event.create!(
     title: 'SET w/ JOHN DIGWEED (Bedrock) + KORA (Saisons/Anjunadeep)', 
     description: "SET Underground returns to Public Works with our good friends John Digweed & Kora",
     location: 'Public Works SF, San Francisco',
-    start_date: '2022-12-03 22:00:00',
-    end_date: '2022-12-04 04:00:00',
+    start_date: '2022-12-03 22:00:00 -0800',
+    end_date: '2022-12-04 04:00:00 -0800',
     price: 20,
     tickets_allotted: 100
 )
@@ -199,8 +199,8 @@ event8 = Event.create!(
     title: 'Sweater-Con 2022: Ugly Sweater Pub Crawl', 
     description: "The Official San Francisco Ugly Sweater Pub Crawl",
     location: 'Mayes Oyster House, San Francisco',
-    start_date: '2022-12-03 16:00:00',
-    end_date: '2022-12-03 22:00:00',
+    start_date: '2022-12-03 16:00:00 -0800',
+    end_date: '2022-12-03 22:00:00 -0800',
     price: 20,
     tickets_allotted: 100
 )

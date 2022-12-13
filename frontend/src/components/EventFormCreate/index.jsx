@@ -49,7 +49,7 @@ const EventFormCreate = () => {
         setErrors([]);
     
         const parseDate = (date, time) => {
-            return `${date} ${time}:00`
+            return `${date} ${time}:00 -0800`
         }
         
         const obj = {

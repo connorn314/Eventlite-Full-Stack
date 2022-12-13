@@ -292,3 +292,10 @@
 #event-author {
     font-family: Arial, Helvetica, sans-serif;
 }
+
+#ticket-quantity-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
