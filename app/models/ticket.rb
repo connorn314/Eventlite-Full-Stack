@@ -9,11 +9,16 @@
 #  owner_id   :bigint           not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  quantity   :bigint           not null
 #
 class Ticket < ApplicationRecord
 
     before_validation
     validates :name, :email, :owner_id, :event_id, presence: { message: "%{attribute} can't be empty" }
+    validates :quantity, 
+        inclusion: { in: 1..10, message: "Between 1 and 10 tickets can be purchased at a time" },
+        presence: { message: "%{attribute} can't be empty" }
+
     validate :ticket_available
 
     belongs_to :event,
@@ -28,8 +33,8 @@ class Ticket < ApplicationRecord
 
     def ticket_available
         @event = self.event
-        # debugger
-        if @event.tickets.length >= @event.tickets_allotted 
+        tickets_s = @event.tickets.length > 0 ? @event.tickets.inject{ |acc, ticket| acc + ticket.quantity } : 0
+        if @event.tickets_allotted - tickets_s <= self.quantity
             errors.add :event_id, message: "not enough tickets available" 
         end
     end

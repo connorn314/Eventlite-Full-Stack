@@ -1,14 +1,219 @@
+#tsp-page-container {
+    background-color: white;
+    font-family: Neue Plak,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,Helvetica,Tahoma,Arial,sans-serif;
+    min-height: 80vh;
+}
+
 #tsp-page-content-container {
-    padding: 4% 8%;
+    padding: 4% 6%;
+}
+
+#tsp-mini-order-details {
+    margin-top: 10px;
+}
+
+
+
+#tsp-event-title {
+    font-size: 3.25rem;
+    line-height: 4rem;
+    letter-spacing: 1px;
+    font-weight: 800;
+    color: #1e0a3c;
+    margin: 10px 0px;
+}
+
+#tsp-blue-title {
+    color: #3659e3;
+}
+
+#tsp-blue-title:hover {
+    text-decoration: underline;
+    cursor: pointer;
 }
 
 #leave-section-container {
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: center;
+    color: #3659e3;
+    width: fit-content;
+    padding: 10px 23px 10px 15px;
+}
+
+#leave-section-container:hover {
+    background-color: #eeedf2;
+    cursor: pointer;
+}
+
+#leave-ticket-show {
+    font-size: 18px;
+}
+
+#leave-ticket-show-cont {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#back-to-orders {
+    line-height: 24px;
+    font-weight: 600;
+    letter-spacing: .2px;
+    padding-left: 8px;
 }
 
 #tsp-low-level-container {
     display: grid;
     grid-template-columns: 30% 70%;
+    padding-top: 24px;
+    margin-top: 12px;
+    margin-bottom: 10vh;
+}
+
+.contact-sub-header {
+    font-size: 15px;
+    color: #1E0A3C;
+    letter-spacing: .5px;
+}
+
+.contact-sub-detail {
+    color: #6F7287;
+}
+
+#contact-info {
+    font-weight: 600;
+    font-size: 1.2rem;
+    line-height: 1.5rem;
+    letter-spacing: .25px;
+    color: #39364f;
+}
+
+#ticket-quant {
+    font-size: 1.6rem;
+    line-height: 2rem;
+    font-weight: 700;
+    letter-spacing: .25px;
+    color: #1E0A3C;
+    padding: 16px;
+    border-bottom: 1px solid #eeedf2;
+}
+
+#tsp-button-container {
+    padding: 0% 10%;
+}
+
+#contact-info-container {
+    padding: 0px 16px;
+    margin-top: 15px;
+}
+
+#cancel-order {
+    border: 2px solid var(--eds-ui-500,#a9a8b3);
+    border-radius: 4px;
+    text-align: center;
+    text-decoration: none;
+    line-height: 24px;
+    font-weight: 600;
+    letter-spacing: .2px;
+    color: #39364f;
+    font-size: 16px;
+    margin: 0px;
+}
+
+.contact-info-pair {
+    margin-top: 16px;
+}
+
+.tsp-mini-detail {
+    font-size: .875rem;
+    line-height: 1.25rem;
+    font-weight: 400;
+    color: #6F7287;
+}
+
+.tsp-mini-location {
+    font-size: .875rem;
+    line-height: 1.25rem;
+    font-weight: 400;
+    color: #39364f;
+}
+
+#cancel-order-modal-container {
+    position: fixed;
+    top: 36%;
+    left: 28%;
+    width: 44%;
+    height: 28%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#cancel-order-page-container {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 150%;
+    background-color: #39364fcc;
+}
+
+#cancel-order-title-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid #eeedf2;
+}
+
+#cancel-order-title {
+    padding: 18px 0px;
+    font-size: 1.125rem;
+    line-height: 1.5rem;
+    letter-spacing: .25px;
+    font-weight: 600;
+    color: #39364f;
+}
+
+#cancel-order-buttons-container {
+    display: flex;
+    justify-content: right;
+    flex-direction: row;
+    align-items: center;
+    border-top: 1px solid #eeedf2;
+    padding: 10px 0px;
+
+}
+
+#cancel-order-question-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.125rem;
+    line-height: 1.5rem;
+    letter-spacing: .25px;
+    font-weight: 600;
+    color: #39364f;
+}
+
+#cancel-this-order {
+    margin-right: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 1.5rem;
+    letter-spacing: .25px;
+    font-weight: 500;
+}
+
+#cancel-this-order:hover {
+    cursor: pointer;
+}
+
+#no-nevermind {
+    line-height: 1.5rem;
+    letter-spacing: .25px;
+    font-weight: 500;
 }

@@ -33,7 +33,7 @@ export const getUserTickets = () => async (dispatch) => {
 }
 
 export const createTicket = (ticket) => async (dispatch) => {
-    const { name, email, eventId, ownerId } = ticket
+    const { name, email, eventId, ownerId, quantity } = ticket
     const response = await csrfFetch('/api/tickets', {
         method: "POST",
         body: JSON.stringify({
@@ -41,7 +41,8 @@ export const createTicket = (ticket) => async (dispatch) => {
                 name, 
                 email,
                 eventId,
-                ownerId
+                ownerId,
+                quantity
             }
         })
     })
@@ -56,6 +57,16 @@ export const createTicket = (ticket) => async (dispatch) => {
     return data
 }
 
+export const deleteTicket = (ticketId) => async (dispatch) => {
+    const response = await csrfFetch(`/api/tickets/${ticketId}`, {
+        method: "DELETE"
+    })
+    if (response.ok) {
+        dispatch(removeTicket(ticketId))
+    }
+    return response;
+}
+
 const ticketReducer = (state = {}, action) => {
     let newState = { ...state }
     switch (action.type) {
@@ -65,6 +76,9 @@ const ticketReducer = (state = {}, action) => {
         case RECEIVE_TICKET:
             newState = { ...newState, ...action.ticket }
             return newState;
+        case REMOVE_TICKET:
+            delete newState[action.ticketId]
+            return newState
         default:
             return state;
 

@@ -24,10 +24,12 @@ const TicketFormCreate = ({eventId, showForm, setShowForm, formatDate, shortDate
     useEffect(() => {
         setFirstName("")
         setLastName("")
+        setErrors([])
     }, [checkout])
     
     const handleClose = () => {
         setShowForm(false)
+        setErrors([])
         document.body.style.overflow = 'unset'
     }
 
@@ -40,7 +42,8 @@ const TicketFormCreate = ({eventId, showForm, setShowForm, formatDate, shortDate
             name: `${firstName} ${lastName}`,
             email,
             eventId,
-            ownerId: user.id
+            ownerId: user.id,
+            quantity: ticketQ
         }
         return dispatch(ticketActions.createTicket(obj))
             .then(data => {
@@ -190,6 +193,16 @@ const TicketFormCreate = ({eventId, showForm, setShowForm, formatDate, shortDate
                                                 required
                                                 />            
                                         </form>
+                                    <div>
+                                        <ul>
+                                            {Object.values(errors).map((error, i) => {
+                                                return (
+                                                    <li key={i}>{error}</li>
+                                                )
+                                            })}
+
+                                        </ul>
+                                    </div>
                                     </div>
                                 </div>
                             ) : (
@@ -254,9 +267,7 @@ const TicketFormCreate = ({eventId, showForm, setShowForm, formatDate, shortDate
                             <div id='cart-container'>
                                 {cartContents}
                             </div>
-                            <div>
-                                {Object.values(errors)}
-                            </div>
+                            
                         </div>
                     </div>
                 </div>
