@@ -19,7 +19,8 @@ const TicketFormCreate = ({eventId, showForm, setShowForm, formatDate, shortDate
     const [checkout, setCheckout] = useState(false);
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
-    const [email, setEmail] = useState(user.email);
+    const userEmail = user ? user.email : ""
+    const [email, setEmail] = useState(userEmail);
 
     useEffect(() => {
         setFirstName("")

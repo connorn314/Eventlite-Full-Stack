@@ -126,10 +126,16 @@
     justify-content: right;
 }
 
-#follower-author-container, #location-info-small {
+#follower-author-container {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+}
+
+#location-info-small {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
 }
 
 #date-location-container {
@@ -273,9 +279,14 @@
     border-radius: 5px;
 }
 
+#you-created-event {
+    padding-bottom: 20px;
+}
+
 #date-andtime-info {
     display: flex;
     flex-direction: row;
+    justify-content: left;
 }
 
 #date-and-time-detail, #location-detail {

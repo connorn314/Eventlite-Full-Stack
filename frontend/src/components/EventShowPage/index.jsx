@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import * as eventActions from '../../store/event';
 import * as userActions from '../../store/user';
 import { useDispatch, useSelector } from "react-redux";
-import { useParams, useHistory, NavLink } from "react-router-dom";
+import { useParams, useHistory, NavLink, Redirect } from "react-router-dom";
 import './EventShowPage.css';
 import backGroundImage from "../../showpage.png";
 import LikeButton from "../LikeButton";
@@ -48,7 +48,7 @@ const EventShowPage = () => {
 
     const authorInformation = userEvent ? (
     <div id="user-author-container">
-        <div>
+        <div id="you-created-event">
             You created this event
         </div>
     </div>
@@ -84,8 +84,12 @@ const EventShowPage = () => {
     }
 
     const handleOpenTicketForm = () => {
-        document.body.style.overflow = 'hidden'
-        setShowForm(true)
+        if (sessionUser) {
+            document.body.style.overflow = 'hidden'
+            setShowForm(true)
+        } else {
+            history.push('/signin/2')
+        }
     }
 
     return (

@@ -1,3 +1,7 @@
+#likes-index-page-container {
+    min-height: 80vh;
+}
+
 #likes-index-container {
     padding: 0px 24px;
     background-color: white;

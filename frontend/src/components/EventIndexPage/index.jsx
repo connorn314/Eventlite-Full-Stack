@@ -14,7 +14,7 @@ const EventIndexPage = () => {
 
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user)
-    const [searchLocation, setSearchLocation] = useState("");
+    const [searchLocation, setSearchLocation] = useState("San Francisco");
 
     useEffect(() => {
         dispatch(userActions.getUsersData())
@@ -22,8 +22,9 @@ const EventIndexPage = () => {
         dispatch(likeActions.getUserLikes())
     }, [])
     const events = useSelector(state => state.events);
-    const handleSubmit = () => {
-
+    const handleSubmit = (e) => {
+        e.preventDefualt()
+        setSearchLocation("San Francisco")
     }
     
 
@@ -38,10 +39,8 @@ const EventIndexPage = () => {
                             <TextField
                                 variant='standard'
                                 id='search-bar-text'
-                                placeholder='San Francisco'
                                 value={searchLocation}
                                 onChange={(e) => setSearchLocation(e.target.value)}
-
                                 ></TextField>
                         </form>
                     </div>      

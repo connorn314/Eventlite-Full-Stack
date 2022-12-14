@@ -7,6 +7,7 @@ import './UserPersonalProfilePage.css'
 import FollowIndexItem from '../FollowIndexItem';
 import { TextField } from '@mui/material';
 import TicketIndexItem from '../TicketIndexItem';
+import { Redirect } from 'react-router-dom';
 
 const UserPersonalProfilePage = () => {
     const dispatch = useDispatch();
@@ -49,6 +50,8 @@ const UserPersonalProfilePage = () => {
         const file = e.currentTarget.files[0];
         setPhotoFile(file);
     }
+
+    if (!user) return <Redirect to="/" />;
 
     return (
         <div id='pp-page-container'>
@@ -99,9 +102,9 @@ const UserPersonalProfilePage = () => {
                                     <div>
                                         {user.username}
                                     </div>
-                                    <div id='profile-edit-icon-right-container' onClick={() => showEditUserInfo(!editUserInfo)}>
+                                    {/* <div id='profile-edit-icon-right-container' onClick={() => showEditUserInfo(!editUserInfo)}>
                                         <span className="material-symbols-rounded" id='profile-edit-icon-pp'>edit</span>
-                                    </div>
+                                    </div> */}
                                 </div>
                                 <div id='pp-orders-likes-followers-container'>
                                     <div id='pp-thumbnail-orders' className='pp-thumbnail-info'>

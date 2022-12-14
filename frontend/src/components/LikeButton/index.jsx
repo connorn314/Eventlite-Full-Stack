@@ -1,8 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux';
 import './LikeButton.css';
 import * as likeActions from '../../store/like';
-import { useState } from 'react';
-import { useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
+
 
 //comment
 
@@ -10,16 +10,22 @@ const LikeButton = ({eventId}) => {
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user)
     const likes = useSelector(state => state.likes)
+    const history = useHistory();
+
     let correctLike = Object.values(likes).find(like => {
         return like.eventId == eventId
     })
     let liked = correctLike ? true : false
     const handleLike = (e) => {
         e.preventDefault()
-        dispatch(likeActions.createLike({
-            eventId, 
-            likerId: sessionUser.id
-        }))
+        if (sessionUser) {
+            dispatch(likeActions.createLike({
+                eventId, 
+                likerId: sessionUser.id
+            }))
+        } else {
+            history.push('/signin/2')
+        }
     }
     
     let buttonDisplay = liked ? (

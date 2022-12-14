@@ -18,15 +18,17 @@ const LikedPage = () => {
     }, [])
     if (!sessionUser) return <Redirect to="/" />;
     return (
-        <div id='likes-index-container'>
-            <div id='likes-header-container'>
-                <h1>Likes</h1>
-            </div>
-            <div id='liked-events-container'>
-                {Object.values(likes).map(like => {
-                    return (
-                        <div key={like.id}><LikedIndexItem  event={events[like.eventId]} /></div>
-                )})}
+        <div id='likes-index-page-container' >
+            <div id='likes-index-container'>
+                <div id='likes-header-container'>
+                    <h1>Likes</h1>
+                </div>
+                <div id='liked-events-container'>
+                    {Object.values(likes).map(like => {
+                        return (
+                            <div key={like.id}><LikedIndexItem  event={events[like.eventId]} /></div>
+                    )})}
+                </div>
             </div>
         </div>
     )

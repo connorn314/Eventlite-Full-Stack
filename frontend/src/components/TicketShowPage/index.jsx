@@ -1,11 +1,12 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory, useParams } from 'react-router-dom'
+import { useHistory, useParams, Redirect } from 'react-router-dom'
 import * as ticketActions from '../../store/ticket';
 import './TicketShowPage.css'
 
 const TicketShowPage = () => {
     const { ticketId } = useParams();
+    const sessionUser = useSelector(state => state.session.user)
     const ticket = useSelector(state => state.tickets[ticketId])
     const event = useSelector(state => state.events[ticket.eventId])
     const dispatch = useDispatch();
@@ -34,6 +35,7 @@ const TicketShowPage = () => {
         dispatch(ticketActions.deleteTicket(ticketId))
         history.push('/profile')
     }
+    if (!sessionUser) return <Redirect to="/" />;
 
     return (
         <div id='tsp-page-container'>

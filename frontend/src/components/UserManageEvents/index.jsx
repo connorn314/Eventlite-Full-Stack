@@ -9,6 +9,7 @@ import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { useHistory } from 'react-router-dom';
 import { Redirect } from 'react-router-dom';
 
+
 const UserManageEventsPage = () => {
     const dispatch = useDispatch();
     const history = useHistory();

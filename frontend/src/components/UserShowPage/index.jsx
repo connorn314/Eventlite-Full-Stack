@@ -48,7 +48,11 @@ const UserShowPage = () => {
                         )}
                     </div>
                     <div id='total-events-and-followers'>
-                        <div>Hosted 100 events total</div>
+                        {(events.length > 0) ? (
+                            <div>Hosted {eventIds.length} events total</div>
+                        ) : (
+                            <div>Has not hosted any events yet!</div>
+                        )}
                         <div>{followers} followers</div>
                     </div>
                     <div id='follow-button-user'>
