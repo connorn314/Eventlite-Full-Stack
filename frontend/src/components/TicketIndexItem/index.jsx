@@ -7,6 +7,16 @@ const TicketIndexItem = ({ticketId}) => {
     const ticket = useSelector(state => state.tickets[ticketId])
     const event = useSelector(state => state.events[ticket.eventId])
 
+    const shortDate = (dateTime) => {
+        let change = new Date(dateTime)
+        return change.toDateString();
+    }
+
+    const formatDate = (dateTime) => {
+        let change = new Date(dateTime)
+        return `${change.toDateString()} at ${change.toLocaleTimeString('en-US', { hour: "numeric", minute: "2-digit"})}`
+    }
+
     const getDay = (dateTime) => {
         let change = new Date(dateTime);
         return change.getUTCDate();
@@ -34,8 +44,8 @@ const TicketIndexItem = ({ticketId}) => {
             </div>
             <div className='event-detail-column-item'>
                 <div className='title-mine' id='tii-title'>{event.title}</div>
-                <div className='other-mine'>{event.startDate}</div>
-                <div className='other-mine'>{event.location}</div>
+                <div className='other-mine'>{formatDate(event.startDate)}</div>
+                <div className='other-mine'>Free order placed on {shortDate(ticket.createdAt)}</div>
             </div>
         </div>
     )
