@@ -15,8 +15,6 @@
 #  tickets_allotted :bigint           not null
 #
 
-#checkout Time.zone
-
 
 class Event < ApplicationRecord
 

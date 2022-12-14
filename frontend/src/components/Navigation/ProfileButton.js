@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from "react-router-dom";
 import * as sessionActions from '../../store/session';
 
+
 const ProfileButton = (props) => {
     const history = useHistory();
     const dispatch = useDispatch();
@@ -13,6 +14,7 @@ const ProfileButton = (props) => {
     const logout = (e) => {
         e.preventDefault();
         dispatch(sessionActions.logout());
+        history.push('/')
     };
 
     return (

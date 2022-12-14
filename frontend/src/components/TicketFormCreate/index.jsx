@@ -47,7 +47,6 @@ const TicketFormCreate = ({eventId, showForm, setShowForm, formatDate, shortDate
         }
         return dispatch(ticketActions.createTicket(obj))
             .then(data => {
-                console.log(data)
                 document.body.style.overflow = 'unset'
                 history.push(`/profile`)
             })

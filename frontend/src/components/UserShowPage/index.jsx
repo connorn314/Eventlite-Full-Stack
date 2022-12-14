@@ -29,7 +29,6 @@ const UserShowPage = () => {
     let events = eventIds ? (
         <div id='all-user-events'>
             {eventIds.map(evId => {
-                console.log(evId)
                 return (
                     <EventIndexItem event={eventsRaw[evId]}/>
                 )

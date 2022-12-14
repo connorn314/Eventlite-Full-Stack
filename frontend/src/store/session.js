@@ -1,4 +1,7 @@
 import csrfFetch from "./csrf";
+import { clearFollows, getUserFollows } from "./follow";
+import { clearLikes, getUserLikes } from "./like";
+import { clearTickets, getUserTickets } from "./ticket";
 
 const SET_CURRENT_USER = 'session/setCurrentUser';
 const REMOVE_CURRENT_USER = 'session/removeCurrentUser';
@@ -36,8 +39,11 @@ export const login = (user) => async (dispatch) => {
         })
     });
     const data = await response.json();
-    storeCurrentUser(data.user)
+    storeCurrentUser(data.user);
     dispatch(setCurrentUser(data.user));
+    dispatch(getUserFollows(data.user.id));
+    dispatch(getUserLikes(data.user.id));
+    dispatch(getUserTickets(data.user.id));
     return response;
 };
 
@@ -63,6 +69,7 @@ export const signup = (user) => async (dispatch) => {
     const data = await response.json();
     storeCurrentUser(data.user);
     dispatch(setCurrentUser(data.user));
+
     return response;
 };
 
@@ -72,6 +79,9 @@ export const logout = () => async (dispatch) => {
     });
     storeCurrentUser(null);
     dispatch(removeCurrentUser());
+    dispatch(clearFollows());
+    dispatch(clearLikes());
+    dispatch(clearTickets());
     return response;
 };
 

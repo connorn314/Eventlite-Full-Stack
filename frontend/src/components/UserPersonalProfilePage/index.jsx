@@ -35,7 +35,7 @@ const UserPersonalProfilePage = () => {
     }, [])
 
     const handleSubmit = () => {
-        console.log("submit")
+        // console.log("submit")
     }
 
     const handleDiscard = (e) => {
@@ -128,9 +128,9 @@ const UserPersonalProfilePage = () => {
                                     Orders
                                 </div>
                                 <div id='orders-details-container' className='personal-page-detail-container'>
-                                {Object.values(tickets).map(ticket => {
+                                {Object.values(tickets).map((ticket, i) => {
                                     return (
-                                        <TicketIndexItem ticketId={ticket.id} />
+                                        <TicketIndexItem ticketId={ticket.id} key={i}/>
                                     )
                                 })}
                                 </div>

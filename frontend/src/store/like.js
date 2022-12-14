@@ -3,6 +3,7 @@ import csrfFetch from "./csrf";
 const POPULATE_LIKES = 'like/populate';
 const RECEIVE_LIKE = 'like/receive';
 const REMOVE_LIKE = 'like/remove';
+const REMOVE_LIKES = 'like/removeAll'
 
 export const populateLikes = (initialLikes) => {
     return {
@@ -22,6 +23,12 @@ export const removeLike = (likeId) => {
     return {
         type: REMOVE_LIKE,
         likeId
+    }
+}
+
+export const clearLikes = () => {
+    return {
+        type: REMOVE_LIKES
     }
 }
 
@@ -69,15 +76,18 @@ const likeReducer = (state = {}, action) => {
     switch (action.type){
         case POPULATE_LIKES:
             newState = { ...action.likes }
-            return newState
+            return newState;
         case RECEIVE_LIKE:
             newState = { ...newState, ...action.like}
-            return newState
+            return newState;
         case REMOVE_LIKE:
             delete newState[action.likeId]
-            return newState
+            return newState;
+        case REMOVE_LIKES:
+            newState = {}
+            return newState;
         default:
-            return state
+            return state;
     }
 };
 

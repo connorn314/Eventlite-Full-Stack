@@ -46,7 +46,7 @@ const UserManageEventsPage = () => {
     };
 
     const handleClose = (e) => {
-        const direction = String(e.target);
+        // const direction = String(e.target);
         setAnchorEl(null);
     };
 
@@ -69,13 +69,12 @@ const UserManageEventsPage = () => {
                     </div>
                     {events && Object.values(events).map(event => {
                         if (sessionUser && sessionUser.id === event.authorId){
-                            console.log(event.id)
                             return (
-                                <div className='table-item-container' >
+                                <div className='table-item-container' key={event.id}>
                                     <div className='left-info-container' onClick={() => history.push(`/events/${event.id}`)}>
                                         <div className='abrev-date-graphic-container'>
                                             <div className='month-abrev'>
-                                            {getMonth(event.startDate)}
+                                                {getMonth(event.startDate)}
                                             </div>
                                             <div className='date-abrev'>
                                                 {getDay(event.startDate)}
@@ -94,7 +93,7 @@ const UserManageEventsPage = () => {
                                     </div>
                                     <div className='middle-info-container'>
                                         <div id='tickets-sold-count'>
-                                            0/{event.ticketsAllotted}
+                                            {event.ticketsSold}/{event.ticketsAllotted}
                                         </div>
                                     </div>
                                     <div className='right-edit-container'>

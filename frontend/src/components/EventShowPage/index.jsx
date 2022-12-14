@@ -20,7 +20,6 @@ const EventShowPage = () => {
     const follows = useSelector(state => state.follows)
     const followers = author && author.followers ? author.followers : null
     const [showForm, setShowForm] = useState(false)
-    console.log(showEvent.startDate)
     let correctId = false
     if (author){
         correctId = (sessionUser && (sessionUser.id === showEvent.authorId));

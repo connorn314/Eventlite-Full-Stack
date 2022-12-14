@@ -4,6 +4,7 @@ import csrfFetch from "./csrf";
 const POPULATE_FOLLOWS = 'follow/populate';
 const RECEIVE_FOLLOW = 'follow/receive';
 const REMOVE_FOLLOW = 'follow/remove';
+const REMOVE_FOLLOWS = 'follow/removeAll'
 
 export const populateFollows = (initialFollows) => {
     return {
@@ -23,6 +24,12 @@ export const removeFollow = (followId) => {
     return {
         type: REMOVE_FOLLOW,
         followId
+    }
+}
+
+export const clearFollows = () => {
+    return {
+        type: REMOVE_FOLLOWS
     }
 }
 
@@ -68,15 +75,18 @@ const followReducer = (state = {}, action ) => {
     switch (action.type){
         case POPULATE_FOLLOWS:
             newState = { ...action.follows }
-            return newState
+            return newState;
         case RECEIVE_FOLLOW:
             newState = { ...newState, ...action.follow }
-            return newState
+            return newState;
         case REMOVE_FOLLOW:
             delete newState[action.followId]
-            return newState
+            return newState;
+        case REMOVE_FOLLOWS:
+            newState = {}
+            return newState;
         default:
-            return state
+            return state;
     }
 };
 

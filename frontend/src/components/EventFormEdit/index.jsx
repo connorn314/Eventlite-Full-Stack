@@ -69,7 +69,7 @@ const EventFormEdit = () => {
         padding: '18px 12px 6px',
         backgroundColor: "white",
         border: '.5px solid rgb(188, 188, 188)',
-        borderRadius: '2px',
+        borderradius: '2px',
         fontSize: '14px'
     }
 
@@ -123,19 +123,19 @@ const EventFormEdit = () => {
                 <div id="edit-form-container">
                     <div className="icon-container">
                         <div id="basic-info-icon-container" >
-                            <span class="material-symbols-outlined" id="basic-info-icon">docs_add_on</span>
+                            <span className="material-symbols-outlined" id="basic-info-icon">docs_add_on</span>
                         </div>
                         <div id="location-icon-container-small">
-                            <span class="material-symbols-outlined" id="location-icon-small">map</span>
+                            <span className="material-symbols-outlined" id="location-icon-small">map</span>
                         </div>
                         <div id="date-time-icon-container">
-                            <span class="material-symbols-outlined" id="date-time-icon">calendar_month</span>
+                            <span className="material-symbols-outlined" id="date-time-icon">calendar_month</span>
                         </div>
                         <div id="add-photo-icon-container">
-                            <span class="material-symbols-outlined" id="add-photo-icon">image</span>
+                            <span className="material-symbols-outlined" id="add-photo-icon">image</span>
                         </div>
                         <div id="add-ticketing-info">
-                            <span class="material-symbols-rounded" id="tickets-icon">confirmation_number</span>
+                            <span className="material-symbols-rounded" id="tickets-icon">confirmation_number</span>
                         </div>
                     </div>
                     <form onSubmit={handleSubmit} id="edit-event-form-actual">
@@ -296,7 +296,7 @@ const EventFormEdit = () => {
                                         padding: '18px 12px 6px',
                                         backgroundColor: "white",
                                         border: '.5px solid rgb(188, 188, 188)',
-                                        borderRadius: '2px',
+                                        borderradius: '2px',
                                         fontSize: '14px'
                                     }
                                 }

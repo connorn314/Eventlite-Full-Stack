@@ -41,7 +41,7 @@ const TicketShowPage = () => {
                 <div id='tsp-top-level-container'>
                     <div id='leave-section-container' onClick={() => history.push('/profile')}>
                         <div id='leave-ticket-show-cont'>
-                            <span class="material-symbols-outlined" id='leave-ticket-show'>arrow_back</span>
+                            <span className="material-symbols-outlined" id='leave-ticket-show'>arrow_back</span>
                         </div>
                         <div id='back-to-orders'>
                             Back to Current Orders

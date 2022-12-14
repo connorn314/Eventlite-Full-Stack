@@ -3,6 +3,7 @@ import csrfFetch from "./csrf";
 const POPULATE_TICKETS = 'ticket/populate';
 const RECEIVE_TICKET = 'ticket/receive';
 const REMOVE_TICKET = 'ticket/remove';
+const REMOVE_TICKETS = 'ticket/removeAll';
 
 export const populateTickets = (tickets) => {
     return {
@@ -22,6 +23,12 @@ export const removeTicket = (ticketId) => {
     return {
         type: REMOVE_TICKET,
         ticketId
+    }
+}
+
+export const clearTickets = () => {
+    return {
+        type: REMOVE_TICKETS
     }
 }
 
@@ -78,7 +85,10 @@ const ticketReducer = (state = {}, action) => {
             return newState;
         case REMOVE_TICKET:
             delete newState[action.ticketId]
-            return newState
+            return newState;
+        case REMOVE_TICKETS:
+            newState = {}
+            return newState;
         default:
             return state;
 
