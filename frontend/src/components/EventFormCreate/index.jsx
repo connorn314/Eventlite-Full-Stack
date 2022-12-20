@@ -85,7 +85,7 @@ const EventFormCreate = () => {
         <div id="create-event-page-container">
             <div id="create-event-page">
                 <h2 className="form-title-black">Create Event</h2>
-                <ul>
+                <ul className='errors'>
                     {Object.values(errors).flat().map(error => <li key={error}>{error}</li>)}
                 </ul>
                 <div id="create-form-container">

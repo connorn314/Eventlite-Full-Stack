@@ -33,7 +33,7 @@ class Ticket < ApplicationRecord
 
     def ticket_available
         @event = self.event
-        tickets_s = @event.tickets.length > 0 ? @event.tickets.inject{ |acc, ticket| acc + ticket.quantity } : 0
+        tickets_s = @event.tickets.length > 0 ? @event.tickets.inject(0) { |acc, ticket| acc + ticket.quantity } : 0
         if @event.tickets_allotted - tickets_s <= self.quantity
             errors.add :event_id, message: "Not enough tickets available" 
         end

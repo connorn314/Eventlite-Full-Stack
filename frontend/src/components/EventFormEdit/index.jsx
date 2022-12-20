@@ -117,7 +117,7 @@ const EventFormEdit = () => {
         <div id="edit-event-page-container">
             <div id="edit-event-page">
                 <h2 className="form-title-black">Edit Event</h2>
-                <ul>
+                <ul className='errors'>
                     {Object.values(errors).flat().map(error => <li key={error}>{error}</li>)}
                 </ul>
                 <div id="edit-form-container">

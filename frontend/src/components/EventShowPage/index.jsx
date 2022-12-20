@@ -27,6 +27,10 @@ const EventShowPage = () => {
     const [userEvent, toggleUserEvent] = useState(correctId);
 
     useEffect(() => {
+        toggleUserEvent(correctId)
+    }, [correctId])
+    
+    useEffect(() => {
         dispatch(eventActions.getOneEvent(eventId))
     }, [])
 

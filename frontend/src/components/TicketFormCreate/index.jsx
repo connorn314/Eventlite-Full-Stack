@@ -194,7 +194,7 @@ const TicketFormCreate = ({eventId, showForm, setShowForm, formatDate, shortDate
                                                 />            
                                         </form>
                                     <div>
-                                        <ul>
+                                        <ul className='errors'>
                                             {Object.values(errors).map((error, i) => {
                                                 return (
                                                     <li key={i}>{error}</li>
