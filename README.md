@@ -57,3 +57,65 @@ Eventlite is a single-page Eventbrite clone that elegantly merges both attendee 
 * AWS S3
 
 ## Code Snippets
+### Jbuilder
+```
+@events.each do |event|
+    json.set! event.id do
+        json.extract! event, :id, :author_id, :title, :location, :start_date, :end_date, :price, :tickets_allotted
+        json.photo_url url_for(event.photo)
+        json.tickets_sold event.tickets.inject(0) { |acc, ticket| acc + ticket.quantity  }
+    end
+end
+```
+The above snippet is from the event index view page:
+* Utilizes rails associations to format JSON responses from the backend that hold all relevant information needed for events
+* Creates more efficient access to data and fewer fetches to the backend
+
+### Custom Model Validation (Rails)
+```    
+belongs_to :event,
+      primary_key: :id,
+      foreign_key: :event_id,
+      class_name: :Event
+      
+def ticket_available
+    @event = self.event
+    tickets_s = @event.tickets.length > 0 ? @event.tickets.inject(0) { |acc, ticket| acc + ticket.quantity } : 0
+    if @event.tickets_allotted - tickets_s <= self.quantity
+        errors.add :event_id, message: "Not enough tickets available" 
+    end
+end
+```
+The above snippet is from the ticket.rb model:
+* Utilize ruby's association functionality with relational databases to set an instance variable "@event" to the tickets event.
+* Make tickets_s equal to the sum of that events tickets (also an association) and their quanitities.
+* Compare this tickets quantity to the tickets available for that event through a simple conditional, create error if condition is true.
+
+### UseSelector, UseState Hook, and UseEffect Hook (React)
+```
+const eventEdit = useSelector(state => state.events[eventId]);
+const [errors, setErrors] = useState([]);
+const [title, setTitle] = useState(eventEdit.title);
+const [location, setLocation] = useState(eventEdit.location);
+const strt = new Date(eventEdit.startDate);
+let endD = new Date(eventEdit.endDate);
+const [description, setDescription] = useState("");
+
+// ... inbetween code ... //
+
+const [price, setPrice] = useState(eventEdit.price);
+const [totalTickets, setTotalTickets] = useState(eventEdit.ticketsAllotted);
+
+
+useEffect(() => {
+    dispatch(eventActions.getOneEvent(eventId))
+    .then(data => {
+        setDescription(Object.values(data)[0].description)
+    })
+}, [])
+```
+The above snippet is from the event edit form:
+* UseSelector - pulls event being edited from Redux global state.
+* UseState - initializes each form input with the already existing values from the event pulled from state.
+* UseEffect - description is initialized as an empty string, due to the fact that description only exists in state after a "getOneEvent" has been dispatched to the backend, this will cause an error then if we try to access that absent value on the first render. Instead we intialize it as empty, then the useEffect runs after the first render (dispatching "getOneEvent"), the response is guaranteed to contain the description which we then set description to using the UseState function created earlier.
+
