@@ -2,13 +2,13 @@
 databases:
   - name: eventlite
     user: eventlite
-    plan: free
+    plan: starter
     region: oregon
 
 services:
   - type: web
     name: eventlite
-    plan: free
+    plan: starter
     region: oregon
     branch: main
     env: ruby
