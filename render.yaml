@@ -2,7 +2,7 @@
 databases:
   - name: eventlite
     user: eventlite
-    plan: starter
+    plan: free
     region: oregon
 
 services:
