@@ -13,7 +13,6 @@
 #
 class Ticket < ApplicationRecord
 
-    before_validation
     validates :name, :email, :owner_id, :event_id, presence: { message: "%{attribute} can't be empty" }
     validates :quantity, 
         inclusion: { in: 1..10, message: "Between 1 and 10 tickets can be purchased at a time" },
